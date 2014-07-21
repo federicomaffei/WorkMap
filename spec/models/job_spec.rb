@@ -27,5 +27,10 @@ RSpec.describe Job, :type => :model do
 			Job.create name: 'Test job name', company: 'Test company', full_time: 'true', detail: 'Detailed description', location: 'EC2', pay: 'test', email: 'testwrongemail'
 			expect(Job.count).to eq 0
 		end
+
+		it 'does not allow the creation of a job with a name that is more than 40 characters' do
+			Job.create name: 'Very long name, way more than 40 characters, not acceptable, sorry.', company: 'Test company', full_time: 'true', detail: 'Detailed description', location: 'EC2', pay: 'test', email: 'example@test.com'
+			expect(Job.count).to eq 0
+		end
 	end
 end
