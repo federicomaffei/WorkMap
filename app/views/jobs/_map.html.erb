@@ -20,6 +20,46 @@
 	    lng: -0.087019
 	  });
 
+	  <% @jobs.each do |job| %>
+		  GMaps.geocode({
+		    address: '<%= job.location %>',
+		    callback: function(results, status) {
+		      if (status == 'OK') {
+		        var latlng = results[0].geometry.location;
+		        map.setCenter(latlng.lat(), latlng.lng());
+			        map.addMarker({
+			          lat: latlng.lat(),
+			          lng: latlng.lng()
+			        });
+		      } 
+		    }
+			});
+		<% end %>
+
+	 //  GMaps.geocode({
+	 //    address: 'EC2A 3JX',
+	 //    callback: function(results, status) {
+	 //      if (status == 'OK') {
+	 //        var latlng = results[0].geometry.location;
+	 //        map.setCenter(latlng.lat(), latlng.lng());
+		//         map.addMarker({
+		//           lat: latlng.lat(),
+		//           lng: latlng.lng()
+		//         });
+	 //      } 
+	 //    }
+		// });
+
+		// map.addMarker({
+	 //  	lat: 51.520538,
+	 //    lng: -0.09485,
+		//   title: 'Lima',
+		//   infoWindow: {
+ 	// 			content: '<p>Barbican Cinema</p>'
+		// 	}
+		// });
+
+
 	  $('#search_box').on('submit', function(event) {
 	  	event.preventDefault();
 	  	GMaps.geocode({
@@ -28,10 +68,6 @@
 		      if (status == 'OK') {
 		        var latlng = results[0].geometry.location;
 		        map.setCenter(latlng.lat(), latlng.lng());
-		        map.addMarker({
-		          lat: latlng.lat(),
-		          lng: latlng.lng()
-		        });
 		      } 
 		    }
 		  });
