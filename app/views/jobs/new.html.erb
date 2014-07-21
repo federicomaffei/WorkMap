@@ -20,5 +20,11 @@
   <%= job.label :pay %>:
   <%= job.text_field :pay %><br/>
 
+  <%= job.label :email %>:
+  <%= job.email_field :email %><br/>
+
+  <%= job.label :phone %>:
+  <%= job.telephone_field :phone %><br/>
+
   <%= job.submit 'Post a job' %>
 <% end %>
