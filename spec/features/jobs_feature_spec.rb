@@ -16,19 +16,22 @@ end
 describe 'posting jobs' do
 	context 'user logged out' do
 		it 'it is redirected to the login page' do
-			visit '/jobs/new'
-			fill_in 'Name', with: 'Test job name'
-			select 'Bar', from: 'Category'
-			fill_in 'Company', with: 'Test Company'
-			select 'Full Time', from: 'Full time'
-			fill_in 'Detail', with: 'Detailed description'
-			fill_in 'Location', with: 'EC2'
-			fill_in 'Pay', with: 10
-			fill_in 'Email', with: 'employer@test.com'
-			fill_in 'Phone', with: '12345678'
-			click_button 'Post a job'
+			# visit '/jobs/new'
+			# fill_in 'Name', with: 'Test job name'
+			# select 'Bar', from: 'Category'
+			# fill_in 'Company', with: 'Test Company'
+			# select 'Full Time', from: 'Full time'
+			# fill_in 'Detail', with: 'Detailed description'
+			# fill_in 'Location', with: 'EC2'
+			# fill_in 'Pay', with: 10
+			# fill_in 'Email', with: 'employer@test.com'
+			# fill_in 'Phone', with: '12345678'
+			# click_button 'Post a job'
+			# expect(current_path).to eq '/employers/sign_in'
+			# expect(page).to have_content 'Sign in'
+			visit '/jobs'
+			click_link 'Create a job'
 			expect(current_path).to eq '/employers/sign_in'
-			expect(page).to have_content 'Sign in'
 		end
 	end
 
