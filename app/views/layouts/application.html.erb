@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WorkMap</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>WorkMap</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<% if employer_signed_in? %>
+		<%= link_to('Edit registration', edit_employer_registration_path) %>
+		<%= link_to('Logout', destroy_employer_session_path, :method => :delete) %>
+	<% else %>
+		<%= link_to('Login', new_employer_session_path)  %>  
+		<%= link_to('Register', new_employer_registration_path)  %>
+	<% end %>
+
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<%= yield %>
 
 </body>
 </html>
