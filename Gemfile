@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 group :test, :development do
 	gem 'rspec-rails'
+	gem 'capybara-rails', require: false
 	gem 'capybara'
 	gem 'cucumber-rails', :require => false
 	gem 'database_cleaner'
