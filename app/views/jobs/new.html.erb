@@ -1,0 +1,24 @@
+<%= form_for @job do |job| %>
+  <%= job.label :name %>
+  <%= job.text_field :name %><br/>
+
+  <%= job.label :category %>:
+  <%= job.select :category, ['Bar', 'Restaurant', 'Hotel', 'Shop', 'Cafe'] %><br/>
+
+  <%= job.label :company %>:
+  <%= job.text_field :company %><br/>
+
+  <%= job.label :full_time %>:
+  <%= job.select :full_time, ['Full Time', 'Part Time'] %><br/>
+
+  <%= job.label :detail %>:
+  <%= job.text_area :detail %><br/>
+
+  <%= job.label :location %>:
+  <%= job.text_field :location %><br/>
+
+  <%= job.label :pay %>:
+  <%= job.text_field :pay %><br/>
+
+  <%= job.submit 'Post a job' %>
+<% end %>
