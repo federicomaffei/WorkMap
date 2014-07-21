@@ -1,0 +1,46 @@
+<div class='header'>
+	<h1>WorkMap</h1>
+</div>
+
+<div class='container'>
+  
+  <div id="search">
+  	<form id="search_box" method="post">
+  		<input type="text" address="test" id="address" placeholder="Address">
+  		<input type="submit" value="Search">
+  	</form>
+  </div>
+
+  <div id="map"></div>
+  <script>
+  $(document).ready(function(){
+	  var map = new GMaps({
+	    div: '#map',
+	    lat: 51.523126,
+	    lng: -0.087019
+	  });
+
+	  $('#search_box').on('submit', function(event) {
+	  	event.preventDefault();
+	  	GMaps.geocode({
+		    address: $('#address').val(),
+		    callback: function(results, status) {
+		      if (status == 'OK') {
+		        var latlng = results[0].geometry.location;
+		        map.setCenter(latlng.lat(), latlng.lng());
+		        map.addMarker({
+		          lat: latlng.lat(),
+		          lng: latlng.lng()
+		        });
+		      } 
+		    }
+		  });
+	  })
+	})
+</script>
+</div>
+
+
+<div class='footer'>
+	<h4></h4>
+</div>
