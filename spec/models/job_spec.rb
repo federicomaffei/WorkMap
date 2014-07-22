@@ -32,5 +32,6 @@ RSpec.describe Job, :type => :model do
 			Job.create name: 'Very long name, way more than 40 characters, not acceptable, sorry.', company: 'Test company', full_time: 'true', detail: 'Detailed description', location: 'EC2', pay: 'test', email: 'example@test.com'
 			expect(Job.count).to eq 0
 		end
+		
 	end
 end
