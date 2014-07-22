@@ -1,4 +1,4 @@
-class DeviseCreateEmployers < ActiveRecord::Migration
+deleclass DeviseCreateEmployers < ActiveRecord::Migration
   def change
     create_table(:employers) do |t|
       ## Database authenticatable

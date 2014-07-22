@@ -15,20 +15,28 @@
 	<script>
 		$(document).ready(function(){
 
-			$('#search_box').on('submit', function(event) {
-				event.preventDefault();
-				var defaultBounds = new google.maps.LatLngBounds(
-					new google.maps.LatLng(51.7230, -0.5323),
-					new google.maps.LatLng(51.2913, 0.3062));
+			var map = new GMaps({
+				div: '#map',
+				lat: 51.523126,
+				lng: -0.087019
+			});
 
-				var input = document.getElementById('searchTextField');
-				var options = {
-					bounds: defaultBounds,
-					types: ['regions']
-				};
-				
-				var autocomplete;
-				autocomplete = new google.maps.places.Autocomplete(input, options);
+			var defaultBounds = new google.maps.LatLngBounds(
+				new google.maps.LatLng(51.2901, -0.5651),
+				new google.maps.LatLng(51.6167, 0.2463));
+
+			var input = document.getElementById('searchTextField');
+			var options = {
+				bounds: defaultBounds,
+				types: ['establishment']
+			};
+
+			autocomplete = new google.maps.places.Autocomplete(input, options);
+
+			$('#search_box').on('submit', function(event) {
+
+				event.preventDefault();
+
 
 				GMaps.geocode({
 					address: $('#searchTextField').val(),
@@ -41,20 +49,13 @@
 				});
 			})
 
-
-			var map = new GMaps({
-				div: '#map',
-				lat: 51.523126,
-				lng: -0.087019
-			});
-
 			<% @jobs.each do |job| %>
 			GMaps.geocode({
 				address: '<%= job.address %>',
 				callback: function(results, status) {
 					if (status == 'OK') {
 						var latlng = results[0].geometry.location;
-						var opt = { minZoom: 9, maxZoom: 17}
+						var opt = { minZoom: 10, maxZoom: 17}
 						map.setCenter(latlng.lat(), latlng.lng());
 						map.addMarker({
 							lat: latlng.lat(),
