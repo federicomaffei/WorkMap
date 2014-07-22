@@ -35,13 +35,13 @@ ActiveRecord::Schema.define(version: 20140721163528) do
   add_index "employers", ["reset_password_token"], name: "index_employers_on_reset_password_token", unique: true, using: :btree
 
   create_table "jobs", force: true do |t|
-    t.string   "name"
+    t.string   "advert_title"
     t.string   "category"
     t.string   "company"
     t.boolean  "full_time"
     t.text     "detail"
-    t.string   "location"
-    t.integer  "pay"
+    t.string   "address"
+    t.integer  "wage"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"

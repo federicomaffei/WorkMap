@@ -8,7 +8,7 @@ describe 'primary map' do
 	end
 
 	it 'displays a marker at an address given by an employer' do
-		job = Job.create name: 'Waitress', category: 'Bar', company: 'Queen of Hoxton', full_time: 'false', detail: 'Detailed description', location: 'EC2A 3JX', pay: 10, email: 'queen@hoxton-test.com', phone: '12345678'
+		job = Job.create advert_title: 'Waitress', category: 'Bar', company: 'Queen of Hoxton', full_time: 'false', detail: 'Detailed description', address: 'EC2A 3JX', wage: 10, email: 'queen@hoxton-test.com', phone: '12345678'
 		visit '/'
 		expect(page).to have_css('.job')
 	end

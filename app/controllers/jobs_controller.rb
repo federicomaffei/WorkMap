@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 
 	def create
 		authenticate_employer!
-		@job = Job.new(params[:job].permit(:name, :category, :company, :full_time, :detail, :location, :pay, :email, :phone))
+		@job = Job.new(params[:job].permit(:advert_title, :category, :company, :full_time, :detail, :address, :wage, :email, :phone))
 		@job.employer = current_employer
 		@job.save!
 		redirect_to '/jobs'
