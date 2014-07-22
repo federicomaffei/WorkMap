@@ -50,7 +50,7 @@
 
 			<% @jobs.each do |job| %>
 			GMaps.geocode({
-				address: '<%= job.location %>',
+				address: '<%= job.address %>',
 				callback: function(results, status) {
 					if (status == 'OK') {
 						var latlng = results[0].geometry.location;
@@ -68,8 +68,6 @@
 		})
 </script>
 </div>
-
-x\
 <div class='footer'>
 	<h4></h4>
 </div>
