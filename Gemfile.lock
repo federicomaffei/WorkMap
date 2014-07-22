@@ -29,6 +29,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     builder (3.2.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -126,6 +128,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rspec-collection_matchers (1.0.0)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.2)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.2)
@@ -183,6 +187,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   capybara
   capybara-rails
   coffee-rails (~> 4.0.0)
@@ -194,6 +199,7 @@ DEPENDENCIES
   pg
   rails (= 4.1.2)
   rails_12factor
+  rspec-collection_matchers
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

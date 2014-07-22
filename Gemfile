@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'rails_12factor'
+gem 'bootstrap-sass'
 
 group :test, :development do
 	gem 'rspec-rails'
@@ -35,6 +36,7 @@ group :test, :development do
 	gem 'capybara'
 	gem 'cucumber-rails', :require => false
 	gem 'database_cleaner'
+	gem 'rspec-collection_matchers'
 end
 
 # Use ActiveModel has_secure_password
