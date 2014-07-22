@@ -7,7 +7,7 @@ describe 'jobs index page' do
 	end
 
 	it 'a job is available.' do
-		job = Job.create name: 'Test job name', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', location: 'EC2', pay: 10, email: 'employer@test.com', phone: '12345678'	
+		job = Job.create advert_title: 'Test job name', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 10, email: 'employer@test.com', phone: '12345678'	
 		visit '/jobs'
 		expect(page).to have_content 'Test job name Bar Test company Detailed description EC2 10£ employer@test.com 12345678' 
 	end
@@ -23,7 +23,7 @@ describe 'posting jobs' do
 			# select 'Full Time', from: 'Full time'
 			# fill_in 'Detail', with: 'Detailed description'
 			# fill_in 'Location', with: 'EC2'
-			# fill_in 'Pay', with: 10
+			# fill_in 'wage', with: 10
 			# fill_in 'Email', with: 'employer@test.com'
 			# fill_in 'Phone', with: '12345678'
 			# click_button 'Post a job'
@@ -46,13 +46,13 @@ describe 'posting jobs' do
 		
 		it 'a post is created' do
 			visit '/jobs/new'
-			fill_in 'Name', with: 'Test job name'
+			fill_in 'Advert title', with: 'Test job name'
 			select 'Bar', from: 'Category'
 			fill_in 'Company', with: 'Test Company'
 			select 'Full Time', from: 'Full time'
 			fill_in 'Detail', with: 'Detailed description'
-			fill_in 'Location', with: 'EC2'
-			fill_in 'Pay', with: 10
+			fill_in 'Address', with: 'EC2'
+			fill_in 'Wage', with: 10
 			fill_in 'Email', with: 'employer@test.com'
 			fill_in 'Phone', with: '12345678'
 			click_button 'Post a job'
@@ -69,8 +69,8 @@ describe 'employers viewing their job advertisments' do
 		before do
 			@employer = Employer.create email: 'test@test.net', password: '12345678', password_confirmation: '12345678'
 			login_as @employer
-			@employer.jobs.create!(name: 'Test job name 1', company: 'Test company', full_time: 'true', detail: 'Detailed description', location: 'EC2', pay: 5, email: 'email@test.com')
-			Job.create!(name: 'Test job name 2', company: 'Test company', full_time: 'true', detail: 'Detailed description', location: 'EC2', pay: 5, email: 'email@test.com')
+			@employer.jobs.create!(advert_title: 'Test job name 1', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
+			Job.create!(advert_title: 'Test job name 2', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
 		end
 		
 		it 'a post is created' do

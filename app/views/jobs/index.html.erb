@@ -1,11 +1,11 @@
 <% if @jobs.any? %>
 <% @jobs.each do |job| %>
-<h1><%= job.name %></h1>
+<h1><%= job.advert_title %></h1>
 <p><%= job.category %></p>
 <p><%= job.company %></p>
 <p><%= job.detail %></p>
-<p><%= job.location %></p>
-<p><%= job.pay %>£</p>
+<p><%= job.address %></p>
+<p><%= job.wage %>£</p>
 <p><%= job.email %></p>
 <p><%= job.phone %></p>
 <% end %>

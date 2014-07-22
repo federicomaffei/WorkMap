@@ -1,6 +1,6 @@
 <%= form_for @job do |job| %>
-  <%= job.label :name %>
-  <%= job.text_field :name %><br/>
+  <%= job.label :advert_title %>
+  <%= job.text_field :advert_title %><br/>
 
   <%= job.label :category %>:
   <%= job.select :category, ['Bar', 'Restaurant', 'Hotel', 'Shop', 'Cafe'] %><br/>
@@ -14,11 +14,11 @@
   <%= job.label :detail %>:
   <%= job.text_area :detail %><br/>
 
-  <%= job.label :location %>:
-  <%= job.text_field :location %><br/>
+  <%= job.label :address %>:
+  <%= job.text_field :address %><br/>
 
-  <%= job.label :pay %>:
-  <%= job.text_field :pay %><br/>
+  <%= job.label :wage %>:
+  <%= job.text_field :wage %><br/>
 
   <%= job.label :email %>:
   <%= job.email_field :email %><br/>
