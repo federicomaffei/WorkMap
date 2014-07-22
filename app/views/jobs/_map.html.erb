@@ -21,10 +21,9 @@
 					new google.maps.LatLng(51.7230, -0.5323),
 					new google.maps.LatLng(51.2913, 0.3062));
 
-				var input = document.getElementById('searchTextField');
+				var input = $('#searchTextField');
 				var options = {
-					bounds: defaultBounds,
-					types: ['regions']
+					bounds: defaultBounds
 				};
 				
 				var autocomplete;
