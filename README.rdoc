@@ -1,4 +1,4 @@
 WORKMAP application - Makers Academy Final Project - A map-centric job searching and posting service.
 
-* [Trello board](https://trello.com/b/TKkP5ifz/workmap).
-* [GitHub repository](https://github.com/federicomaffei/WorkMap).
+{Trello board}[https://trello.com/b/TKkP5ifz/workmap].
+{GitHub repository}[https://github.com/federicomaffei/WorkMap].

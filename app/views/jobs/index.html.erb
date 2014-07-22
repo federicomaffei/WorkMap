@@ -1,3 +1,5 @@
+<%= render 'map' %>
+
 <% if @jobs.any? %>
 <% @jobs.each do |job| %>
 <h1><%= job.advert_title %></h1>
@@ -14,7 +16,4 @@
 <% end %>
 
 <%= link_to 'Create a job', new_job_path %>
-<!-- gmaps branch work -->
 
-
-<%= render 'map' %>

@@ -8,4 +8,7 @@ class Job < ActiveRecord::Base
 
 	belongs_to :employer
 
+	geocoded_by :address
+	after_validation :geocode
+
 end

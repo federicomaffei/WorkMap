@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'geocoder'
+
 group :production do
   gem 'rails_12factor'
 end
