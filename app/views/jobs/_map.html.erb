@@ -3,76 +3,69 @@
 </div>
 
 <div class='container'>
-  
-  <div id="search">
-  	<form id="search_box" method="post">
-  		<input type="text" address="test" id="address" placeholder="Address">
-  		<input type="submit" value="Search">
-  	</form>
-  </div>
 
-  <div id="map"></div>
-  <script>
-  $(document).ready(function(){
-	  var map = new GMaps({
-	    div: '#map',
-	    lat: 51.523126,
-	    lng: -0.087019
-	  });
+	<div id="search">
+		<form id="search_box" method="post">
+			<input type="text" address="test" id="searchTextField" placeholder="Address">
+			<input type="submit" value="Search">
+		</form>
+	</div>
 
-	  <% @jobs.each do |job| %>
-		  GMaps.geocode({
-		    address: '<%= job.location %>',
-		    callback: function(results, status) {
-		      if (status == 'OK') {
-		        var latlng = results[0].geometry.location;
-		        map.setCenter(latlng.lat(), latlng.lng());
-			        map.addMarker({
-			          lat: latlng.lat(),
-			          lng: latlng.lng()
-			        });
-		      } 
-		    }
+	<div id="map"></div>
+	<script>
+		$(document).ready(function(){
+
+			$('#search_box').on('submit', function(event) {
+				event.preventDefault();
+				var defaultBounds = new google.maps.LatLngBounds(
+					new google.maps.LatLng(51.7230, -0.5323),
+					new google.maps.LatLng(51.2913, 0.3062));
+
+				var input = document.getElementById('searchTextField');
+				var options = {
+					bounds: defaultBounds,
+					types: ['regions']
+				};
+				
+				var autocomplete;
+				autocomplete = new google.maps.places.Autocomplete(input, options);
+
+				GMaps.geocode({
+					address: $('#searchTextField').val(),
+					callback: function(results, status) {
+						if (status == 'OK') {
+							var latlng = results[0].geometry.location;
+							map.setCenter(latlng.lat(), latlng.lng());
+						} 
+					}
+				});
+			})
+
+
+			var map = new GMaps({
+				div: '#map',
+				lat: 51.523126,
+				lng: -0.087019
 			});
-		<% end %>
 
-	 //  GMaps.geocode({
-	 //    address: 'EC2A 3JX',
-	 //    callback: function(results, status) {
-	 //      if (status == 'OK') {
-	 //        var latlng = results[0].geometry.location;
-	 //        map.setCenter(latlng.lat(), latlng.lng());
-		//         map.addMarker({
-		//           lat: latlng.lat(),
-		//           lng: latlng.lng()
-		//         });
-	 //      } 
-	 //    }
-		// });
-
-		// map.addMarker({
-	 //  	lat: 51.520538,
-	 //    lng: -0.09485,
-		//   title: 'Lima',
-		//   infoWindow: {
- 	// 			content: '<p>Barbican Cinema</p>'
-		// 	}
-		// });
-
-
-	  $('#search_box').on('submit', function(event) {
-	  	event.preventDefault();
-	  	GMaps.geocode({
-		    address: $('#address').val(),
-		    callback: function(results, status) {
-		      if (status == 'OK') {
-		        var latlng = results[0].geometry.location;
-		        map.setCenter(latlng.lat(), latlng.lng());
-		      } 
-		    }
-		  });
-	  })
-	})
+			<% @jobs.each do |job| %>
+			GMaps.geocode({
+				address: '<%= job.location %>',
+				callback: function(results, status) {
+					if (status == 'OK') {
+						var latlng = results[0].geometry.location;
+						var opt = { minZoom: 9, maxZoom: 17}
+						map.setCenter(latlng.lat(), latlng.lng());
+						map.addMarker({
+							lat: latlng.lat(),
+							lng: latlng.lng()
+						});
+						map.setOptions(opt);
+					} 
+				}
+			});
+			<% end %>
+		})
 </script>
 </div>
 
