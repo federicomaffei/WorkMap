@@ -18,7 +18,7 @@ $(document).ready(function(){
 	var defaultBounds = new google.maps.LatLngBounds(
 		new google.maps.LatLng(51.2901, -0.5651),
 		new google.maps.LatLng(51.6167, 0.2463)
-	);
+		);
 
 	var input = document.getElementById('searchTextField');
 
@@ -61,15 +61,19 @@ $(document).ready(function(){
 			markers.push(marker);
 		});
 		
-		$('#category_bar').on('change', function(){
+		$('#category_Bar').on('change', function(){
 			var checked = $(this).prop('checked');
 
 			markers.forEach(function(marker){
-				if (marker.category === $('#category_bar').attr('value')){
+				if (marker.category === $('#category_Bar').attr('value')){
 					marker.setVisible(checked);
 				};
 			});
 		});
+
+		$('input[type=checkbox]:checked').map(function(_, el) {
+			return $(el).val();
+		}).get();
 	});
 });
 

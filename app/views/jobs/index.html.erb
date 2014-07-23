@@ -5,14 +5,19 @@
 			</div>
 		</div>
 		<div class="searchbox">
-		<form id="search_box" method="post">
-			<input type="text" id="searchTextField" placeholder="Address">
-			<input type="submit" value="Search">
-		</form>
-		<form id="filter" method="post">
-			<input type="checkbox" id="category_bar" name="Bar_Box" value="Bar" checked>Bar<br>
-		</form>
-	</div>
+			<form id="search_box" method="post">
+				<input type="text" id="searchTextField" placeholder="Address">
+				<input type="submit" value="Search">
+			</form>
+			<form id="filter" method="post">
+				<input type="checkbox" id="category_Bar" name="Bar_Box" value="Bar" checked>Bar<br>
+				<input type="checkbox" id="category_Cafe" name="Cafe_Box" value="Cafe" checked>Cafe<br>
+				<input type="checkbox" id="category_Hotel" name="Hotel_Box" value="Hotel" checked>Hotel<br>
+				<input type="checkbox" id="category_Restaurant" name="Restaurant_Box" value="Restaurant" checked>Restaurant<br>
+				<input type="checkbox" id="category_Shop" name="Shop_Box" value="Shop" checked>Shop<br>
+				<input type="checkbox" id="category_Strip_Club" name="Strip_Club_Box" value="Strip_Club" checked>Strip Club<br>
+			</form>
+		</div>
 		<div class="col-md-4">
 			<aside class="advert_column">
 				<% if @jobs.any? %>
@@ -26,14 +31,15 @@
 							<%= job.address %> //
 							£<%= job.wage %> per hour //
 							<%= job.email %> //
-							<%= job.phone %></p>
-						</div>
-					</ul>
+							<%= job.phone %>
+						</p>
+					</div>
+				</ul>
 
-					<% end %>
-					<% else %>
-					<h1>No jobs inserted yet.</h1>
-					<% end %>
-				</aside>
-			</div>
+				<% end %>
+				<% else %>
+				<h1>No jobs inserted yet.</h1>
+				<% end %>
+			</aside>
 		</div>
+	</div>
