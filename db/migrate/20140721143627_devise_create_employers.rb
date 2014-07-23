@@ -1,4 +1,3 @@
-
 class DeviseCreateEmployers < ActiveRecord::Migration
 
   def change

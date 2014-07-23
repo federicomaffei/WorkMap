@@ -3,9 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map {
-	width: 80%; 
-	height: 800px;
+	width: 100%; 
+	height: 600px;
 	float:left;
+}
+
+body {
+	padding-top: 100px;
 }
 
 .header {
@@ -16,16 +20,26 @@
 }
 
 
-#search {
-	padding: 10px 10px 10px 10px;
+#searchbox {
 	background-color: #3B3B3B;
 }
 
 .advert_column {
 	float: right;
-	width: 20%;
+	width: 100%;
+	height: 600px;
+	overflow:scroll;
+	background-color: #FFFF00;
 }
 
-#filter {
-	color: #FFF;
+.advert_info {
+	background-color: #FFF;
+	padding-left: 0px;
+	padding-right: 0px;
+	
+	ul, ol {
+	padding: 0px;
+	margin: 0px;
+	}
+	
 }
