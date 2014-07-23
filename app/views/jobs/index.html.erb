@@ -1,18 +1,18 @@
 <%= render 'map' %>
 
 <% if @jobs.any? %>
-<% @jobs.each do |job| %>
-<h1><%= job.advert_title %></h1>
-<p><%= job.category %></p>
-<p><%= job.company %></p>
-<p><%= job.detail %></p>
-<p><%= job.address %></p>
-<p><%= job.wage %>£</p>
-<p><%= job.email %></p>
-<p><%= job.phone %></p>
-<% end %>
+	<% @jobs.each do |job| %>
+		<h1><%= job.advert_title %></h1>
+		<p><%= job.category %></p>
+		<p><%= job.company %></p>
+		<p><%= job.detail %></p>
+		<p><%= job.address %></p>
+		<p><%= job.wage %>£</p>
+		<p><%= job.email %></p>
+		<p><%= job.phone %></p>
+	<% end %>
 <% else %>
-<h1>No jobs inserted yet.</h1>
+	<h1>No jobs inserted yet.</h1>
 <% end %>
 
 <%= link_to 'Create a job', new_job_path %>

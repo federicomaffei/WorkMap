@@ -1,6 +1,6 @@
 $(document).ready(function(){
-
-	var map = new GMaps({
+	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
+	window.map = new GMaps({
 		div: '#map',
 		lat: 51.523126,
 		lng: -0.087019
