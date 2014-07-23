@@ -1,5 +1,44 @@
-<%= render 'map' %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WorkMap</title>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="header">
+    <h1>WorkMap</h1>
+  </div>
 
+  <div id="search">
+  	<form id="search_box" method="post">
+  		<input type="text" id="searchTextField" placeholder="Address">
+  		<input type="submit" value="Search">
+  	</form>
+  	<form id="filter" method="post">
+  		<input type="checkbox" id="category_bar" value="bar">Filter only by Bar category<br>
+  	</form>
+  	<%= link_to 'Create a job', new_job_path %>
+ 	<% if employer_signed_in? %>
+		<%= link_to('Edit registration', edit_employer_registration_path) %>
+		<%= link_to('Logout', destroy_employer_session_path, :method => :delete) %>
+	<% else %>
+		<%= link_to('Login', new_employer_session_path)  %>  
+		<%= link_to('Register', new_employer_registration_path)  %>
+	<% end %>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<%= yield %>
+  </div>
+
+</nav>
+
+<div id="map"></div>
+
+<aside class="advert_column">
 <% if @jobs.any? %>
 <% @jobs.each do |job| %>
 <h1><%= job.advert_title %></h1>
@@ -14,5 +53,7 @@
 <% else %>
 <h1>No jobs inserted yet.</h1>
 <% end %>
+</aside>
 
-<%= link_to 'Create a job', new_job_path %>
+</body>
+</html>
