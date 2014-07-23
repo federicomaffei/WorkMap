@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'jobs index page' do
+	
 	it 'no jobs available yet.' do
 		visit '/jobs'
 		expect(page).to have_content 'No jobs inserted yet.'
@@ -14,29 +15,17 @@ describe 'jobs index page' do
 end
 
 describe 'posting jobs' do
-	context 'user logged out' do
+
+	context 'logged out' do 
+
 		it 'it is redirected to the login page' do
-			# visit '/jobs/new'
-			# fill_in 'Name', with: 'Test job name'
-			# select 'Bar', from: 'Category'
-			# fill_in 'Company', with: 'Test Company'
-			# select 'Full Time', from: 'Full time'
-			# fill_in 'Detail', with: 'Detailed description'
-			# fill_in 'Location', with: 'EC2'
-			# fill_in 'wage', with: 10
-			# fill_in 'Email', with: 'employer@test.com'
-			# fill_in 'Phone', with: '12345678'
-			# click_button 'Post a job'
-			# expect(current_path).to eq '/employers/sign_in'
-			# expect(page).to have_content 'Sign in'
 			visit '/jobs'
 			click_link 'Create a job'
 			expect(current_path).to eq '/employers/sign_in'
 		end
+
 	end
-
 	
-
 	context 'logged in' do
 
 		before do
@@ -60,6 +49,7 @@ describe 'posting jobs' do
 			expect(page).to have_content 'Test job name Bar Test Company Detailed description EC2 10£ employer@test.com 12345678'
 		end
 	end
+
 end
 
 describe 'employers viewing their job advertisments' do 
@@ -78,7 +68,17 @@ describe 'employers viewing their job advertisments' do
 			expect(page).to have_content 'Test job name 1'
 			expect(page).not_to have_content 'Test job name 2'
 		end
+		
 	end
 
 end
+
+
+
+
+
+
+
+
+
 
