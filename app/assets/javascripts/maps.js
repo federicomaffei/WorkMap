@@ -4,7 +4,15 @@ $(document).ready(function(){
 		div: '#map',
 		lat: 51.523126,
 		lng: -0.087019,
-		zoom: 13
+		zoom: 13,	
+		zoomControl: true,
+		zoomControlOpt: {
+			style: 'SMALL',
+			position: 'LEFT_BOTTOM'
+		},
+		panControl: false,
+		mapTypeControl: false,
+		streetViewControl: false,
 	});
 
 	var defaultBounds = new google.maps.LatLngBounds(
