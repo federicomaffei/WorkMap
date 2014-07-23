@@ -3,7 +3,8 @@ $(document).ready(function(){
 	window.map = new GMaps({
 		div: '#map',
 		lat: 51.523126,
-		lng: -0.087019
+		lng: -0.087019,
+		zoom: 13
 	});
 
 	var defaultBounds = new google.maps.LatLngBounds(
@@ -36,20 +37,29 @@ $(document).ready(function(){
 		});
 	})
 
+	
 	$.get("/jobs.json", function(jobs) {
-		jobs.forEach(function(job) {
-
-			map.addMarker({
-				lat: job.latitude,
-				lng: job.longitude,
-				title: job.advert_title,
-				infoWindow: {
-					content: job.advert_title
-				} 
+		var markers = [];
+			jobs.forEach(function(job) {
+				category = job.category;
+				var marker = map.addMarker({
+					lat: job.latitude,
+					lng: job.longitude,
+					title: job.advert_title,
+					category: job.category,
+					icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
+					infoWindow: { content: job.category }
+			    });
+				markers.push(marker);
 			});
-
-
-		});
+			$('#category_bar').on('change', function(){
+				markers.forEach(function(marker){
+					if (marker.category === 'Bar'){
+						marker.setVisible(false);
+					};
+				});
+			});
 	});
 
-})
+});
+
