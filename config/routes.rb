@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :employers 
+  devise_for :admin
   
   root to: "jobs#index"
 
@@ -9,6 +10,9 @@ Rails.application.routes.draw do
   resources :employers do
     resources :adverts
   end
+
+  resources :orders
+
 
   # /jobs
 

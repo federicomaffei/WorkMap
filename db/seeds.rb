@@ -46,4 +46,6 @@ Job.create advert_title: 'Test job name 4', category: 'Strip Club', company: 'Te
 Job.create advert_title: 'Test job name 5', category: 'Cafe', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'The Shard, London', wage: 20, email: 'employer@test.com', phone: '12345678'
 Job.create advert_title: 'Test job name 6', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Brixton, London', wage: 12, email: 'employer@test.com', phone: '12345678'
 Job.create advert_title: 'Test job name 7', category: 'Hotel', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Canary Wharf, London', wage: 10, email: 'employer@test.com', phone: '12345678'
-sleep 2
+
+Admin.delete_all
+Admin.create(email: 'tester@testicle.com', password: 'teste', password_confirmation: 'teste')

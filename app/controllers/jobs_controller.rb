@@ -1,16 +1,16 @@
 class JobsController < ApplicationController
 
+	before_action :authenticate_employer!, except: [:index]
+
 	def index
 		@jobs = Job.all
 	end
 
 	def new
-		authenticate_employer!
 		@job = Job.new
 	end
 
 	def create
-		authenticate_employer!
 		@job = Job.new(job_params)
 		@job.employer = current_employer
 		@job.save!
@@ -18,7 +18,6 @@ class JobsController < ApplicationController
 	end
 
 	def update
-		authenticate_employer!
 		job = Job.find params[:id]
 		job.update(job_params)
 		redirect_to '/'
