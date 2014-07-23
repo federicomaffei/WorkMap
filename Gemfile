@@ -41,6 +41,7 @@ group :test, :development do
 	gem 'cucumber-rails', :require => false
 	gem 'database_cleaner'
 	gem 'rspec-collection_matchers'
+	gem 'poltergeist'
 end
 
 # Use ActiveModel has_secure_password
