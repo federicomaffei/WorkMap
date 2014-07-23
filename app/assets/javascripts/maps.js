@@ -40,26 +40,36 @@ $(document).ready(function(){
 	
 	$.get("/jobs.json", function(jobs) {
 		var markers = [];
-			jobs.forEach(function(job) {
-				category = job.category;
-				var marker = map.addMarker({
-					lat: job.latitude,
-					lng: job.longitude,
-					title: job.advert_title,
-					category: job.category,
-					icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-					infoWindow: { content: job.category }
-			    });
-				markers.push(marker);
+		jobs.forEach(function(job) {
+			category = job.category;
+			var marker = map.addMarker({
+				lat: job.latitude,
+				lng: job.longitude,
+				title: job.advert_title,
+				category: job.category,
+				icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
+				infoWindow: { content: job.category }
 			});
-			$('#category_bar').on('change', function(){
+			markers.push(marker);
+		});
+		$('input[name=Bar_Box').on('change', function(){
+			if($(this).is(':checked'))
+			{
 				markers.forEach(function(marker){
-					if (marker.category === 'Bar'){
+					if (marker.category === $('#category_bar').attr('value')){
+						marker.setVisible(true);
+					};
+				});
+			}
+			else
+			{
+				markers.forEach(function(marker){
+					if (marker.category === $('#category_bar').attr('value')){
 						marker.setVisible(false);
 					};
 				});
-			});
+			} 
+		});
 	});
-
 });
 
