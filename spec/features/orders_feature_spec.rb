@@ -8,7 +8,7 @@ describe 'orders page' do
 	context 'not logged in as admin' do
 		it 'prompts you to sign in' do
 			visit '/orders'
-			expect(page).to have_content 'sign up'
+			expect(page).to have_content 'Sign up'
 		end
 	end
 
