@@ -4,10 +4,15 @@
   <title>WorkMap</title>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+
+
+
+
 <body>
+
+
 	<% if employer_signed_in? %>
 		<%= link_to('Edit registration', edit_employer_registration_path) %>
 		<%= link_to('Logout', destroy_employer_session_path, :method => :delete) %>
@@ -15,8 +20,9 @@
 		<%= link_to('Login', new_employer_session_path)  %>  
 		<%= link_to('Register', new_employer_registration_path)  %>
 	<% end %>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
 	<%= yield %>
+	<%= javascript_include_tag 'application' %>
 </body>
 </html>
+
+

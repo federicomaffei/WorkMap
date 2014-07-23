@@ -3,7 +3,15 @@ $(document).ready(function(){
 	var map = new GMaps({
 		div: '#map',
 		lat: 51.523126,
-		lng: -0.087019
+		lng: -0.087019,
+		zoomControl: true,
+		zoomControlOpt: {
+			style: 'SMALL',
+			position: 'LEFT_BOTTOM'
+		},
+		panControl: false,
+		mapTypeControl: false,
+		streetViewControl: false,
 	});
 
 	var defaultBounds = new google.maps.LatLngBounds(

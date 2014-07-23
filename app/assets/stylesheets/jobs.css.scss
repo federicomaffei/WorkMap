@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map {
-	width: 80%; 
+	width: 100%; 
 	height: 800px;
 	float:left;
 }
@@ -23,5 +23,12 @@
 
 .advert_column {
 	float: right;
-	width: 20%;
+	width: 100%;
+	height: 800px;
+	overflow:scroll;
+	background-color: #FFFF00;
+}
+
+.advert_info {
+	background-color: #FFF;
 }
