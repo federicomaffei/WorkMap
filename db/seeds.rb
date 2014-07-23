@@ -9,9 +9,9 @@
 Job.delete_all
 
 def postcode_back_stub
-	[*1..9].sample.to_s 
+	# [*1..9].sample.to_s 
 	# [*1..9].sample.to_s + [*'A'..'Z'].sample 
-	# [*1..9].sample.to_s + ([*'A'..'Z'].sample + [*'A'..'Z'].sample)
+	[*1..9].sample.to_s + ([*'A'..'Z'].sample + [*'A'..'Z'].sample)
 end
 
 def front_stub_array

@@ -45,8 +45,8 @@ describe 'posting jobs' do
 			fill_in 'Email', with: 'employer@test.com'
 			fill_in 'Phone', with: '12345678'
 			click_button 'Post a job'
-			expect(current_path).to eq '/jobs'
-			expect(page).to have_content 'Test job name Bar Test Company Detailed description EC2 10£ employer@test.com 12345678'
+			expect(current_path).to eq "/jobs/#{current_employer.id}/charges/new"
+			# expect(page).to have_content 'Test job name Bar Test Company Detailed description EC2 10£ employer@test.com 12345678'
 		end
 	end
 

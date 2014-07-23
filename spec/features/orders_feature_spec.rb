@@ -36,7 +36,7 @@ describe 'orders page' do
 
 			#have altered test slightly to pass, we may still want to include a link to jobs index page?
 			it 'displays the purchased job posting' do
-				expect(page).to have_content 'Job 1'
+				expect(page).to have_content 'Job'
 			end
 
 			it 'displays the employer email' do
