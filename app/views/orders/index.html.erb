@@ -1,0 +1,9 @@
+<% if @orders.any? %>
+	<% @orders.each do |order| %>
+		Job <%= order.job.id %>
+		<%= order.employer.email %>
+		<%= order.created_at %>
+	<% end %>
+<% else %>
+No orders yet
+<% end %>

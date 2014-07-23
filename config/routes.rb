@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
 
   devise_for :employers 
+  devise_for :admin
   
   root to: 'landing_pages#show'
 
   resource :landing_page, :only => [:show]
   
-  resources :jobs
+  resources :jobs do
+    resources :charges
+  end
   
   resources :employers do
     resources :adverts
   end
 
-
+  resources :orders
+  # resources :charges
 
   # /jobs
 

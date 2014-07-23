@@ -33,6 +33,7 @@ group :production do
 end
 
 gem 'bootstrap-sass'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :test, :development do
 	gem 'rspec-rails'

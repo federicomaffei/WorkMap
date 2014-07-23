@@ -1,8 +1,7 @@
 <% @adverts.each do |advert| %>
-<p>
+
 <%= advert.advert_title %>
 <%= link_to 'Edit advert', edit_employer_advert_path(@employer, advert) %>
 <%= link_to 'Remove advert', employer_advert_path(@employer, advert), method: 'delete' %>
-</p>
-<% end %>
 
+<% end %>

@@ -9,8 +9,8 @@
 Job.delete_all
 
 def postcode_back_stub
-	# [*1..9].sample.to_s 
-	[*1..9].sample.to_s + [*'A'..'Z'].sample 
+	[*1..9].sample.to_s 
+	# [*1..9].sample.to_s + [*'A'..'Z'].sample 
 	# [*1..9].sample.to_s + ([*'A'..'Z'].sample + [*'A'..'Z'].sample)
 end
 
@@ -35,10 +35,19 @@ def gen_category
 	['Bar', 'Hotel', 'Cafe', 'Restaurant', 'Shop', 'Strip Club'].sample
 end
 
+
+
+@employer = Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')
 gen_postcodes.each_with_index do |address, index|
-	job = Job.create advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: 'true', detail: 'Detailed description', address: "#{address}, London", wage: 10, email: 'employer@test.com', phone: '12345678'
+	job = Job.new advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: 'true', detail: 'Detailed description', address: "#{address}, London", wage: 10, email: 'employer@test.com', phone: '12345678'
+	job.employer = @employer
+	job.save
 	sleep 0.25
 end
+
+
+
+
 
 # Job.create advert_title: 'Test job name 1', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: '25 City Road, London', wage: 10, email: 'employer@test.com', phone: '12345678'
 # Job.create advert_title: 'Test job name 2', category: 'Shop', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'SW6 1RE, London', wage: 12, email: 'employer@test.com', phone: '12345678'
@@ -48,7 +57,5 @@ end
 # Job.create advert_title: 'Test job name 6', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Brixton, London', wage: 12, email: 'employer@test.com', phone: '12345678'
 # Job.create advert_title: 'Test job name 7', category: 'Hotel', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Canary Wharf, London', wage: 10, email: 'employer@test.com', phone: '12345678'
 # sleep 2
-
-
 
 

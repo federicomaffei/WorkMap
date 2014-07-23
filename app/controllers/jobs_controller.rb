@@ -1,24 +1,37 @@
 class JobsController < ApplicationController
 
+	before_action :authenticate_employer!, except: [:index]
+
 	def index
 		@jobs = Job.all
 	end
 
 	def new
-		authenticate_employer!
 		@job = Job.new
 	end
 
 	def create
-		authenticate_employer!
+		# raise 'helo'
 		@job = Job.new(job_params)
-		@job.employer = current_employer
-		@job.save!
-		redirect_to '/jobs'
+		if @job.valid?
+			@job.employer = current_employer
+			@job.save
+			redirect_to new_job_charge_path(@job)
+		else
+			flash[:notice] = 'Errors in your form'
+			render 'new'
+		end
+		# redirect_to '/charges/new'
+		# puts session[:temp_job]
+		# raise 'hello'
+		
+		# @job = Job.new(job_params)
+		# @job.employer = current_employer
+		# @job.save!
+		# redirect_to '/jobs'
 	end
 
 	def update
-		authenticate_employer!
 		job = Job.find params[:id]
 		job.update(job_params)
 		redirect_to '/'
