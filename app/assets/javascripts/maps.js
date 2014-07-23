@@ -38,11 +38,12 @@ $(document).ready(function(){
 
 	$.get("/jobs.json", function(jobs) {
 		jobs.forEach(function(job) {
-
+			var category = job.category;
 			map.addMarker({
 				lat: job.latitude,
 				lng: job.longitude,
 				title: job.advert_title,
+				icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
 				infoWindow: {
 					content: job.advert_title
 				} 
