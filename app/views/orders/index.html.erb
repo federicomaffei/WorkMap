@@ -1,1 +1,9 @@
-<h1>No orders yet</h1>
+<% if @orders.any? %>
+	<% @orders.each do |order| %>
+		<%= order.employer.email %>
+		<%= link_to order.job.advert_title, '/jobs' %>
+		<% # order.number %>
+	<% end %>
+<% else %>
+No orders yet
+<% end %>

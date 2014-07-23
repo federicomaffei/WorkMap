@@ -48,4 +48,4 @@ Job.create advert_title: 'Test job name 6', category: 'Bar', company: 'Test comp
 Job.create advert_title: 'Test job name 7', category: 'Hotel', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Canary Wharf, London', wage: 10, email: 'employer@test.com', phone: '12345678'
 
 Admin.delete_all
-Admin.create(email: 'tester@testicle.com', password: 'teste', password_confirmation: 'teste')
+Admin.create(email: 'tester@testicle.com', password: 'testicle', password_confirmation: 'testicle')

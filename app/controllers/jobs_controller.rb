@@ -11,10 +11,15 @@ class JobsController < ApplicationController
 	end
 
 	def create
-		@job = Job.new(job_params)
-		@job.employer = current_employer
-		@job.save!
-		redirect_to '/jobs'
+		# raise 'helo'
+		session[:temp_job] = job_params
+		# puts session[:temp_job]
+		# raise 'hello'
+		redirect_to '/orders/new'
+		# @job = Job.new(job_params)
+		# @job.employer = current_employer
+		# @job.save!
+		# redirect_to '/jobs'
 	end
 
 	def update
