@@ -9,7 +9,8 @@ $(document).ready(function(){
 
 	var defaultBounds = new google.maps.LatLngBounds(
 		new google.maps.LatLng(51.2901, -0.5651),
-		new google.maps.LatLng(51.6167, 0.2463));
+		new google.maps.LatLng(51.6167, 0.2463)
+	);
 
 	var input = document.getElementById('searchTextField');
 
@@ -18,11 +19,11 @@ $(document).ready(function(){
 		types: ['establishment']
 	};
 
+	autocomplete = new google.maps.places.Autocomplete(input, search_options);
+
 	var zoom_options = { minZoom: 10, maxZoom: 17};
 
 	map.setOptions(zoom_options);
-
-	autocomplete = new google.maps.places.Autocomplete(input, search_options);
 
 	$('#search_box').on('submit', function(event) {
 		event.preventDefault();
@@ -37,7 +38,6 @@ $(document).ready(function(){
 		});
 	})
 
-	
 	$.get("/jobs.json", function(jobs) {
 		var markers = [];
 		jobs.forEach(function(job) {
@@ -52,23 +52,15 @@ $(document).ready(function(){
 			});
 			markers.push(marker);
 		});
-		$('input[name=Bar_Box').on('change', function(){
-			if($(this).is(':checked'))
-			{
-				markers.forEach(function(marker){
-					if (marker.category === $('#category_bar').attr('value')){
-						marker.setVisible(true);
-					};
-				});
-			}
-			else
-			{
-				markers.forEach(function(marker){
-					if (marker.category === $('#category_bar').attr('value')){
-						marker.setVisible(false);
-					};
-				});
-			} 
+		
+		$('#category_bar').on('change', function(){
+			var checked = $(this).prop('checked');
+
+			markers.forEach(function(marker){
+				if (marker.category === $('#category_bar').attr('value')){
+					marker.setVisible(checked);
+				};
+			});
 		});
 	});
 });
