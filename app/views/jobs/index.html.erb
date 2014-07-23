@@ -18,6 +18,9 @@
   		<input type="text" id="searchTextField" placeholder="Address">
   		<input type="submit" value="Search">
   	</form>
+  	<form id="filter" method="post">
+  		<input type="checkbox" id="category_bar" value="bar">Filter only by Bar category<br>
+  	</form>
   	<%= link_to 'Create a job', new_job_path %>
  	<% if employer_signed_in? %>
 		<%= link_to('Edit registration', edit_employer_registration_path) %>
