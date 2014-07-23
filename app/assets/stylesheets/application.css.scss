@@ -27,4 +27,15 @@
 .col-md-4 {
 	padding-left: 0px;
 	padding-right: 0px;
+	
+	ul, ol {
+	padding: 0px;
+	margin: 0px;
+	}
+}
+
+.container-fluid {
+	.row {
+		margin: 0px;
+	}
 }
