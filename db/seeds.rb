@@ -9,7 +9,8 @@
 Job.delete_all
 
 def postcode_back_stub
-	[*1..9].sample.to_s + [*'A'..'Z'].sample
+	# [*1..9].sample.to_s 
+	[*1..9].sample.to_s + [*'A'..'Z'].sample 
 	# [*1..9].sample.to_s + ([*'A'..'Z'].sample + [*'A'..'Z'].sample)
 end
 
@@ -36,7 +37,7 @@ end
 
 gen_postcodes.each_with_index do |address, index|
 	job = Job.create advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: 'true', detail: 'Detailed description', address: "#{address}, London", wage: 10, email: 'employer@test.com', phone: '12345678'
-	sleep 1
+	sleep 0.25
 end
 
 # Job.create advert_title: 'Test job name 1', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: '25 City Road, London', wage: 10, email: 'employer@test.com', phone: '12345678'
