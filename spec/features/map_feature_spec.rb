@@ -19,8 +19,9 @@ describe 'primary map' do
 		it 'stops displaying bar markers when you uncheck the bar box', js: true do
 			job = Job.create advert_title: 'Waitress', category: 'Bar', company: 'Queen of Hoxton', full_time: 'false', detail: 'Detailed description', address: 'EC2A 3JX', wage: 10, email: 'queen@hoxton-test.com', phone: '12345678'
 			visit '/jobs'
-			uncheck 'category_Bar'
-			sleep 1
+			uncheck 'bar_box'
+			click_button 'Refine Search'
+			sleep 0.2
 			expect(page.evaluate_script("window.map.markers[0].getVisible()")).to be false
 		end
 

@@ -3,9 +3,7 @@ class JobsController < ApplicationController
 	before_action :authenticate_employer!, except: [:index, :show]
 
 	def index
-		puts params.inspect 
-		if params.include?(:full_time)
-			puts params.inspect
+		if params[:refined]
 			filtered_by(params)
 		else
 			@jobs = Job.all
@@ -51,8 +49,8 @@ private
 
 	def filtered_by(params)
 		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
-		# @jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
+		#@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
 		@jobs = Job.where({ category: job_search_array })
-		return @jobs
+		puts params.inspect
 	end
 end
