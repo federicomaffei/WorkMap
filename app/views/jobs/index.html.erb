@@ -5,7 +5,7 @@
 			</div>
 		</div>
 		<div class = 'filter_form'>
-			<%= form_tag '/jobs/show', method: 'get' do %>
+			<%= form_tag '/jobs/show', method: 'get', class: 'filter_form' do %>
 			<%= check_box_tag(:bar_box, 'Bar') %>
 			<%= label_tag(:bar_box, "Bar") %>
 			<%= check_box_tag(:cafe_box, 'Cafe') %>
