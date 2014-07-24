@@ -1,7 +1,6 @@
 //= require gmaps
 
 $(document).ready(function(){
-	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
 
 	var defaultBounds = new google.maps.LatLngBounds(
 		new google.maps.LatLng(51.2901, -0.5651),
