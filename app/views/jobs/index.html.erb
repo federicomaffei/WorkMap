@@ -22,6 +22,7 @@
 			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]])) %><br>
 			<%= label_tag(:min_wage, "Minimum Pay") %>
 			<%= number_field(:wage, :min_wage, in: 4..20, step: 1) %><br>
+			<%= hidden_field(:refined, value: true) %>
 			<%= submit_tag 'Refine Search' %>
 			<% end %>
 		</div>

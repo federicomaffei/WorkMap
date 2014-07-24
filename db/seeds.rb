@@ -33,7 +33,7 @@ end
 
 def gen_category
 	# ['Bar', 'Hotel', 'Cafe', 'Restaurant', 'Shop', 'StripClub'].sample
-	['Bar', 'Hotel', 'Cafe', 'Restaurant', 'Shop', 'StripClub'].sample
+	['Bar', 'Hotel', 'Cafe', 'Restaurant', 'Shop', 'Strip Club'].sample
 end
 
 
