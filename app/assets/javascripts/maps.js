@@ -4,10 +4,10 @@ $(document).ready(function(){
 		div: '#map',
 		lat: 51.523126,
 		lng: -0.087019,
-		zoom: 13,	
+		zoom: 14,	
 		zoomControl: true,
 		zoomControlOpt: {
-			style: 'SMALL',
+			style: 'MEDIUM',
 			position: 'LEFT_BOTTOM'
 		},
 		panControl: false,
@@ -115,43 +115,43 @@ $.get("/jobs.json", function(jobs) {
 		markers.push(marker);
 	});
 
-	$('#category_Bar').click(function () {
-		boxclick(this, 'Bar');
-	});
+	// $('#category_Bar').click(function () {
+	// 	boxclick(this, 'Bar');
+	// });
 
-	$('#category_Cafe').click(function () {
-		boxclick(this, 'Cafe');
-	});
+	// $('#category_Cafe').click(function () {
+	// 	boxclick(this, 'Cafe');
+	// });
 
-	$('#category_Hotel').click(function () {
-		boxclick(this, 'Hotel');
-	});
-	$('#category_Restaurant').click(function () {
-		boxclick(this, 'Restaurant');
-	});
-	$('#category_Shop').click(function () {
-		boxclick(this, 'Shop');
-	});
-	$('#category_StripClub').click(function () {
-		boxclick(this, 'StripClub');
-	});
+	// $('#category_Hotel').click(function () {
+	// 	boxclick(this, 'Hotel');
+	// });
+	// $('#category_Restaurant').click(function () {
+	// 	boxclick(this, 'Restaurant');
+	// });
+	// $('#category_Shop').click(function () {
+	// 	boxclick(this, 'Shop');
+	// });
+	// $('#category_StripClub').click(function () {
+	// 	boxclick(this, 'StripClub');
+	// });
 
-	function boxclick(box,category) {
-		if (box.checked) {
-			markers.forEach(function(marker){
-				if (marker.category === $('#category_' + category).attr('value')){
-					marker.setVisible(true);
-				};
-			});
-		} 
-		else {
-			markers.forEach(function(marker){
-				if (marker.category === $('#category_' + category).attr('value')){
-					marker.setVisible(false);
-				};
-			});
-		}
-	}
+	// function boxclick(box,category) {
+	// 	if (box.checked) {
+	// 		markers.forEach(function(marker){
+	// 			if (marker.category === $('#category_' + category).attr('value')){
+	// 				marker.setVisible(true);
+	// 			};
+	// 		});
+	// 	} 
+	// 	else {
+	// 		markers.forEach(function(marker){
+	// 			if (marker.category === $('#category_' + category).attr('value')){
+	// 				marker.setVisible(false);
+	// 			};
+	// 		});
+	// 	}
+	// }
 });
 });
 

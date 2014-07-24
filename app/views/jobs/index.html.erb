@@ -4,19 +4,26 @@
 			<div id="map">
 			</div>
 		</div>
-		<div class="searchbox">
-			<form id="search_box" method="post">
-				<input type="text" id="searchTextField" placeholder="Address">
-				<input type="submit" value="Search">
-			</form>
-			<form id="filter" method="post">
-				<input type="checkbox" id="category_Bar" name="Bar_Box" value="Bar" checked>Bar<br>
-				<input type="checkbox" id="category_Cafe" name="Cafe_Box" value="Cafe" checked>Cafe<br>
-				<input type="checkbox" id="category_Hotel" name="Hotel_Box" value="Hotel" checked>Hotel<br>
-				<input type="checkbox" id="category_Restaurant" name="Restaurant_Box" value="Restaurant" checked>Restaurant<br>
-				<input type="checkbox" id="category_Shop" name="Shop_Box" value="Shop" checked>Shop<br>
-				<input type="checkbox" id="category_StripClub" name="StripClub_Box" value="StripClub" checked>Strip Club<br>
-			</form>
+		<div class = 'filter_form'>
+			<%= form_tag '/jobs/show', method: 'get' do %>
+			<%= check_box_tag(:bar_box, 'Bar') %>
+			<%= label_tag(:bar_box, "Bar") %>
+			<%= check_box_tag(:cafe_box, 'Cafe') %>
+			<%= label_tag(:cafe_box, "Cafe") %>
+			<%= check_box_tag(:hotel_box, 'Hotel') %>
+			<%= label_tag(:hotel_box, "Hotel") %>
+			<%= check_box_tag(:restaurant_box, 'Restaurant') %>
+			<%= label_tag(:restaurant_box, "Restaurant") %>
+			<%= check_box_tag(:shop_box, 'Shop') %>
+			<%= label_tag(:shop_box, "Shop") %>
+			<%= check_box_tag(:strip_box, 'Strip Club') %>
+			<%= label_tag(:strip_box, "Strip Club") %><br>
+			<%= label_tag(:full_time, "Type of contract") %>
+			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]])) %><br>
+			<%= label_tag(:min_wage, "Minimum Pay") %>
+			<%= number_field(:wage, :min_wage, in: 4..20, step: 1) %><br>
+			<%= submit_tag 'Refine Search' %>
+			<% end %>
 		</div>
 		<div class="col-md-4">
 			<aside class="advert_column">

@@ -1,9 +1,19 @@
 class JobsController < ApplicationController
 
-	before_action :authenticate_employer!, except: [:index]
+	before_action :authenticate_employer!, except: [:index, :show]
 
 	def index
-		@jobs = Job.all
+		if params[:filters]
+			@jobs = Job.filtered_by(params[:filters])
+		else
+			@jobs = Job.all
+		end
+
+
+		# { filters: [:cafe, :bar, :restaurant] }
+		# $.get('/jobs.json', { filters: ['cafe', 'bar', 'restaruant'] }, function(jobs){
+
+		# })
 	end
 
 	def new
@@ -11,7 +21,6 @@ class JobsController < ApplicationController
 	end
 
 	def create
-		# raise 'helo'
 		@job = Job.new(job_params)
 		if @job.valid?
 			@job.employer = current_employer
@@ -36,6 +45,12 @@ class JobsController < ApplicationController
 		job.update(job_params)
 		redirect_to '/'
 	end
+
+	# def show
+	# 	job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
+	# 	@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
+	# 	render 'show', content_type: :json
+	# end
 
 	private
 
