@@ -69,10 +69,12 @@ $(document).ready(function(){
 		]
 	});
 
+
 var defaultBounds = new google.maps.LatLngBounds(
 	new google.maps.LatLng(51.2901, -0.5651),
 	new google.maps.LatLng(51.6167, 0.2463)
 	);
+
 
 var input = document.getElementById('searchTextField');
 
@@ -102,7 +104,7 @@ $('#search_box').on('submit', function(event) {
 
 $.get("/jobs.json", function(jobs) {
 	var markers = [];
-	console.log(jobs.length);
+	// console.log(jobs.length);
 	jobs.forEach(function(job) {
 		category = job.category;
 		var marker = map.addMarker({
@@ -140,7 +142,7 @@ $('#filter_form').submit(function(event){
 			jobs.forEach(function(job) {
 				var template = $('#individual_job_advert').html();
 				var newAdvert = Mustache.render(template,job);
-				console.log(newAdvert);
+				// console.log(newAdvert);
 				$('.advert_column').append(newAdvert);
 
 			});

@@ -13,30 +13,32 @@
 			<div class="header">
 				<h1>w<span class="glyphicon glyphicon-map-marker"></span>rkmap</h1>
 			</div>
-		</nav>
-	</div>
 
-	<div>
-		<% if employer_signed_in? %>
-		<%= link_to('Edit registration', edit_employer_registration_path) %>
-		<%= link_to 'Create a job', new_job_path %>
-		<%= link_to('Logout', destroy_employer_session_path, :method => :delete) %>
-		<% else %>
-		<%= link_to('Login', new_employer_session_path)  %>  |
-		<%= link_to('Register', new_employer_registration_path)  %> |
-		<%= link_to 'Create a job', new_job_path %>
-		<% end %>
-		<%= yield %>
-		<%= javascript_include_tag 'application' %>
-	</div>
-	<div class="searchbox">
+			<div class="links">
+				<% if employer_signed_in? %>
+				<%= link_to('Edit registration', edit_employer_registration_path) %>
+				<%= link_to 'Create a job', new_job_path %>
+				<%= link_to('Logout', destroy_employer_session_path, :method => :delete) %>
+				<% else %>
+				<%= link_to('Login', new_employer_session_path)  %>  |
+				<%= link_to('Register', new_employer_registration_path)  %> |
+				<%= link_to 'Create a job', new_job_path %>
+				<% end %>
+				<%= javascript_include_tag 'application' %>
+			</div>
+
+				<div class="searchbox">
 		<form id="search_box" method="post">
 			<input type="text" id="searchTextField" placeholder="Address">
 			<input type="submit" value="Search">
 		</form>
 	</div>
-
-
+		</nav>
+	</div>
+				
+<%= yield %>
 </body>
+
+
 
 </html>
