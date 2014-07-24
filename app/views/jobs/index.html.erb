@@ -40,7 +40,8 @@
 								<%= job.address %> //
 								£<%= job.wage %> per hour //
 								<%= job.email %> //
-								<%= job.phone %>
+								<%= job.phone %> //
+								<%= job.full_time? ? "Full time" : "Part time" %>
 							</p>
 						</div>
 					</li>	
@@ -63,7 +64,8 @@
 					{{ address }} //
 					£{{ wage }} per hour //
 					{{ email }} //
-					 {{ phone }}
+					 {{ phone }} //
+					 {{ hours }}
 				</p>
 			</div>
 		</li>

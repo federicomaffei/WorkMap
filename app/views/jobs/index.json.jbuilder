@@ -8,4 +8,5 @@ json.array! @jobs do |job|
 	json.email job.email
 	json.phone job.phone
 	json.wage job.wage
+	json.hours (job.full_time? ? "Full time" : "Part time")
 end
