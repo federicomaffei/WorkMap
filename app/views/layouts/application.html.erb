@@ -19,6 +19,7 @@
 	<div>
 		<% if employer_signed_in? %>
 		<%= link_to('Edit registration', edit_employer_registration_path) %>
+		<%= link_to 'Create a job', new_job_path %>
 		<%= link_to('Logout', destroy_employer_session_path, :method => :delete) %>
 		<% else %>
 		<%= link_to('Login', new_employer_session_path)  %>  |

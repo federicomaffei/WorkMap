@@ -7,12 +7,19 @@ describe 'primary map' do
 		expect(page).to have_map
 	end
 
-	it 'displays a marker at an address given by an employer', js: true do
+	it 'displays a marker for a job', js: true do
 		job = Job.create advert_title: 'Waitress', category: 'Bar', company: 'Queen of Hoxton', full_time: 'false', detail: 'Detailed description', address: 'EC2A 3JX', wage: 10, email: 'queen@hoxton-test.com', phone: '12345678'
 		visit '/jobs'
 		sleep 1
 		expect(page.evaluate_script("window.map.markers.length")).to eq 1
 	end
+
+	# it 'displays a marker at two addresses given by an employer', js: true do
+	# 	job = Job.create advert_title: 'Waitress', category: 'Bar', company: 'Queen of Hoxton', full_time: 'false', detail: 'Detailed description', address: 'EC2A 3JX', wage: 10, email: 'queen@hoxton-test.com', phone: '12345678'
+	# 	visit '/jobs'
+	# 	sleep 1
+	# 	expect(page.evaluate_script("window.map.markers.length")).to eq 1
+	# end
 
 	context 'jobs by locations' do
 

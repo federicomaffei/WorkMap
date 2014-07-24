@@ -10,7 +10,7 @@ describe 'jobs index page' do
 	it 'a job is available.' do
 		job = Job.create advert_title: 'Test job name', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 10, email: 'employer@test.com', phone: '12345678'	
 		visit '/jobs'
-		expect(page).to have_content 'Test job name Bar Test company Detailed description EC2 10£ employer@test.com 12345678' 
+		expect(page).to have_content 'Test job name Bar // Test company // Detailed description // EC2 // £10 per hour // employer@test.com // 12345678' 
 	end
 end
 
