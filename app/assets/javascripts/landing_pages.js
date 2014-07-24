@@ -1,11 +1,4 @@
-$(document).ready(function(){
-	console.log("hello")
-	console.log("wooooorkmap")
-});
-
-
-
-
+//= require gmaps
 
 $(document).ready(function(){
 	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
@@ -15,7 +8,7 @@ $(document).ready(function(){
 		new google.maps.LatLng(51.6167, 0.2463)
 		);
 
-	var input = document.getElementById('searchTextField');
+	var input = document.getElementById('landing_page_searchTextField');
 
 	var search_options = {
 		bounds: defaultBounds,
@@ -24,18 +17,23 @@ $(document).ready(function(){
 
 	autocomplete = new google.maps.places.Autocomplete(input, search_options);
 	
-	console.log("hello")
+	
 
 	$('#landing_page_search_box').on('submit', function(event) {
 		event.preventDefault();
 		GMaps.geocode({
 			address: $('#landing_page_searchTextField').val(),
 			callback: function(results, status) {
-				if (status == 'OK') {
+				if (status == 'OK')					
+
 					var latlng = results[0].geometry.location;
-					window.location.replace("http://wwww.google.co.uk");
-					map.setCenter(latlng.lat(), latlng.lng());
-				} 
+					localStorage.setItem('lat', latlng.lat());
+					localStorage.setItem('lng', latlng.lng());
+					
+					var lat = localStorage.getItem('lat');
+					var lng = localStorage.getItem('lng');
+					window.location.replace("/jobs");
+
 			}
 		});
 	});

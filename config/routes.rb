@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   root to: 'landing_pages#show'
 
-  resource :landing_page, :only => [:show]
+  resource :landing_page, :only => [:show, :create]
   
   resources :jobs do
     resources :charges

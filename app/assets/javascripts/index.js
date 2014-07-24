@@ -1,9 +1,15 @@
 $(document).ready(function(){
 	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
+
+	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126
+	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019
+	
+	var longitude = 
+
 	window.map = new GMaps({
 		div: '#map',
-		lat: 51.523126,
-		lng: -0.087019,
+		lat: latitude,
+		lng: longitude,	
 		zoom: 14,	
 		zoomControl: true,
 		zoomControlOpt: {
@@ -104,7 +110,6 @@ $('#search_box').on('submit', function(event) {
 
 $.get("/jobs.json", function(jobs) {
 	var markers = [];
-	// console.log(jobs.length);
 	jobs.forEach(function(job) {
 		category = job.category;
 		var marker = map.addMarker({
@@ -122,8 +127,6 @@ $.get("/jobs.json", function(jobs) {
 $('#filter_form').submit(function(event){
 	event.preventDefault();
 	$.get('/jobs.json', $(this).serialize(), function(jobs){
-			// console.log(jobs.length);
-			// console.log(map);
 			map.removeMarkers();
 			jobs.forEach(function(job) {
 				category = job.category;	
@@ -142,7 +145,6 @@ $('#filter_form').submit(function(event){
 			jobs.forEach(function(job) {
 				var template = $('#individual_job_advert').html();
 				var newAdvert = Mustache.render(template,job);
-				// console.log(newAdvert);
 				$('.advert_column').append(newAdvert);
 
 			});
