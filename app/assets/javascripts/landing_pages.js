@@ -16,8 +16,6 @@ $(document).ready(function(){
 	};
 
 	autocomplete = new google.maps.places.Autocomplete(input, search_options);
-	
-	
 
 	$('#landing_page_search_box').on('submit', function(event) {
 		event.preventDefault();
@@ -33,9 +31,7 @@ $(document).ready(function(){
 					var lat = localStorage.getItem('lat');
 					var lng = localStorage.getItem('lng');
 					window.location.replace("/jobs");
-
 			}
 		});
 	});
-
 });
