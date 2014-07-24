@@ -18,7 +18,7 @@ def front_stub_array
 	front_stubs = []
 	postcodes = [['E',20],['N',22],['NW',11],['SW',20],['SE',28],['W',14]]
 	postcodes.each do |postcode|
-		front_stubs << [*1..postcode[1]].fill(postcode[0]).zip(1..postcode[1]).map{ |letter_number| letter_number.join }
+		front_stubs << [*1..postcode[1]].fill(postcode[0]).zip(1..postcode[1]).map(&:join)
 	end
 	return front_stubs
 end
