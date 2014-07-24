@@ -68,7 +68,8 @@ $(document).ready(function(){
 		}
 		]
 	});
-
+	
+	console.log("hello")
 	var defaultBounds = new google.maps.LatLngBounds(
 		new google.maps.LatLng(51.2901, -0.5651),
 		new google.maps.LatLng(51.6167, 0.2463)
@@ -144,7 +145,7 @@ $(document).ready(function(){
 						var template = $('#individual_job_advert').html();
 						// console.log(template);
 						var newAdvert = Mustache.render(template,job);
-						console.log(newAdvert);
+						// console.log(newAdvert);
 						$('.advert_column').append(newAdvert);
 						// $('.advert_column').append(
 						// 	'<ul>

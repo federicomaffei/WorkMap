@@ -1,4 +1,69 @@
+    
+<style>
+
+.header {
+	margin-bottom: 100px;
+}
+
+.jumbotron {
+	height: 200px;
+	margin: 50px;
+}
 
 
-| <%= link_to 'Post a job', employer_session_path %> |
-<%= link_to 'Find a job', jobs_path %>
+</style>
+
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/jobs/new">Post a Job</a></li>
+        </ul>
+        <h3 class="text-muted"><h1>w<span class="glyphicon glyphicon-map-marker"></span>rkmap</h1></h3>
+      </div>
+
+      <div class="jumbotron">
+        <div class="searchbox">
+			<form id="landing_page_search_box" method="post">
+				<input type="text" id="landing_page_searchTextField" placeholder="Address">
+				<input type="submit" value="Search">
+			</form>
+		</div>
+      </div>
+
+
+    </div> <!-- /container -->
+
+
+
+
+<!-- <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 middle_box">
+    
+/*<style>
+html, body, .container {
+    height: 100%;
+}
+.middle_box {
+    /*display: table;*/
+    vertical-align: middle;
+    background: yellow;
+    min-height: 200px;
+    min-width: 450px;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#test {
+	min-height: 300px;
+
+}
+
+</style>*/
+
+	    <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4" id="test" style="background:red;color:white">TEXT</div>
+
+
+    
+</div> -->
