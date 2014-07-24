@@ -32,6 +32,7 @@ def gen_postcodes
 end
 
 def gen_category
+	# ['Bar', 'Hotel', 'Cafe', 'Restaurant', 'Shop', 'StripClub'].sample
 	['Bar', 'Hotel', 'Cafe', 'Restaurant', 'Shop', 'StripClub'].sample
 end
 

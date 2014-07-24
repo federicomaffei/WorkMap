@@ -4,8 +4,8 @@
 			<div id="map">
 			</div>
 		</div>
-		<div class = 'filter_form'>
-			<%= form_tag '/jobs/show', method: 'get', class: 'filter_form' do %>
+		<div>
+			<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
 			<%= check_box_tag(:bar_box, 'Bar') %>
 			<%= label_tag(:bar_box, "Bar") %>
 			<%= check_box_tag(:cafe_box, 'Cafe') %>
