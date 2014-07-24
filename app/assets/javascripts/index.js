@@ -121,11 +121,11 @@ $(document).ready(function(){
 	$('#filter_form').on('submit', function(event){
 		event.preventDefault();
 		$.get('/jobs.json', $(this).serialize(), function(jobs){
-			console.log(jobs.length);
-			console.log(map);
+			// console.log(jobs.length);
+			// console.log(map);
 			map.removeMarkers();
 				jobs.forEach(function(job) {
-					category = job.category;
+					category = job.category;	
 					var marker = map.addMarker({
 						lat: job.latitude,
 						lng: job.longitude,
@@ -134,7 +134,35 @@ $(document).ready(function(){
 						icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
 						infoWindow: { content: job.category }
 					});
-			});
+				});
+
+
+					// console.log(jobs);
+					$('.advert_column').empty();
+					jobs.forEach(function(job) {
+						// console.log(job);
+						var template = $('#individual_job_advert').html();
+						// console.log(template);
+						var newAdvert = Mustache.render(template,job);
+						console.log(newAdvert);
+						$('.advert_column').append(newAdvert);
+						// $('.advert_column').append(
+						// 	'<ul>
+						// 		<div class="advert_info">
+						// 			<h1><%= job.advert_title %></h1>
+						// 			<p><%= job.category %> // 
+						// 				<%= job.company %> //
+						// 				<%= job.detail %> //
+						// 				<%= job.address %> //
+						// 				£<%= job.wage %> per hour //
+						// 				<%= job.email %> //
+						// 				<%= job.phone %>
+						// 			</p>
+						// 		</div>
+						// 	</ul>')
+					// });
+				});
+
 		});
 });
 });
