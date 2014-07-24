@@ -10,9 +10,9 @@ describe 'employers job advert update page' do
 		login_as employer
 		visit "/employers/#{employer.id}/adverts"
 		click_link 'Edit advert' 
-		fill_in 'Company', with: "Better company" 
+		fill_in 'Advert title', with: "Better name" 
 		click_button('Update advert')
-		expect(page).to have_content 'Better company' 
+		expect(page).to have_content 'Better name' 
 
 	end
 

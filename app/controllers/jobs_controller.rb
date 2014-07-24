@@ -34,7 +34,7 @@ class JobsController < ApplicationController
 	def update
 		job = Job.find params[:id]
 		job.update(job_params)
-		redirect_to '/'
+		redirect_to employer_adverts_path(job)
 	end
 
 	private
