@@ -4,4 +4,8 @@ json.array! @jobs do |job|
 	json.category job.category
 	json.latitude job.latitude
 	json.longitude job.longitude
+	json.detail job.detail
+	json.email job.email
+	json.phone job.phone
+	json.wage job.wage
 end
