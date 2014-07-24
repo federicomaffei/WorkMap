@@ -3,17 +3,13 @@ class JobsController < ApplicationController
 	before_action :authenticate_employer!, except: [:index, :show]
 
 	def index
-		if params[:filters]
-			@jobs = Job.filtered_by(params[:filters])
+		puts params.inspect
+		if params.any?
+			filtered_by(params)
 		else
 			@jobs = Job.all
 		end
 
-
-		# { filters: [:cafe, :bar, :restaurant] }
-		# $.get('/jobs.json', { filters: ['cafe', 'bar', 'restaruant'] }, function(jobs){
-
-		# })
 	end
 
 	def new
@@ -46,15 +42,16 @@ class JobsController < ApplicationController
 		redirect_to '/'
 	end
 
-	# def show
-	# 	job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
-	# 	@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
-	# 	render 'show', content_type: :json
-	# end
-
-	private
+private
 
 	def job_params
 		params[:job].permit(:advert_title, :category, :company, :full_time, :detail, :address, :wage, :email, :phone)
+	end
+
+	def filtered_by(params)
+		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
+		# @jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
+		@jobs = Job.where({ category: job_search_array })
+		return @jobs
 	end
 end

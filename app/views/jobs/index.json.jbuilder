@@ -5,3 +5,5 @@ json.array! @jobs do |job|
 	json.latitude job.latitude
 	json.longitude job.longitude
 end
+
+json.jobs = @jobs
