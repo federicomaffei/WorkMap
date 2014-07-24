@@ -46,30 +46,24 @@ describe 'posting jobs' do
 			fill_in 'Phone', with: '12345678'
 			click_button 'Post a job'
 			expect(page).to have_content "Amount: $5.00"
-			# puts page.body
-			# save_and_open_page
-			# puts page.find('.stripe-button-el')
-			# page.has_css?('.stripe-button-el')
-			# sleep(5)
-			# puts page.find('.stripe-button-el')
 			click_button('Pay with Card')
-			
 
-			# page.within_window do
-			within_frame('stripe_checkout_app') do
+			sleep 2
+			
+			 stripe = page.driver.window_handles.last
+			 page.within_window stripe do
 				fill_in('email', with: 'test@test.com')
 				fill_in('card_number', with: '4242424242424242')
 				fill_in('cc-exp', with: '0120')
 				fill_in('cc-csc', with: '123')
 				sleep 1
 				click_button "Pay $5.00"
-
+				sleep 5
 			end
+			# expect(current_path).to eq "/employers/1/adverts"
+			puts page.html
 			
-			sleep 5
-			expect(current_path).to eq "/employers/1/adverts"
-			# expect(page).to have_content 'Lady of the night'
-			save_and_open_page
+			expect(page).to have_content 'Lady of the night'
 		end
 	end
 
