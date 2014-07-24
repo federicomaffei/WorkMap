@@ -43,6 +43,7 @@ group :test, :development do
 	gem 'database_cleaner'
 	gem 'rspec-collection_matchers'
 	gem 'poltergeist'
+	gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password
