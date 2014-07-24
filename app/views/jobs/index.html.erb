@@ -27,10 +27,10 @@
 			<% end %>
 		</div>
 		<div class="col-md-4">
-				<ul>
-			<aside class="advert_column">
-				<% if @jobs.any? %>
-				<% @jobs.each do |job| %>
+			<ul>
+				<aside class="advert_column">
+					<% if @jobs.any? %>
+					<% @jobs.each do |job| %>
 					<li>
 						<div class="advert_info">
 							<h1><%= job.advert_title %></h1>
@@ -44,7 +44,7 @@
 							</p>
 						</div>
 					</li>	
-				<% end %>
+					<% end %>
 				</ul>
 				<% else %>
 				<h1>No jobs inserted yet.</h1>
@@ -54,17 +54,20 @@
 	</div>
 
 	<template id='individual_job_advert'>
-		<li>
-			<div class="advert_info">
-				<h1> {{ advert_title }} </h1>
-				<p> {{ category }} // 
-					{{ company }} //
-					{{ detail }} %> //
-					{{ address }} //
-					£{{ wage }} per hour //
-					{{ email }} //
-					 {{ phone }}
-				</p>
-			</div>
-		</li>
-	</template>
+		<ul>
+			<li>
+				<div class="advert_info">
+					<h1> {{ advert_title }} </h1>
+					<p> {{ category }} // 
+						{{ company }} //
+						{{ detail }} %> //
+						{{ address }} //
+						£{{ wage }} per hour //
+						{{ email }} //
+						{{ phone }}
+					</p>
+				</div>
+			</li>
+		</template>
+	</ul>
+</div>
