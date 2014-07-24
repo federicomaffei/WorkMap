@@ -3,8 +3,7 @@ class JobsController < ApplicationController
 	before_action :authenticate_employer!, except: [:index, :show]
 
 	def index
-		puts params.inspect
-		if params.any?
+		if params.include?(:full_time)
 			filtered_by(params)
 		else
 			@jobs = Job.all
