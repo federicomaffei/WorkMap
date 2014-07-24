@@ -1,10 +1,8 @@
 $(document).ready(function(){
-	
+	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
 
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019
-	
-	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests	
 
 	window.map = new GMaps({
 		div: '#map',
