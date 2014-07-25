@@ -12,7 +12,7 @@ $(document).ready(function(){
 		zoomControl: true,
 		zoomControlOpt: {
 			style: 'MEDIUM',
-			position: 'LEFT_BOTTOM'
+			position: 'CENTER_LEFT'
 		},
 		panControl: false,
 		mapTypeControl: false,

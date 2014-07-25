@@ -12,6 +12,21 @@
 
 
 <body>
+
+	  <div class="navbar-collapse collapse">
+    <nav class="navbar-form navbar-right" role="navigation">
+            <div class="links">
+              <%= link_to 'Login', new_employer_session_path, class: 'btn btn-primary' %>  |
+              <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary' %>
+              <%= javascript_include_tag 'application' %>
+            </div>
+
+
+    </nav>
+  </div>
+
+
+	
 	<%= yield %>
 </body>
 
