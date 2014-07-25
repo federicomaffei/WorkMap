@@ -61,7 +61,7 @@
 					<h1> {{ advert_title }} </h1>
 					<p> {{ category }} // 
 						{{ company }} //
-						{{ detail }} %> //
+						{{ detail }} //
 						{{ address }} //
 						£{{ wage }} per hour //
 						{{ email }} //
@@ -70,7 +70,21 @@
 					</p>
 				</div>
 			</li>
-		</template>
-	</ul>
+		</ul>
+	</template>
+
+	<template id='pop_up_job_advert'>
+		<ul>	
+			<li>  {{ advert_title }} </li>
+			<li>	{{ company }} </li>
+			<li>	{{ detail }} </li>
+			<li>	{{ address }} </li>
+			<li>	£{{ wage }} per hour </li>
+			<li>	{{ email }} </li>
+			<li>	{{ phone }} </li>
+			<li>	{{ hours }} </li>
+		</ul>
+	</template>
+	
 </div>
 
