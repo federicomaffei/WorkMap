@@ -4,33 +4,33 @@
 			<div id="map">
 			</div>
 		</div>
-		<div>
-			<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
-			<%= check_box_tag(:bar_box, 'Bar') %>
-			<%= label_tag(:bar_box, "Bar") %>
-			<%= check_box_tag(:cafe_box, 'Cafe') %>
-			<%= label_tag(:cafe_box, "Cafe") %>
-			<%= check_box_tag(:hotel_box, 'Hotel') %>
-			<%= label_tag(:hotel_box, "Hotel") %>
-			<%= check_box_tag(:restaurant_box, 'Restaurant') %>
-			<%= label_tag(:restaurant_box, "Restaurant") %>
-			<%= check_box_tag(:shop_box, 'Shop') %>
-			<%= label_tag(:shop_box, "Shop") %>
-			<%= check_box_tag(:strip_box, 'Strip Club') %>
-			<%= label_tag(:strip_box, "Strip Club") %><br>
-			<%= label_tag(:full_time, "Type of contract") %>
-			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]])) %><br>
-			<%= label_tag(:min_wage, "Minimum Pay") %>
-			<%= number_field(:wage, :min_wage, in: 4..20, step: 1) %><br>
-			<%= hidden_field(:refined, value: true) %>
-			<%= submit_tag 'Refine Search' %>
-			<% end %>
-		</div>
 		<div class="col-md-4">
-				<ul>
-			<aside class="advert_column">
-				<% if @jobs.any? %>
-				<% @jobs.each do |job| %>
+			<aside>
+				<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
+				<%= check_box_tag(:bar_box, 'Bar') %>
+				<%= label_tag(:bar_box, "Bar") %>
+				<%= check_box_tag(:cafe_box, 'Cafe') %>
+				<%= label_tag(:cafe_box, "Cafe") %>
+				<%= check_box_tag(:hotel_box, 'Hotel') %>
+				<%= label_tag(:hotel_box, "Hotel") %>
+				<%= check_box_tag(:restaurant_box, 'Restaurant') %>
+				<%= label_tag(:restaurant_box, "Restaurant") %>
+				<%= check_box_tag(:shop_box, 'Shop') %>
+				<%= label_tag(:shop_box, "Shop") %>
+				<%= check_box_tag(:strip_box, 'Strip Club') %>
+				<%= label_tag(:strip_box, "Strip Club") %><br>
+				<%= label_tag(:full_time, "Type of contract") %>
+				<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]])) %><br>
+				<%= label_tag(:min_wage, "Minimum Pay") %>
+				<%= number_field(:wage, :min_wage, in: 4..20, step: 1) %><br>
+				<%= hidden_field(:refined, value: true) %>
+				<%= submit_tag 'Refine Search' %>
+				<% end %>
+			</aside>
+			<ul>
+				<aside class="advert_column">
+					<% if @jobs.any? %>
+					<% @jobs.each do |job| %>
 					<li>
 						<div class="advert_info">
 							<h1><%= job.advert_title %></h1>
@@ -40,11 +40,12 @@
 								<%= job.address %> //
 								£<%= job.wage %> per hour //
 								<%= job.email %> //
-								<%= job.phone %>
+								<%= job.phone %> //
+								<%= job.full_time? ? "Full time" : "Part time" %>
 							</p>
 						</div>
 					</li>	
-				<% end %>
+					<% end %>
 				</ul>
 				<% else %>
 				<h1>No jobs inserted yet.</h1>
@@ -54,17 +55,22 @@
 	</div>
 
 	<template id='individual_job_advert'>
-		<li>
-			<div class="advert_info">
-				<h1> {{ advert_title }} </h1>
-				<p> {{ category }} // 
-					{{ company }} //
-					{{ detail }} %> //
-					{{ address }} //
-					£{{ wage }} per hour //
-					{{ email }} //
-					 {{ phone }}
-				</p>
-			</div>
-		</li>
-	</template>
+		<ul>
+			<li>
+				<div class="advert_info">
+					<h1> {{ advert_title }} </h1>
+					<p> {{ category }} // 
+						{{ company }} //
+						{{ detail }} %> //
+						{{ address }} //
+						£{{ wage }} per hour //
+						{{ email }} //
+						{{ phone }}
+						{{ hours }}
+					</p>
+				</div>
+			</li>
+		</template>
+	</ul>
+</div>
+

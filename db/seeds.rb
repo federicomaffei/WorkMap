@@ -18,7 +18,7 @@ def front_stub_array
 	front_stubs = []
 	postcodes = [['E',20],['N',22],['NW',11],['SW',20],['SE',28],['W',14]]
 	postcodes.each do |postcode|
-		front_stubs << [*1..postcode[1]].fill(postcode[0]).zip(1..postcode[1]).map{ |letter_number| letter_number.join }
+		front_stubs << [*1..postcode[1]].fill(postcode[0]).zip(1..postcode[1]).map(&:join)
 	end
 	return front_stubs
 end
@@ -40,7 +40,7 @@ end
 
 @employer = Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')
 gen_postcodes.each_with_index do |address, index|
-	job = Job.new advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: 'true', detail: 'Detailed description', address: "#{address}, London", wage: 10, email: 'employer@test.com', phone: '12345678'
+	job = Job.new advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: [true, false].sample, detail: 'Detailed description', address: "#{address}, London", wage: 10, email: 'employer@test.com', phone: '12345678'
 	job.employer = @employer
 	job.save
 	sleep 0.25

@@ -1,7 +1,6 @@
 //= require gmaps
 
 $(document).ready(function(){
-	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
 
 	var defaultBounds = new google.maps.LatLngBounds(
 		new google.maps.LatLng(51.2901, -0.5651),
@@ -16,8 +15,6 @@ $(document).ready(function(){
 	};
 
 	autocomplete = new google.maps.places.Autocomplete(input, search_options);
-	
-	
 
 	$('#landing_page_search_box').on('submit', function(event) {
 		event.preventDefault();
@@ -33,9 +30,7 @@ $(document).ready(function(){
 					var lat = localStorage.getItem('lat');
 					var lng = localStorage.getItem('lng');
 					window.location.replace("/jobs");
-
 			}
 		});
 	});
-
 });
