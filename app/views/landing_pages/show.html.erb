@@ -76,14 +76,23 @@ body {
   font-size: 44px;
 }
 
+.modal {
+
+    width:450px;
+    height: 350px;
+    color: white;
+    background: black;
+
+}
+
+
 </style>
 
-
+  <%= render "devise/sessions/login_modal" %>
   <div class="navbar-collapse collapse">
     <nav class="navbar-form navbar-right" role="navigation">
-            <div class="links">
-              <%= link_to 'Login', new_employer_session_path, class: 'btn btn-primary' %>  |
-              <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary' %>
+            <div>
+              <%= link_to 'Create a job', "#login", "data-toggle" => "modal", class: 'btn btn-primary btn-large' %>
               <%= javascript_include_tag 'application' %>
             </div>
 

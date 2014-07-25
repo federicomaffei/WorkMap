@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 		redirect_to employer_adverts_path(job)
 	end
 
-private
+	private
 
 	def job_params
 		params[:job].permit(:advert_title, :category, :company, :full_time, :detail, :address, :wage, :email, :phone)
@@ -50,12 +50,7 @@ private
 
 	def filtered_by(params)
 		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
-		#@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
-		#@jobs = Job.where(params[:full_time])
 		@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: (params[:wage].to_i..100) })
-		puts "*" * 50
-		puts params.inspect
-		# puts Job.where({ category: job_search_array, full_time: params[:full_time]}).map(&:advert_title)
-		puts "*" * 50
 	end
+	
 end
