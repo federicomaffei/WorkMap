@@ -94,7 +94,7 @@ var zoom_options = { minZoom: 10, maxZoom: 17};
 map.setOptions(zoom_options);
 
 $('#search_box').on('submit', function(event) {
-	// event.preventDefault();
+	event.preventDefault();
 	GMaps.geocode({
 		address: $('#searchTextField').val(),
 		callback: function(results, status) {

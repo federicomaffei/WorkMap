@@ -53,9 +53,9 @@ private
 		#@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: params[:wage].permit(:min_wage)})
 		#@jobs = Job.where(params[:full_time])
 		@jobs = Job.where({ category: job_search_array })
-		puts "*" * 50
-		puts params.inspect
-		puts (Job.where(params[:full_time])).category
-		puts "*" * 50
+		# puts "*" * 50
+		# puts params.inspect
+		# puts (Job.where(params[:full_time])).category
+		# puts "*" * 50
 	end
 end
