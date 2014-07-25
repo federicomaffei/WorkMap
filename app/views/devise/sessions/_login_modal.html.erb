@@ -6,7 +6,7 @@
 </div>
 
 <div class="modal-body">
-	<%= form_for(:employer, :as => :employer, :url => session_path(:employer)) do |f| %>
+	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 	<div><%= f.label :email %><br />
 		<%= f.email_field :email, :autofocus => true %>
@@ -15,7 +15,6 @@
 	<div><%= f.label :password %><br/>
 		<%= f.password_field :password %>
 	</div>
-
 
 	<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
 

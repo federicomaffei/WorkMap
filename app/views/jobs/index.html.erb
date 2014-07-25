@@ -1,11 +1,27 @@
+
+
+
+
+
+
 <div class="container-fluid">
+
 	<div class="row">
 		<div class="col-md-8">
+
+		        <form id="search_box" class='index_page_jobs_search' method="post">
+		          <input type="text" id="searchTextField" placeholder="Address">
+		          <input type="submit" style='display:none' value="Search">
+		        </form>
+
+
+
+
 			<div id="map">
 			</div>
 		</div>
 		<div class="col-md-4">
-			<aside>
+			<aside class='jobs_filter'>
 				<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
 				<%= check_box_tag(:bar_box, 'Bar', true) %>
 				<%= label_tag(:bar_box, "Bar") %>
@@ -27,30 +43,20 @@
 				<%= submit_tag 'Refine Search' %>
 				<% end %>
 			</aside>
-			<ul>
 				<aside class="advert_column">
-					<% if @jobs.any? %>
-					<% @jobs.each do |job| %>
-					<li>
-						<div class="advert_info">
-							<h1><%= job.advert_title %></h1>
-							<p><%= job.category %> // 
-								<%= job.company %> //
-								<%= job.detail %> //
-								<%= job.address %> //
-								£<%= job.wage %> per hour //
-								<%= job.email %> //
-								<%= job.phone %> //
-								<%= job.full_time? ? "Full time" : "Part time" %>
-							</p>
-						</div>
-					</li>	
+						<% if @jobs.any? %>
+						<% @jobs.each do |job| %>
+						<a href='#' class='advert_info'>
+						      <div class='category'><%= job.category %></div>
+						      <div class='wage'><%= job.wage %></div>
+						      <div class='full_time'><%= job.full_time? ? "Full time" : "Part time"  %></div>  
+						      <div class='company'><%= job.company %></div>
+						  </a>
+						<% end %>
+					<% else %>
+					<h1>No jobs inserted yet.</h1>
 					<% end %>
-				</ul>
-				<% else %>
-				<h1>No jobs inserted yet.</h1>
-				<% end %>
-			</aside>
+				</aside>
 		</div>
 	</div>
 
