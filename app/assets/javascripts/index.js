@@ -3,8 +3,6 @@ $(document).ready(function(){
 
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019
-	
-	var longitude = 
 
 	window.map = new GMaps({
 		div: '#map',
