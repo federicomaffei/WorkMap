@@ -3,8 +3,6 @@ $(document).ready(function(){
 
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019
-	
-	var longitude = 
 
 	window.map = new GMaps({
 		div: '#map',
@@ -96,7 +94,7 @@ var zoom_options = { minZoom: 10, maxZoom: 17};
 map.setOptions(zoom_options);
 
 $('#search_box').on('submit', function(event) {
-	// event.preventDefault();
+	event.preventDefault();
 	GMaps.geocode({
 		address: $('#searchTextField').val(),
 		callback: function(results, status) {

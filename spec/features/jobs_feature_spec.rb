@@ -33,7 +33,7 @@ describe 'posting jobs' do
 			login_as employer
 		end
 		
-		xit 'a post is created', js: true do
+		it 'a post is created', js: true do
 			visit '/jobs/new'
 			fill_in 'Advert title', with: 'Lady of the night'
 			select 'Bar', from: 'Category'
