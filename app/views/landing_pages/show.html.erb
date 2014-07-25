@@ -1,39 +1,114 @@
-    
 <style>
 
-.header {
-	margin-bottom: 100px;
+body {
+  background: url(http://www.clipartbest.com/cliparts/jcx/EBa/jcxEBaRRi.svg) no-repeat center center fixed;
+  background-size: cover;
+  background-color: rgb(43, 36, 99);
+/*  background-margin-right: -200px;
+  margin-left: -200px;*/
 }
 
-.jumbotron {
-	height: 200px;
-	margin: 50px;
+/*body {
+  background: url(http://kangaroom.net/Images/map-compressed.svg) no-repeat center center fixed;
+
+}*/
+
+.col-md-8, .col-sm-8, .col-xs-8, .col-md-offset-2, .col-sm-offset-2, .col-xs-offset-2 {
+  padding: 0px;
 }
 
+.landingpageframe {
+  background-color: rgb(131, 125, 125);
+  opacity: .8;
+  height: 300px;
+  min-width: 910px;
+  margin-top: -150px;
+  position: fixed;
+  top: 50%;
+  z-index: 5;
+  border-radius: 5px;
+}
+
+.landingpageinnerframe {
+
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+  position: absolute;
+/*  background: yellow;*/
+  min-width: 775px;
+}
+
+.landinglogo {
+  float: left;
+  margin-top: 7px;
+  min-width: 230px;
+}
+
+.landingsearch {
+  height: 100%;
+  float: right;  
+  z-index: 10;
+  /*min-width: 367px;*/
+}
+
+.landing_page_search_container{
+  height: 100%;
+  float: right;
+
+}
+
+#landing_page_searchTextField {
+  height: 100%;
+  width: 100%;
+  font-size: 35px;
+  background: solid-white;
+  opacity: 1;
+  /*min-width: 367px;*/
+}
+
+.landingpagesubmitbutton{
+  display: inline;
+}
+
+.text-muted-landing-page{
+  font-size: 44px;
+}
 
 </style>
 
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="/jobs/new">Post a job</a></li>
-        </ul>
-        <h3 class="text-muted"><h1>w<span class="glyphicon glyphicon-map-marker"></span>rkmap</h1></h3>
-      </div>
 
-      <div class="jumbotron">
-        <div class="searchbox">
-
-			<form id="landing_page_search_box" method="post" >
-				<input type="text" id="landing_page_searchTextField" placeholder="Address">
-				<input type="submit" value="Search">
-			</form>
+  <div class="navbar-collapse collapse">
+    <nav class="navbar-form navbar-right" role="navigation">
+            <div class="links">
+              <%= link_to 'Login', new_employer_session_path, class: 'btn btn-primary' %>  |
+              <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary' %>
+              <%= javascript_include_tag 'application' %>
+            </div>
 
 
+    </nav>
+  </div>
 
-		</div>
-      </div>
+
+<div class="landingpageframe col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" > 
+    <div class="landingpageinnerframe col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"> 
+ 
+      <span class="landinglogo col-md-4 col-sm-4 col-xs-4">
+        <h1 class="text-muted-landing-page">w<span class="glyphicon glyphicon-map-marker"></span>rkmap</h1>
+      </span>
+ 
+      <span class="landing_page_search_container landingsearchcol-md-8 col-sm-8 col-xs-8">
+          <form id="landing_page_search_box" method="post" class='landingpagesubmitbutton'>
+            <input type="text" id="landing_page_searchTextField" placeholder="Find a job in..." class='form-control'>
+            <input type="submit" style='visibility:hidden' value="Search" class='btn btn-primary'>
+          </form>
+      </span>
+ 
+    </div>
+
+</div>
 
 
-    </div> 
+
+
