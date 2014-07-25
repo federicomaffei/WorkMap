@@ -6,7 +6,7 @@ describe 'visiting the landing page' do
 		it 'as either an employer or job seeker' do 
 			visit '/landing_page'
 			expect(page).to have_content 'Post a job'  
-			expect(page).to have_content 'Find a job'
+			expect(page).to have_button 'Find a job'
 		end
 
 	context 'as a employer looking to post a job' do 
@@ -20,13 +20,15 @@ describe 'visiting the landing page' do
 
 	end
 
-	context 'as a job seeker looking to find a job' do 
+	context 'as a job seeker looking to find a job', js: true do 
 
-		it 'and clicking the find a job link' do 
+		it 'searching takes you to the jobs map page' do 
 			visit '/landing_page'
-			click_link 'Find a job'
+			fill_in :Address, with: "London"
+			click_button 'Find a job'
+			sleep 1
 			# expect(page).to have_content 'Find a job in London'
-			# expect(current_path).to eq '/jobs/index'
+			expect(current_path).to eq '/jobs'
 		end
 
 	end

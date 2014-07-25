@@ -110,13 +110,15 @@ $.get("/jobs.json", function(jobs) {
 	var markers = [];
 	jobs.forEach(function(job) {
 		category = job.category;
+		var popup_template = $('#pop_up_job_advert').html();
+			var job_Info = Mustache.render(popup_template,job);	
 		var marker = map.addMarker({
 			lat: job.latitude,
 			lng: job.longitude,
 			title: job.advert_title,
 			category: job.category,
 			icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-			infoWindow: { content: job.category }
+			infoWindow: { content: job_Info }
 		});
 		markers.push(marker);
 	});
@@ -125,28 +127,30 @@ $.get("/jobs.json", function(jobs) {
 $('#filter_form').submit(function(event){
 	event.preventDefault();
 	$.get('/jobs.json', $(this).serialize(), function(jobs){
-			map.removeMarkers();
-			jobs.forEach(function(job) {
-				category = job.category;	
-				var marker = map.addMarker({
-					lat: job.latitude,
-					lng: job.longitude,
-					title: job.advert_title,
-					category: job.category,
-					icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-					infoWindow: { content: job.category }
-				});
-			});
-
-
-			$('.advert_column').empty();
-			jobs.forEach(function(job) {
-				var template = $('#individual_job_advert').html();
-				var newAdvert = Mustache.render(template,job);
-				$('.advert_column').append(newAdvert);
-
+		map.removeMarkers();
+		jobs.forEach(function(job) {
+			category = job.category;
+			var popup_template = $('#pop_up_job_advert').html();
+			var job_Info = Mustache.render(popup_template,job);	
+			var marker = map.addMarker({
+				lat: job.latitude,
+				lng: job.longitude,
+				title: job.advert_title,
+				category: job.category,
+				icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
+				infoWindow: { content: job_Info }
 			});
 		});
+
+
+		$('.advert_column').empty();
+		jobs.forEach(function(job) {
+			var template = $('#individual_job_advert').html();
+			var newAdvert = Mustache.render(template,job);
+			$('.advert_column').append(newAdvert);
+
+		});
 	});
+});
 });
 
