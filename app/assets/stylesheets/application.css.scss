@@ -1,41 +1,96 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+body {
+    font-family: "HelveticaNeue-UltraLight", "HelveticaNeue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    background-size: cover;
+  }
 
 .container-fluid {
-	padding-left: 0px;
-	padding-right: 0px;
+padding-left: 0px;
+padding-right: 0px;
 }
 
 .col-md-8 {
-	padding-left: 0px;
-	padding-right: 0px;
+padding-left: 0px;
+padding-right: 0px;
 }
 
 .col-md-4 {
-	padding-left: 0px;
-	padding-right: 0px;
-	
-	ul, ol {
-	padding: 0px;
-	margin: 0px;
-	}
+padding-left: 0px;
+padding-right: 0px;
+
+ul, ol {
+padding: 0px;
+margin: 0px;
+}
 }
 
 .container-fluid {
-	.row {
-		margin: 0px;
-	}
+.row {
+margin: 0px;
+}
+}
+
+.modal {
+position: fixed;
+top: 50%;
+left: 50%;
+margin-top: -175px; 
+margin-left: -225px;
+width: 450px;
+height: 350px;
+background:rgba(0,0,0,0.7);
+border-radius: 10px;
+}
+
+.modal-header {
+font-family: 'HelveticaNeue-UltraLight';
+color: white;
+font-size: 20px;
+}
+
+.signin_field {
+font-family: 'HelveticaNeue-Light';
+color: white;
+font-size: 15px;
+margin-top: 10px;
+margin_bottom:10px;
+}
+
+.landing_page_login_link {
+font-family: 'HelveticaNeue-Light';
+color: white !important;
+font-size: 20px;
+}
+
+p {
+margin: 0px;
+}
+
+.btn {
+margin-top: 10px;
+}
+
+.close {
+	color: white;
+}
+
+.btn-success {
+color: white;
+background-color: #7D8A2E;
+border-color: #7D8A2E;
 }

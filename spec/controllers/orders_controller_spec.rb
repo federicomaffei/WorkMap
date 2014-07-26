@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe OrdersController, :type => :controller do
+# RSpec.describe OrdersController, :type => :controller do
 
-end
+# end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'primary map' do
 
-	xit 'displays the map on the homepage', js: true do
+	xit 'displays the map on the homepage' do
 		visit '/jobs'
 		sleep 1
 		expect(page).to have_map
@@ -22,10 +22,12 @@ describe 'primary map' do
 			visit '/jobs'
 			uncheck 'bar_box'
 			click_button 'Refine Search'
-			expect(page.evaluate_script("window.map.markers[0]")).to be nil
+			sleep 1
+			expect(page.evaluate_script("window.map.markers[0].category")).not_to have_text 'Bar'
 			check 'bar_box'
 			click_button 'Refine Search'
-			expect(page.evaluate_script("window.map.markers[0]")).not_to be nil
+			sleep 1
+			expect(page.evaluate_script("window.map.markers[0]")).to have_text 'Bar'
 		end
 
 	end
