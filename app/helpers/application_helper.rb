@@ -13,7 +13,7 @@ module ApplicationHelper
 	end
 
 	def randomized_background_image
-		images = ["https://dl.dropboxusercontent.com/u/9315601/backgrounds/bar.jpg", "https://dl.dropboxusercontent.com/u/9315601/backgrounds/restaurant2.jpg", "https://dl.dropboxusercontent.com/u/9315601/backgrounds/restaurant3.jpg", "https://dl.dropboxusercontent.com/u/9315601/backgrounds/waiter.jpg"]
+		images = ["https://dl.dropboxusercontent.com/u/9315601/backgrounds/bar.jpg", "https://dl.dropboxusercontent.com/u/9315601/backgrounds/restaurant2.jpg", "https://dl.dropboxusercontent.com/u/9315601/backgrounds/restaurant3.jpg"]
 		images[rand(images.size)]
 	end
 

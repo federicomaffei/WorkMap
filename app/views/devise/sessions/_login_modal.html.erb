@@ -2,27 +2,29 @@
 
 <div class="modal-header">
 	<button class="close" data-dismiss="modal">x</button>
-	<h2>Sign in</h2>
+	<h2>Sign in to WorkMap!</h2>
 </div>
 
 <div class="modal-body">
 	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-	<div><%= f.label :email %><br />
+	<div><p class="signin_field"><%= f.label :email %></p>
 		<%= f.email_field :email, :autofocus => true %>
 	</div>
 
-	<div><%= f.label :password %><br/>
-		<%= f.password_field :password %>
+	<div><p class="signin_field"><%= f.label :password %></p>
+		<%= f.password_field :password %><br>
 	</div>
 
+	<p class="signin_field">
 	<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
+	</p>
 
 	<% end %>
 </div>
 
 <div class="modal-footer">
-	<%= render "devise/shared/links" %>
+	<%= link_to 'Do not have an account? Sign up!', new_employer_registration_path, :class => 'landing_page_login_link' %>
 </div>
 
 </div>

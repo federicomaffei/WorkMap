@@ -1,6 +1,5 @@
 class LandingPagesController < ApplicationController
 
-
 	def show
 		render layout: "landingpage"
 	end
