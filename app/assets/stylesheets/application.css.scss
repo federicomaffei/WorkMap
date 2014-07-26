@@ -43,11 +43,6 @@ body {
     background-size: cover;
   }
 
-.container-fluid {
-padding-left: 0px;
-padding-right: 0px;
-}
-
 .col-md-8 {
 padding-left: 0px;
 padding-right: 0px;
@@ -56,17 +51,18 @@ padding-right: 0px;
 .col-md-4 {
 padding-left: 0px;
 padding-right: 0px;
+}
 
 ul, ol {
 padding: 0px;
 margin: 0px;
 }
-}
+
 
 .container-fluid {
-.row {
-margin: 0px;
-}
+	.row {
+		margin: 0px;
+	}
 }
 
 .modal {
@@ -96,7 +92,7 @@ margin_bottom:10px;
 }
 
 .landing_page_login_link {
-font-family: 'HelveticaNeue-Light';
+font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 color: white !important;
 font-size: 20px;
 }

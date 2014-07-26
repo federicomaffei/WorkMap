@@ -10,6 +10,31 @@
 </head>
 
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a a class="navbar-brand" href="#"><span class="logo-w">w<span><span class="glyphicon glyphicon-map-marker"></span><span class="logo-rk">rk</span><span class="logo-map">map</span>
+          </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+      	<% if employer_signed_in? %>
+        <li><%= link_to 'Hiring? Post a job!', new_job_path, value: 'create_job' %></li>
+        <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete%></li>
+        <% else %>
+        <li><%= link_to 'Hiring? Post a job!', "#login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
+      	<% end %>
+      	<%= javascript_include_tag 'application' %>
+      </ul>
+    </div>
+  </div>
+</nav>
 	<%= yield %>
 </body>
 

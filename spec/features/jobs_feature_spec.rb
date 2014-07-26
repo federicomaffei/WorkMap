@@ -30,13 +30,11 @@ describe 'posting jobs' do
 
 		before do
 			employer = Employer.create id: 1, email: 'test@test.net', password: '12345678', password_confirmation: '12345678'
-			login_as employer
+			login_as employer, scope: :employer
 		end
 		
 		specify 'a post is created', js: true do
-			login_as employer
 			visit '/jobs/new'
-			save_and_open_page
 			fill_in 'Advert title', with: 'Lady of the night'
 			select 'Bar', from: 'Category'
 			fill_in 'Company', with: 'Test Company'
@@ -78,7 +76,7 @@ describe 'employers viewing their job advertisments' do
 		let(:employer) {Employer.create email: 'test@test.net', password: '12345678', password_confirmation: '12345678'}
 
 		before do
-			login_as employer
+			login_as employer, scope: :employer
 			employer.jobs.create!(advert_title: 'Test job name 1', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
 			Job.create!(advert_title: 'Test job name 2', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
 		end
