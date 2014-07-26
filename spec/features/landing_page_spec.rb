@@ -9,12 +9,12 @@ describe 'visiting the landing page' do
 			expect(page).to have_button 'Find a job'
 		end
 
-	context 'as a employer looking to post a job' do 
+	context 'as a employer looking to post a job', js: true do 
 
-		it 'and clicking the post a job link' do 
+		specify 'clicking the "post a job" link prompts you to sign in' do 
 			visit '/landing_page'
-			click_link 'Post a job'
-			expect(current_path).to eq '/employers/sign_in'
+			execute_script("$('.btn-large').click()")
+			expect(current_path).to eq '/landing_page'
 			expect(page).to have_content 'Sign in'  
 		end
 
