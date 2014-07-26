@@ -14,6 +14,30 @@
 *= require_self
 */
 
+
+.navbar-inverse .navbar-brand {
+color: #FFF;
+font-size: 40px;
+letter-spacing: -1px;
+padding-top: 5px;
+
+}
+
+
+
+
+.glyphicon {
+position: relative;
+top: 10px;
+display: inline-block;
+font-family: 'Glyphicons Halflings';
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+font-size: 32px;
+}
+
 body {
     font-family: "HelveticaNeue-UltraLight", "HelveticaNeue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-size: cover;
