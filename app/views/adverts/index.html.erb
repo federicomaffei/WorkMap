@@ -1,7 +1,21 @@
-<% @adverts.each do |advert| %>
+<div class="bugfixing">
 
-<%= advert.advert_title %>
-<%= link_to 'Edit advert', edit_employer_advert_path(@employer, advert) %>
-<%= link_to 'Remove advert', employer_advert_path(@employer, advert), method: 'delete' %>
+	<% if @adverts.any? %>
 
-<% end %>
+		<% @adverts.each do |advert| %>
+
+			<%= advert.advert_title %>
+			<%= link_to 'Edit advert', edit_employer_advert_path(@employer, advert) %>
+			<%= link_to 'Remove advert', employer_advert_path(@employer, advert), method: 'delete' %>
+
+		<% end %>
+
+	<% else %>
+
+		<h2>No adverts?</h2>
+		<br><%= @employer %></br>
+		<br><%= current_employer %></br>
+
+	<% end %>
+
+</div>
