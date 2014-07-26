@@ -1,3 +1,51 @@
 // Place all the styles related to the LandingPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.col-md-8, .col-sm-8, .col-xs-8, .col-md-offset-2, .col-sm-offset-2, .col-xs-offset-2 {
+    /*padding: 0px;*/
+  }
+
+  .landingpageframe {
+  	margin-top: -100px;
+    position: absolute;
+    top: 50%;
+  }
+
+  .landingpageinnerframe {
+  	min-width: 750px;
+    position: absolute;
+    top: 50%;
+    background:rgba(125,138,46,0.7);
+    z-index: 5;
+    border-radius: 10px;
+  }
+
+  #landing_page_searchTextField {
+    height: 100%;
+    width: 100%;
+    font-family: 'HelveticaNeue-Light';
+    font-size: 40px;
+    color: #FF8598;
+    background: solid-white;
+  }
+
+  #landing_page_central_list {
+    padding: 5px 30px;
+    list-style: none;
+  }
+
+  #landing_page_payoff {
+    font-size: 40px;
+    text-align:center;
+    font-family: 'HelveticaNeue-UltraLight';
+    color: white;
+  }
+
+  .landingpagesubmitbutton{
+    display: inline;
+  }
+
+  .text-muted-landing-page{
+    font-size: 44px;
+  }
