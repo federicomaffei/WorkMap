@@ -6,7 +6,7 @@
 html, body { 
 	height: 100%;
 	width: 100%;
-	background-color: yellow;
+	background-color: white;
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
@@ -35,6 +35,7 @@ label {
 
 .container-fluid {
 	height: 100%;
+	padding: 0px;
 }
 
 .col-md-7, .col-sm-7, .col-xs-7, .col-md-5, .col-sm-5, .col-xs-5 {

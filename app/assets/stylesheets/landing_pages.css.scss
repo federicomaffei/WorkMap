@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.col-md-8, .col-sm-8, .col-xs-8, .col-md-offset-2, .col-sm-offset-2, .col-xs-offset-2 {
-    /*padding: 0px;*/
-  }
+body { 
+	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
 
   .landingpageframe {
   	margin-top: -100px;
@@ -14,7 +14,7 @@
 
   .landingpageinnerframe {
   	min-width: 750px;
-    position: absolute;
+    position: absolute;	
     top: 50%;
     background:rgba(125,138,46,0.7);
     z-index: 5;

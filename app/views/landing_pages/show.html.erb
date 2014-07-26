@@ -2,25 +2,12 @@
 
   body {
     background: url(<%= randomized_background_image %>) no-repeat center center fixed;
+    background-size: cover;
   }
 
 </style>
 
 <%= render "devise/sessions/login_modal" %>
-
-<div class="navbar-collapse collapse">
-  <nav class="navbar-form navbar-right" role="navigation">
-    <div>
-      <% if employer_signed_in? %>
-      <%= link_to 'Hiring? Post a job!', new_job_path, class: 'landing_page_login_link', value: 'create_job' %>
-      <%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'landing_page_login_link' %>
-      <% else %>
-      <%= link_to 'Hiring? Post a job!', "#login", "data-toggle" => "modal", class: 'landing_page_login_link' %>
-      <% end %>
-      <%= javascript_include_tag 'application' %>
-    </div>
-  </nav>
-
 
 
   <div class="landingpageframe col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" >
