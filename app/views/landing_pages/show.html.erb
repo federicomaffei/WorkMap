@@ -1,6 +1,7 @@
 <style>
 
   body {
+    font-family: "HelveticaNeue-UltraLight", "HelveticaNeue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background: url(<%= randomized_background_image %>) no-repeat center center fixed;
     /*background: url(http://www.clipartbest.com/cliparts/jcx/EBa/jcxEBaRRi.svg) no-repeat center center fixed;*/
     background-size: cover;
@@ -32,14 +33,14 @@
     width: 100%;
     font-family: 'HelveticaNeue-Light';
     font-size: 40px;
-    color: #7D8A2E;
+    color: #FF8598;
     background: solid-white;
   }
 
   #landing_page_central_list {
-    background:rgba(125,138,46,0.6);
     padding: 5px 30px;
     list-style: none;
+    background:rgba(125,138,46,0.7);
     z-index: 5;
     border-radius: 10px;
   }
@@ -51,33 +52,12 @@
     color: white;
   }
 
-  #landing_page_login_link {
-    font-family: 'HelveticaNeue-UltraLight';
-    color: white;
-    font-size: 20px;
-  }
-
-
   .landingpagesubmitbutton{
     display: inline;
   }
 
   .text-muted-landing-page{
     font-size: 44px;
-  }
-
-  .modal {
-
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -175px; 
-    margin-left: -225px;
-    width: 450px;
-    height: 350px;
-    color: white;
-    background: black;
-
   }
 
 </style>
@@ -88,10 +68,10 @@
   <nav class="navbar-form navbar-right" role="navigation">
     <div>
       <% if employer_signed_in? %>
-      <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary btn-large', value: 'create_job' %>
-      <%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'btn btn-primary btn-large' %>
+      <%= link_to 'Hiring? Post a job!', new_job_path, class: 'landing_page_login_link', value: 'create_job' %>
+      <%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'landing_page_login_link' %>
       <% else %>
-      <%= link_to 'Create a job', "#login", "data-toggle" => "modal", id: 'landing_page_login_link' %>
+      <%= link_to 'Hiring? Post a job!', "#login", "data-toggle" => "modal", class: 'landing_page_login_link' %>
       <% end %>
       <%= javascript_include_tag 'application' %>
     </div>
@@ -105,7 +85,7 @@
 
       <ul id="landing_page_central_list">
         <li>
-          <p><h1 id="landing_page_payoff">The insta-hiring platform. Get started!</h1></p>
+          <p><h1 id="landing_page_payoff">The instant-hiring platform. Get started!</h1></p>
         </li>
         <li>
           <form id="landing_page_search_box" method="post" class='landingpagesubmitbutton'>
