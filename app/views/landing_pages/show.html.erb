@@ -88,7 +88,7 @@
   <nav class="navbar-form navbar-right" role="navigation">
     <div>
       <% if employer_signed_in? %>
-      <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary btn-large' %>
+      <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary btn-large', value: 'create_job' %>
       <%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'btn btn-primary btn-large' %>
       <% else %>
       <%= link_to 'Create a job', "#login", "data-toggle" => "modal", id: 'landing_page_login_link' %>
