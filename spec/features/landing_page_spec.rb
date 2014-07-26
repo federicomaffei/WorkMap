@@ -3,15 +3,15 @@ require 'rails_helper'
 
 describe 'visiting the landing page' do 
 
-		it 'as either an employer or job seeker' do 
+		specify 'when not logged in lets you find or create a job' do 
 			visit '/landing_page'
-			expect(page).to have_content 'Post a job'  
+			expect(page).to have_content 'Create a job'  
 			expect(page).to have_button 'Find a job'
 		end
 
 	context 'as a employer looking to post a job', js: true do 
 
-		specify 'clicking the "post a job" link prompts you to sign in' do 
+		specify 'clicking the "create a job" link prompts you to sign in' do 
 			visit '/landing_page'
 			execute_script("$('.btn-large').click()")
 			expect(current_path).to eq '/landing_page'
@@ -29,6 +29,7 @@ describe 'visiting the landing page' do
 			sleep 1
 			# expect(page).to have_content 'Find a job in London'
 			expect(current_path).to eq '/jobs'
+			# expect(find()).to eq '/jobs'
 		end
 
 	end
