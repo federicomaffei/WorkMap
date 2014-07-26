@@ -24,8 +24,8 @@ describe 'visiting the landing page' do
 
 		it 'searching takes you to the jobs map page' do 
 			visit '/landing_page'
-			fill_in :Address, with: "London"
-			click_button 'Find a job'
+			fill_in 'Find a job in...', with: "London"
+			page.execute_script("$('#landing_page_search_box').submit()")
 			sleep 1
 			# expect(page).to have_content 'Find a job in London'
 			expect(current_path).to eq '/jobs'
