@@ -44,7 +44,7 @@ label {
 
 .jobpageleftside, {
 	height: 100%;
-	background-color: green;
+	background-color: white;
 
 	#map {
 		height: 100%;
@@ -66,12 +66,24 @@ label {
 }
 
 .jobs_filter {
-	height: 100px;
-	background-color: blue;
+	height: 225px;
+	background-color: white;
+	font-size: 17px;
+
+}
+
+.form-control {
+	width: 60%;
+}
+
+#filter_form {
+	margin-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .advert_column {
-	background-color: orange;
+	background-color: white;
 }
 .advert_info {
 	overflow: scroll;
@@ -80,6 +92,8 @@ label {
 	display: table;
 	border-bottom-style: solid;
 	border-bottom-size: 1px;
+	border-bottom-color: #FFC0A9;
+	font-family: 'HelveticaNeue-Light';
 	
 	div {
 		display: inline;
@@ -87,9 +101,26 @@ label {
 		width: 150px;
 		height: 100px;
 		font-size: 20px;
-		padding: 5px;
 		vertical-align: middle;
 		text-align: center;
 	}
 
+	.category {
+	color: #7D8A2E; 
+	}
+	
+	.wage {
+	color: #FF8598;
+	}
+
+	.full_time {
+	color: #C9D787; 
+	}
+	
+	.company {
+	color: #FF8598;
+	}
+
 }
+
+
