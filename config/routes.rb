@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :employers 
   devise_for :admin
-  
+  devise_for :employers
+
   root to: 'landing_pages#show'
 
   resource :landing_page, :only => [:show, :create]

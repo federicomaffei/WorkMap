@@ -1,11 +1,11 @@
 <style>
 
-body {
-  background: url(http://www.clipartbest.com/cliparts/jcx/EBa/jcxEBaRRi.svg) no-repeat center center fixed;
-  background-size: cover;
-  background-color: rgb(43, 36, 99);
+  body {
+    background: url(http://www.clipartbest.com/cliparts/jcx/EBa/jcxEBaRRi.svg) no-repeat center center fixed;
+    background-size: cover;
+    background-color: rgb(43, 36, 99);
 /*  background-margin-right: -200px;
-  margin-left: -200px;*/
+margin-left: -200px;*/
 }
 
 /*body {
@@ -35,7 +35,7 @@ body {
   top: 50%;
   margin-top: -50px;
   position: absolute;
-/*  background: yellow;*/
+  /*  background: yellow;*/
   min-width: 775px;
 }
 
@@ -76,30 +76,52 @@ body {
   font-size: 44px;
 }
 
+.modal {
+
+  width:450px;
+  height: 350px;
+  color: white;
+  background: black;
+
+}
+
 </style>
 
+<%= render "devise/sessions/login_modal" %>
+
+<div class="navbar-collapse collapse">
+  <nav class="navbar-form navbar-right" role="navigation">
+    <div>
+      <% if employer_signed_in? %>
+      <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary btn-large' %>
+      <%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'btn btn-primary btn-large' %>
+      <% else %>
+      <%= link_to 'Create a job', "#login", "data-toggle" => "modal", class: 'btn btn-primary btn-large' %>
+      <% end %>
+      <%= javascript_include_tag 'application' %>
+    </div>
+  </nav>
 
 
 
-
-<div class="landingpageframe col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" > 
+  <div class="landingpageframe col-md-8 col-sm-8 col-xs-8 col-md-offset-2 col-sm-offset-2 col-xs-offset-2" > 
     <div class="landingpageinnerframe col-md-10 col-sm-10 col-xs-10 col-md-offset-1 col-sm-offset-1 col-xs-offset-1"> 
- 
+
       <span class="landinglogo col-md-4 col-sm-4 col-xs-4">
         <h1 class="text-muted-landing-page">w<span class="glyphicon glyphicon-map-marker"></span>rkmap</h1>
       </span>
- 
+
       <span class="landing_page_search_container landingsearchcol-md-8 col-sm-8 col-xs-8">
-          <form id="landing_page_search_box" method="post" class='landingpagesubmitbutton'>
-            <input type="text" id="landing_page_searchTextField" placeholder="Find a job in..." class='form-control'>
-            <input type="submit" style='visibility:hidden' value="Search" class='btn btn-primary'>
-          </form>
+        <form id="landing_page_search_box" method="post" class='landingpagesubmitbutton'>
+          <input type="text" id="landing_page_searchTextField" placeholder="Find a job in..." class='form-control'>
+          <input type="submit" style='visibility:hidden' value="Search" class='btn btn-primary'>
+        </form>
       </span>
- 
+
     </div>
 
+  </div>
 </div>
-
 
 
 

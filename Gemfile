@@ -32,6 +32,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :assets do
+ gem 'bootstrap-modal-rails'
+end
+
 gem 'bootstrap-sass'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 

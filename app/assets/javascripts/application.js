@@ -13,7 +13,8 @@
 //= require gmaps
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require jquery
 //= require mustache
+//= require bootstrap/modal
 //= require bootstrap-sprockets
+//= require_tree .
