@@ -37,7 +37,7 @@
   }
 
   #landing_page_central_list {
-    background:rgba(125,138,46,0.69);
+    background:rgba(125,138,46,0.6);
     padding: 5px 30px;
     list-style: none;
     z-index: 5;
@@ -49,6 +49,12 @@
     text-align:center;
     font-family: 'HelveticaNeue-UltraLight';
     color: white;
+  }
+
+  #landing_page_login_link {
+    font-family: 'HelveticaNeue-UltraLight';
+    color: white;
+    font-size: 20px;
   }
 
 
@@ -85,7 +91,7 @@
       <%= link_to 'Create a job', new_job_path, class: 'btn btn-primary btn-large' %>
       <%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'btn btn-primary btn-large' %>
       <% else %>
-      <%= link_to 'Create a job', "#login", "data-toggle" => "modal", class: 'btn btn-primary btn-large' %>
+      <%= link_to 'Create a job', "#login", "data-toggle" => "modal", id: 'landing_page_login_link' %>
       <% end %>
       <%= javascript_include_tag 'application' %>
     </div>
