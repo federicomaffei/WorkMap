@@ -5,15 +5,16 @@ describe 'visiting the landing page' do
 
 		specify 'when not logged in lets you find or create a job' do 
 			visit '/landing_page'
-			expect(page).to have_content 'Create a job'  
-			expect(page).to have_button 'Find a job'
+			expect(page).to have_link 'Create a job'  
+			expect(page).to have_field 'Find a job in...'
 		end
 
 	context 'as a employer looking to post a job', js: true do 
 
 		specify 'clicking the "create a job" link prompts you to sign in' do 
 			visit '/landing_page'
-			execute_script("$('.btn-large').click()")
+			click_link 'Create a job'
+			# execute_script("$('.btn-large').click()")
 			expect(current_path).to eq '/landing_page'
 			expect(page).to have_content 'Sign in'  
 		end
