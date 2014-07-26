@@ -7,7 +7,7 @@ describe 'jobs index page' do
 		expect(page).to have_content 'No jobs inserted yet.'
 	end
 
-	it 'a job is available.' do
+	it 'a job is available.', js: true do
 		job = Job.create advert_title: 'Test job name', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 10, email: 'employer@test.com', phone: '12345678'	
 		visit '/jobs'
 		expect(page).to have_content 'Test job name Bar // Test company // Detailed description // EC2 // £10 per hour // employer@test.com // 12345678' 
@@ -33,8 +33,10 @@ describe 'posting jobs' do
 			login_as employer
 		end
 		
-		it 'a post is created', js: true do
+		specify 'a post is created', js: true do
+			login_as employer
 			visit '/jobs/new'
+			save_and_open_page
 			fill_in 'Advert title', with: 'Lady of the night'
 			select 'Bar', from: 'Category'
 			fill_in 'Company', with: 'Test Company'
@@ -73,15 +75,16 @@ describe 'employers viewing their job advertisments' do
 
 	context 'logged in as employer with one job advert among many' do
 
+		let(:employer) {Employer.create email: 'test@test.net', password: '12345678', password_confirmation: '12345678'}
+
 		before do
-			@employer = Employer.create email: 'test@test.net', password: '12345678', password_confirmation: '12345678'
-			login_as @employer
-			@employer.jobs.create!(advert_title: 'Test job name 1', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
+			login_as employer
+			employer.jobs.create!(advert_title: 'Test job name 1', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
 			Job.create!(advert_title: 'Test job name 2', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
 		end
 		
 		it 'a post is created' do
-			visit "/employers/#{@employer.id}/adverts"
+			visit "/employers/#{employer.id}/adverts"
 			expect(page).to have_content 'Test job name 1'
 			expect(page).not_to have_content 'Test job name 2'
 		end
