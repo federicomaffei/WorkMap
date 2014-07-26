@@ -14,7 +14,6 @@ describe 'visiting the landing page' do
 		specify 'clicking the "create a job" link prompts you to sign in' do 
 			visit '/landing_page'
 			click_link 'Create a job'
-			# execute_script("$('.btn-large').click()")
 			expect(current_path).to eq '/landing_page'
 			expect(page).to have_content 'Sign in'  
 		end
@@ -27,10 +26,7 @@ describe 'visiting the landing page' do
 			visit '/landing_page'
 			fill_in 'Find a job in...', with: "London"
 			page.execute_script("$('#landing_page_search_box').submit()")
-			sleep 1
-			# expect(page).to have_content 'Find a job in London'
-			expect(current_path).to eq '/jobs'
-			# expect(find()).to eq '/jobs'
+			expect(page).to have_text 'Minimum Pay'
 		end
 
 	end
