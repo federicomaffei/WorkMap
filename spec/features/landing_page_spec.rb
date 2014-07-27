@@ -5,7 +5,7 @@ describe 'visiting the landing page' do
 
 		specify 'when not logged in lets you find or create a job' do 
 			visit '/landing_page'
-			expect(page).to have_link 'Create a job'  
+			expect(page).to have_link 'Hiring? Post a job!'  
 			expect(page).to have_field 'Find a job in...'
 		end
 
@@ -13,7 +13,7 @@ describe 'visiting the landing page' do
 
 		specify 'clicking the "create a job" link prompts you to sign in' do 
 			visit '/landing_page'
-			click_link 'Create a job'
+			click_link 'Hiring? Post a job!'
 			expect(current_path).to eq '/landing_page'
 			expect(page).to have_content 'Sign in'  
 		end
