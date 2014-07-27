@@ -28,7 +28,8 @@
         <li><%= link_to 'Hiring? Post a job!', new_job_path, value: 'create_job' %></li>
         <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete%></li>
         <% else %>
-        <li><%= link_to 'Hiring? Post a job!', "#login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
+        <li><%= link_to 'Hiring? Post a job!', "#employer_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
+        <li><%= link_to 'Jobhunting? Sign in!', "#user_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
       	<% end %>
       	<%= javascript_include_tag 'application' %>
       </ul>

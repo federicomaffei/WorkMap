@@ -1,31 +1,63 @@
-<div class="modal fade in" id="login">
+<div class="modal fade in" id="employer_login">
 
-<div class="modal-header">
-	<button class="close" data-dismiss="modal">x</button>
-	<h2>Sign in to WorkMap!</h2>
-</div>
-
-<div class="modal-body">
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-	<div><p class="signin_field"><%= f.label :email %></p>
-		<%= f.email_field :email, :autofocus => true %>
+	<div class="modal-header">
+		<button class="close close-employer-signin" data-dismiss="modal">x</button>
+		<h2>Sign in to WorkMap!</h2>
 	</div>
 
-	<div><p class="signin_field"><%= f.label :password %></p>
-		<%= f.password_field :password %><br>
+	<div class="modal-body">
+		<%= form_for(employer, as: employer_name, url: session_path(employer_name)) do |f| %>
+
+		<div>
+			<p class="modal_form signin_field"><%= f.label :email, :class => 'form_control' %></p>
+				<%= f.email_field :email, :autofocus => true %>
+		</div>
+
+		<div>
+			<p class="modal_form signin_field"><%= f.label :password %></p>
+				<%= f.password_field :password %><br>
+		</div>
+
+		<p class="modal_form signin_field">
+		<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
+		</p>
+
+		<% end %>
 	</div>
 
-	<p class="signin_field">
-	<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
-	</p>
-
-	<% end %>
-</div>
-
-<div class="modal-footer">
-	<%= link_to 'Do not have an account? Sign up!', new_employer_registration_path, :class => 'landing_page_login_link' %>
-</div>
+	<div class="modal-footer">
+		<%= link_to 'Do not have an account? Sign up!', "#employer_signup", "data-toggle" => "modal", :class => 'landing_page_login_link' %>
+	</div>
 
 </div>
 
+<div class="modal fade in" id="user_login">
+
+	<div class="modal-header">
+		<button class="close close-employer-signin" data-dismiss="modal">x</button>
+		<h2>Sign in to WorkMap!</h2>
+	</div>
+
+	<div class="modal-body">
+		<%= form_for(user, as: user_name, url: session_path(user_name)) do |f| %>
+
+		<div><p class="modal_form signin_field"><%= f.label :email %></p>
+			<%= f.email_field :email, :autofocus => true %>
+		</div>
+
+		<div><p class="modal_form signin_field"><%= f.label :password %></p>
+			<%= f.password_field :password %><br>
+		</div>
+
+		<p class="modal_form signin_field">
+			<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
+		</p>
+
+		<% end %>
+	</div>
+
+	<div class="modal-footer">
+		<%= link_to 'Do not have an account? Sign up!', "#user_signup", "data-toggle" => "modal", :class => 'landing_page_login_link' %>
+	</div>
+
+</div>
