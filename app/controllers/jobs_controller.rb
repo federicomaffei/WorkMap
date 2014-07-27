@@ -7,7 +7,7 @@ class JobsController < ApplicationController
 		if params[:refined]
 			filtered_by(params)
 			#simply to be passed back to js
-			@max_distance = 100000
+			@max_distance = 10.0
 			render 'index', content_type: :json
 		else
 			@jobs = Job.all
