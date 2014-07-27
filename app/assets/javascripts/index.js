@@ -1,14 +1,17 @@
 $(document).ready(function(){
 	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
 
-	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126
-	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019
+	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126;
+	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019;
+	// var currentMapCenter = (latitude,longitude);
+	// console.log(currentMapCenter);
+
 
 	window.map = new GMaps({
 		div: '#map',
 		lat: latitude,
 		lng: longitude,	
-		zoom: 18,	
+		zoom: 9,	
 		zoomControl: true,
 		zoomControlOpt: {
 			style: 'MEDIUM',
@@ -50,7 +53,6 @@ $(document).ready(function(){
 		new google.maps.LatLng(51.6167, 0.2463)
 		);
 
-
 	var input = document.getElementById('searchTextField');
 
 	var search_options = {
@@ -60,8 +62,7 @@ $(document).ready(function(){
 
 	autocomplete = new google.maps.places.Autocomplete(input, search_options);
 
-	var zoom_options = { minZoom: 10, maxZoom: 17};
-
+	var zoom_options = { minZoom: 9, maxZoom: 17};
 	map.setOptions(zoom_options);
 
 	$('#search_box').on('submit', function(event) {
@@ -72,46 +73,70 @@ $(document).ready(function(){
 				if (status == 'OK') {
 					var latlng = results[0].geometry.location;
 					map.setCenter(latlng.lat(), latlng.lng());
+					// var currentMapCenter = (latitude,longitude);
+					// console.log(currentMapCenter);
 				} 
 			}
 		});
 	});
 
+
+
 	$.get("/jobs.json", function(jobs) {
-		var markers = [];
+		// var markers = [];
 		jobs.forEach(function(job) {
-			category = job.category;
-			var popup_template = $('#pop_up_job_advert').html();
-			var job_Info = Mustache.render(popup_template,job);	
-			var marker = map.addMarker({
-				lat: job.latitude,
-				lng: job.longitude,
-				title: job.advert_title,
-				category: job.category,
-				icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-				infoWindow: { content: job_Info }
-			});
-			markers.push(marker);
+
+					category = job.category;
+					var popup_template = $('#pop_up_job_advert').html();
+					var job_Info = Mustache.render(popup_template,job);	
+					var marker = map.addMarker({
+						lat: job.latitude,
+						lng: job.longitude,
+						title: job.advert_title,
+						category: job.category,
+						icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
+						infoWindow: { content: job_Info }
+					});
+			// markers.push(marker);
 		});
 	});
+
+	var calcDistance = function(map,job) {
+		var mapCenter = map.getCenter();
+		// console.log(mapMapCenter);
+		// latlng object from actual coordinates
+		var markerLocation = new google.maps.LatLng(job.latitude,job.longitude);
+		// latlng object from callback
+	  // var latlng = results[0].geometry.location;
+	  var markerDistance = google.maps.geometry.spherical.computeDistanceBetween(mapCenter, markerLocation);
+	  return markerDistance;
+	};
 
 	$('#filter_form').submit(function(event){
 		event.preventDefault();
 		$.get('/jobs.json', $(this).serialize(), function(jobs){
 			map.removeMarkers();
 			jobs.forEach(function(job) {
-				category = job.category;
-				var popup_template = $('#pop_up_job_advert').html();
-				var job_Info = Mustache.render(popup_template,job);	
-				var marker = map.addMarker({
-					lat: job.latitude,
-					lng: job.longitude,
-					title: job.advert_title,
-					category: job.category,
-					icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-					infoWindow: { content: job_Info }
-				});
-			});
+			
+					console.log(calcDistance(map,job));
+					if (calcDistance(map,job) <= job.max_distance) {			
+
+						category = job.category;
+						console.log(job);
+						var popup_template = $('#pop_up_job_advert').html();
+						var job_Info = Mustache.render(popup_template,job);	
+						var marker = map.addMarker({
+							lat: job.latitude,
+							lng: job.longitude,
+							title: job.advert_title,
+							category: job.category,
+							icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
+							infoWindow: { content: job_Info }
+						});
+					
+					};
+
+		});
 
 
 			$('.advert_column').empty();

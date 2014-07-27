@@ -46,9 +46,16 @@ end
 
 @employer = Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')
 
-100.times do
+1000.times do
 	# job = Job.new latitude: (latitude_start + random_lat_add), longitude: (-0.602875 + random_long_add), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
-	job = Job.new latitude: (51.204248 + (0.52/100)*rand(101)), longitude: (-0.602875 + (1.04/100)*rand(101)), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
+	job = Job.new latitude: (51.2902111 + (0.37/100)*rand(101)), longitude: (-0.505371 + (0.68/100)*rand(101)), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
 	job.employer = @employer
 	job.save
 end
+
+# 51.290211, 0.175781
+# 51.656318, -0.505371
+
+
+
+
