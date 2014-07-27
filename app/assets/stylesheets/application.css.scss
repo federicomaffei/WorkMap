@@ -14,6 +14,15 @@
 *= require_self
 */
 
+@font-face {
+    font-family: 'HelveticaNeue-UltraLight';
+    src: url(https://dl.dropboxusercontent.com/u/9315601/fonts/helveticaneue-ultralight-webfont.ttf);
+}
+
+@font-face {
+    font-family: 'HelveticaNeue-Light';
+    src: url(https://dl.dropboxusercontent.com/u/9315601/fonts/HelveticaNeue-Light.ttf);
+}
 
 .navbar-inverse .navbar-brand {
 color: #FFF;
