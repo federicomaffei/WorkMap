@@ -10,6 +10,8 @@ def create
   # puts session[:temp_job]
 
   @job = Job.find(params[:job_id])
+# working out how to create a new order object with a successful charge here.
+  # @order = Order.create()
   @amount = 500
 
   customer = Stripe::Customer.create(
@@ -26,6 +28,8 @@ def create
 
   @job.paid = true
   @job.save
+
+# we must create an order object here as well as a job!!
 
 flash[:notice] = "Thanks fo your payment of #{@amount}"
 redirect_to "/employers/#{current_employer.id}/adverts"

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'capybara/email/rspec'
 
 describe 'orders page' do
 	let(:admin) {Admin.create(email: 'tester@testicle.com', password: 'testicle', password_confirmation: 'testicle')}
@@ -49,5 +50,21 @@ describe 'orders page' do
 		
 		end
 	end
-
 end
+
+describe 'order email confirmation' do
+	let(:employer) {Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')}
+	let(:job) {Job.create(advert_title: 'Test job name', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 10, email: 'jobs@test.net', phone: '12345678')}
+
+		before do
+			clear_emails
+		end
+
+		it 'is sent when an order is created' do
+			Order.create(job: job, employer: employer)
+			open_email('test@test.net')
+			expect(current_email).to have_content 'Order successful'
+			expect(current_email.subject).to eq "'Test job name' placement confirmed"
+		end
+
+	end
