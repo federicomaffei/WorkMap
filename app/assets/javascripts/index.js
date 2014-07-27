@@ -81,6 +81,7 @@ $(document).ready(function(){
 						icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
 						infoWindow: { content: job_Info }
 					});
+					renderMarker(job);
 			// markers.push(marker);
 		});
 	});
@@ -104,56 +105,69 @@ $(document).ready(function(){
 						jobs.forEach(function(job) {
 						// console.log(calcDistanceKms(map,job));
 							if (calcDistanceKms(map,job) <= job.max_distance) {			
-								category = job.category;
-								// console.log(job);
-								var popup_template = $('#pop_up_job_advert').html();
-								var job_Info = Mustache.render(popup_template,job);	
-								var marker = map.addMarker({
-									lat: job.latitude,
-									lng: job.longitude,
-									title: job.advert_title,
-									category: job.category,
-									icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-									infoWindow: { content: job_Info }
-								});
-								advertsRefined << job;
+								renderMarker(job);
+								advertsRefined.push(job);
 							};
-							// console.log(advertsRefined);
-							// updateAdvertColumn(advertsRefined);
 						});
-						console.log(advertsRefined.length);
+						// console.log(advertsRefined.length);
+						updateAdvertColumn(advertsRefined);
 			});
 	});
 
-	// $('#search_box').on('submit', function(event) {
-	// 		event.preventDefault();
-			
-	// 		$.get('/jobs.json',$('#filter_form').serialize(), function() {
+	var renderMarker = function(job){
+			category = job.category;
+		// console.log(job);
+		var popup_template = $('#pop_up_job_advert').html();
+		var job_Info = Mustache.render(popup_template,job);	
+		var marker = map.addMarker({
+			lat: job.latitude,
+			lng: job.longitude,
+			title: job.advert_title,
+			category: job.category,
+			icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
+			infoWindow: { content: job_Info }
+		});
+	};
 
-	// 		});
-	// 		GMaps.geocode({
-	// 			address: $('#searchTextField').val(),
-	// 			callback: function(results, status) {
-	// 				if (status == 'OK') {
-	// 					var latlng = results[0].geometry.location;
-	// 					map.setCenter(latlng.lat(), latlng.lng());
-	// 					// var currentMapCenter = (latitude,longitude);
-	// 					// console.log(currentMapCenter);		
-	// 				};
-	// 			};
-	// 		});
-	// });
+	var updateAdvertColumn = function(jobs){
+		$('.advert_column').empty();
+		jobs.forEach(function(job) {
+			var template = $('#individual_job_advert').html();
+			var newAdvert = Mustache.render(template,job);
+			$('.advert_column').append(newAdvert);
+		});
+	};
 
-		var updateAdvertColumn = function (jobs){
-			$('.advert_column').empty();
-			jobs.forEach(function(job) {
-				var template = $('#individual_job_advert').html();
-				var newAdvert = Mustache.render(template,job);
-				$('.advert_column').append(newAdvert);
-			});
-		};
 
-	
+	$('#search_box').on('submit', function(event) {
+			event.preventDefault();
+
+			GMaps.geocode({
+				address: $('#searchTextField').val(),
+				callback: function(results, status) {
+					if (status == 'OK') {
+						var latlng = results[0].geometry.location;
+						map.setCenter(latlng.lat(), latlng.lng());
+
+						map.removeMarkers();
+						
+						$.get('/jobs.json',$('#filter_form').serialize(), function(jobs) {
+							var advertsRefined = [];
+								jobs.forEach(function(job) {
+									if (calcDistanceKms(map,job) <= job.max_distance) {			
+										renderMarker(job);
+										advertsRefined.push(job);
+									};
+								});
+							updateAdvertColumn(advertsRefined);
+						// var currentMapCenter = (latitude,longitude);
+						// console.log(currentMapCenter);		
+						});
+				}
+			}
+		});
+	});
+
 
 });
 
