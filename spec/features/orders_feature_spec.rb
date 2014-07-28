@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'capybara/email/rspec'
 
 describe 'orders page' do
 	let(:admin) {Admin.create(email: 'tester@testicle.com', password: 'testicle', password_confirmation: 'testicle')}
@@ -15,8 +16,8 @@ describe 'orders page' do
 	context 'logged in as admin' do
 		
 		before do
-	    login_as admin, scope: :admin
-	  end
+			login_as admin, scope: :admin
+		end
 
 		context 'no orders' do
 			it 'sees a message' do
@@ -46,8 +47,7 @@ describe 'orders page' do
 			it 'displays an order number' do
 				expect(page).to have_content '2013-12-25'
 			end
-		
 		end
 	end
-
 end
+

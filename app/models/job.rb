@@ -8,7 +8,13 @@ class Job < ActiveRecord::Base
 
 	belongs_to :employer
 
+
 	# geocoded_by :address
 	# after_validation :geocode
+	after_destroy :send_cancellation_email
+
+	def send_cancellation_email
+  	JobMailer.cancellation(self).deliver
+  end
 
 end
