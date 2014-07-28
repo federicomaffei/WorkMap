@@ -1,7 +1,10 @@
 require 'rails_helper'
 	
-describe 'job cancellation' do
 	
+describe 'job cancellation' do
+
+let(:employer) {Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')}
+
 	before do
 		clear_emails
 	end

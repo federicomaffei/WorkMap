@@ -12,7 +12,7 @@ class AdvertsController < ApplicationController
 	def destroy
 		job = Job.find params[:id]
 		job.destroy
-		redirect_to '/' #change this redirect to if other adverts > employer_adverts_path, if not post advert page. 
+		redirect_to '/' #change this redirect to if other adverts > employer_adverts_path, if not post advert page
 
 	end
 
