@@ -1,12 +1,8 @@
 class AdvertsController < ApplicationController
 
 	def index
-		puts '################################################'
-		# raise current_employer
-		puts '################################################'
 		@employer = current_employer
 		@adverts = @employer.jobs
-		puts @adverts.count
 	end
 
 	def edit

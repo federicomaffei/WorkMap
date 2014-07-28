@@ -1,0 +1,67 @@
+<div class="modal fade in" id="employer_signup">
+
+	<div class="modal-header">
+		<button class="close close-signup-employer" data-dismiss="modal">x</button>
+		<h2>Sign up to WorkMap!</h2>
+	</div>
+
+	<div class="modal-body">
+		<%= form_for(employer, as: employer_name, url: registration_path(employer_name)) do |f| %>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :email %></p>
+			<%= f.email_field :email, :autofocus => true %>
+		</div>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :password %></p>
+			<%= f.password_field :password %><br>
+		</div>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :password_confirmation %></p>
+			<%= f.password_field :password_confirmation, autocomplete: "off" %><br/>
+		</div>
+
+		<p class="modal_form signup_field">
+			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
+		</p>
+
+		<% end %>
+	</div>
+
+</div>
+
+<div class="modal fade in" id="user_signup">
+
+	<div class="modal-header">
+		<button class="close close-signup-user" data-dismiss="modal">x</button>
+		<h2>Sign up to WorkMap!</h2>
+	</div>
+
+	<div class="modal-body">
+		<%= form_for(user, as: user_name, url: registration_path(user_name)) do |f| %>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :email %></p>
+			<%= f.email_field :email, :autofocus => true %>
+		</div>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :password %></p>
+			<%= f.password_field :password %><br>
+		</div>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :password_confirmation %></p>
+			<%= f.password_field :password_confirmation, autocomplete: "off" %><br/>
+		</div>
+
+		<p class="modal_form signup_field">
+			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
+		</p>
+
+		<% end %>
+	</div>
+
+</div>

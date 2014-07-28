@@ -6,6 +6,9 @@ class JobsController < ApplicationController
 
 		if params[:refined]
 			filtered_by(params)
+			#simply to be passed back to js
+			@max_distance = 10.0
+			render 'index', content_type: :json
 		else
 			@jobs = Job.all
 		end
@@ -50,7 +53,8 @@ class JobsController < ApplicationController
 
 	def filtered_by(params)
 		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
-		@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: (params[:wage].to_i..100) })
+		wage_range = params[:wage].to_i..100
+		@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: wage_range })
 	end
 	
 end

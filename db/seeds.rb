@@ -36,26 +36,26 @@ def gen_category
 end
 
 
+# gen_postcodes.each_with_index do |address, index|
+# 	job = Job.new advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: [true, false].sample, detail: 'Detailed description', address: "#{address}, London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
+# 	job.employer = @employer
+# 	job.save
+# 	sleep 1
+# end
+
 
 @employer = Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')
-gen_postcodes.each_with_index do |address, index|
-	job = Job.new advert_title: "Test job name #{index}", category: "#{gen_category}", company: "Test company #{index}", full_time: [true, false].sample, detail: 'Detailed description', address: "#{address}, London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
+
+1000.times do
+	# job = Job.new latitude: (latitude_start + random_lat_add), longitude: (-0.602875 + random_long_add), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
+	job = Job.new latitude: (51.2902111 + (0.37/100)*rand(101)), longitude: (-0.505371 + (0.68/100)*rand(101)), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
 	job.employer = @employer
 	job.save
-	sleep 0.25
 end
 
+# 51.290211, 0.175781
+# 51.656318, -0.505371
 
 
-
-
-# Job.create advert_title: 'Test job name 1', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: '25 City Road, London', wage: 10, email: 'employer@test.com', phone: '12345678'
-# Job.create advert_title: 'Test job name 2', category: 'Shop', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'SW6 1RE, London', wage: 12, email: 'employer@test.com', phone: '12345678'
-# Job.create advert_title: 'Test job name 3', category: 'Resturant', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: '6 Freegrove Road, London', wage: 15, email: 'employer@test.com', phone: '12345678'
-# Job.create advert_title: 'Test job name 4', category: 'Strip Club', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Wembley Stadium, London', wage: 8, email: 'employer@test.com', phone: '12345678'
-# Job.create advert_title: 'Test job name 5', category: 'Cafe', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'The Shard, London', wage: 20, email: 'employer@test.com', phone: '12345678'
-# Job.create advert_title: 'Test job name 6', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Brixton, London', wage: 12, email: 'employer@test.com', phone: '12345678'
-# Job.create advert_title: 'Test job name 7', category: 'Hotel', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'Canary Wharf, London', wage: 10, email: 'employer@test.com', phone: '12345678'
-# sleep 2
 
 

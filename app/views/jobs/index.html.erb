@@ -1,3 +1,6 @@
+<%= render "devise/sessions/login_modal" %>
+<%= render "devise/registrations/signup_modal" %>
+
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-7 col-xs-7 jobpageleftside">
@@ -58,9 +61,10 @@
 			<% @jobs.each do |job| %>
 			<a href='#' class='advert_info'>
 			<div class='category'><%= job.category %></div>
-			<div class='wage'><%= job.wage %></div>
-			<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
 			<div class='company'><%= job.company %></div>
+			<div class='distance'> distance </div>
+			<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
+			<div class='wage'><%= job.wage %> £</div>
 			</a>
 			<% end %>
 			<% else %>
@@ -73,9 +77,11 @@
 	<template id='individual_job_advert'>
 		<a href='#' class="advert_info">
 		<div class='category'>{{ category }}</div>
-		<div class='wage'>{{ wage }}</div>
-		<div class='full_time'>{{ hours }}</div>
 		<div class='company'>{{ company }}</div>
+		<div class='company'> distance </div>
+		<div class='full_time'>{{ hours }}</div>
+		<div class='wage'>{{ wage }}</div>
+		<div class='apply'><%= link_to 'Apply Now', edit_user_registration_path %></div>
 		</a>
 	</template>
 
