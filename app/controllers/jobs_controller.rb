@@ -6,7 +6,6 @@ class JobsController < ApplicationController
 
 		if params[:refined]
 			filtered_by(params)
-			#simply to be passed back to js
 			@max_distance = 10.0
 			render 'index', content_type: :json
 		else
@@ -29,14 +28,6 @@ class JobsController < ApplicationController
 			flash[:notice] = 'Errors in your form'
 			render 'new'
 		end
-		# redirect_to '/charges/new'
-		# puts session[:temp_job]
-		# raise 'hello'
-		
-		# @job = Job.new(job_params)
-		# @job.employer = current_employer
-		# @job.save!
-		# redirect_to '/jobs'
 	end
 
 	def update
@@ -59,10 +50,6 @@ class JobsController < ApplicationController
 		else
 			@jobs = Job.where({ category: job_search_array, wage: wage_range })			
 		end
-	end
-
-	def full_time?(job)
-
 	end
 	
 end
