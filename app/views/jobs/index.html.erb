@@ -40,14 +40,28 @@
 
 			<% if @jobs.any? %>
 			<% @jobs.each do |job| %>
-			<a href='#' class='advert_info'>
-			<div class='category'><%= job.category %></div>
-			<div class='company'><%= job.company %></div>
-			<div class='distance'> distance </div>
-			<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
-			<div class='wage'><%= job.wage %> £</div>
-			<div class='apply'><%= link_to 'Apply Now', edit_user_registration_path %></div>
-			</a>
+			<div class='advert_info' data-job="<%= job.id %>">
+
+				<div class="info">
+					<a href='#'>
+						<div class='category'><%= job.category %></div>
+						<div class='company'><%= job.company %></div>
+						<div class='distance'> distance </div>
+						<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
+						<div class='wage'><%= job.wage %> £</div>					
+					</a>
+				</div>
+
+				<div class="more_info" data-job="<%= job.id %>">
+					<a href='#'>
+						<div class='company'><%= job.company %></div>
+						<div class='detail'><%= job.detail %></div>
+						<div class='apply'>Apply Now!</div>
+						<div class="close-div">X</div>
+					</a>
+				</div>
+
+			</div>
 			<% end %>
 			<% else %>
 			<h1>No jobs inserted yet.</h1>
@@ -57,26 +71,48 @@
 	</div>
 
 	<template id='individual_job_advert'>
-		<a href='#' class="advert_info">
-		<div class='category'>{{ category }}</div>
-		<div class='company'>{{ company }}</div>
-		<div class='company'> distance </div>
-		<div class='full_time'>{{ hours }}</div>
-		<div class='wage'>{{ wage }}</div>
-		<div class='apply'><%= link_to 'Apply Now', edit_user_registration_path %></div>
-		</a>
+		<div class='advert_info'>
+			<div class="info">
+				<a href='#'>
+					<div class='category'>{{ category }}</div>
+					<div class='company'>{{ company }}</div>
+					<div class='distance'> distance </div>
+					<div class='full_time'>{{ hours }}</div>
+					<div class='wage'>{{ wage }}</div>
+				</a>
+			</div>
+			<div class="more_info">
+				<a href='#'>
+					<div class='company'>{{ company }}</div>
+					<div class='detail'>{{ detail }}</div>
+					<div class='apply'>Apply Now!</div>
+					<div class="whatever">X</div>
+				</a>
+			</div>
+		</div>
 	</template>
+
+	<!-- <template id='second_div_slide'>
+		<div class='advert_info_slide' data-job="">
+			<a href='#'>
+				<div class='company'>{{ company }}</div>
+				<div class='detail'>{{ detail }}</div>
+				<div class='apply'>Apply Now!</div>
+				<div class="whatever">X</div>
+			</a>
+		</div>
+	</template> -->
 
 	<template id='pop_up_job_advert'>
 		<ul>	
-		<li> {{ advert_title }} </li>
-		<li>	{{ company }} </li>
-		<li>	{{ detail }} </li>
-		<li>	{{ address }} </li>
-		<li>	£{{ wage }} per hour </li>
-		<li>	{{ email }} </li>
-		<li>	{{ phone }} </li>
-		<li>	{{ hours }} </li>
+			<li> {{ advert_title }} </li>
+			<li>	{{ company }} </li>
+			<li>	{{ detail }} </li>
+			<li>	{{ address }} </li>
+			<li>	£{{ wage }} per hour </li>
+			<li>	{{ email }} </li>
+			<li>	{{ phone }} </li>
+			<li>	{{ hours }} </li>
 		</ul>
 	</template>
 

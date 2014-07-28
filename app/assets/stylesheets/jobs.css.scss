@@ -85,6 +85,7 @@ label {
 .advert_column {
 	background-color: white;
 }
+
 .advert_info {
 	overflow: scroll;
 	height: 100%;
@@ -121,6 +122,29 @@ label {
 	color: #FF8598;
 	}
 
+	.detail {
+	color: #7D8A2E;
+	}
+
+	.close {
+	color: #FF8598;
+	}
+
+	.apply {
+	color: #FF8598;
+	}
+
 }
 
 
+.advert_info .more_info {
+    display: none;
+}
+
+.advert_info.clicked .info {
+    display: none;
+}
+
+.advert_info.clicked .more_info {
+    display: inline;
+}

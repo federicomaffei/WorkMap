@@ -26,6 +26,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'jquery-ui-rails'
+
 gem 'geocoder'
 
 group :production do
