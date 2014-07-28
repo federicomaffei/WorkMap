@@ -23,8 +23,7 @@
 <% end %>
 
 <h2>Image preview</h2>
-<%= image_tag current_user.image.url, class: 'uploaded-pic' %>
-
+<%= image_tag current_user.image.url(:thumb), class: 'uploaded-pic' %>
 
 <h3>Cancel my account</h3>
 
