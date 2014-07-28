@@ -28,8 +28,7 @@ def create
 
   @job.paid = true
   @job.save
-
-# we must create an order object here as well as a job!!
+  Order.create(employer: current_employer, job: @job)
 
 flash[:notice] = "Thanks fo your payment of #{@amount}"
 redirect_to "/employers/#{current_employer.id}/adverts"

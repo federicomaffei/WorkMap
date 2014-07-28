@@ -26,6 +26,7 @@
           	<% if employer_signed_in? %>
 	            <li><%= link_to 'Edit registration', edit_employer_registration_path %></li>
 	            <li><%= link_to 'Create a job', new_job_path %></li>
+              <li><%= link_to 'My adverts', employer_adverts_path(current_employer) %></li>
 	            <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete %></li>
             <% else %>
   	            <li><%= link_to 'Login', new_employer_session_path %></li>

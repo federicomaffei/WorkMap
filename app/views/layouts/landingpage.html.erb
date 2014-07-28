@@ -27,6 +27,7 @@
       	<% if employer_signed_in? %>
         <li><%= link_to 'Hiring? Post a job!', new_job_path, value: 'create_job' %></li>
         <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete%></li>
+        <li><%= link_to 'My adverts', employer_adverts_path(current_employer) %></li>
         <% else %>
         <li><%= link_to 'Hiring? Post a job!', "#login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
       	<% end %>
