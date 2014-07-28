@@ -65,57 +65,8 @@ $(document).ready(function(){
 	var zoom_options = { minZoom: 9, maxZoom: 17};
 	map.setOptions(zoom_options);
 
-
-	$.get("/jobs.json", function(jobs) {
-		// var markers = [];
-		jobs.forEach(function(job) {
-
-					category = job.category;
-					var popup_template = $('#pop_up_job_advert').html();
-					var job_Info = Mustache.render(popup_template,job);	
-					var marker = map.addMarker({
-						lat: job.latitude,
-						lng: job.longitude,
-						title: job.advert_title,
-						category: job.category,
-						icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-						infoWindow: { content: job_Info }
-					});
-					renderMarker(job);
-			// markers.push(marker);
-		});
-	});
-
-	var calcDistanceKms = function(map,job) {
-		var mapCenter = map.getCenter();
-		// console.log(mapMapCenter);
-		// latlng object from actual coordinates
-		var markerLocation = new google.maps.LatLng(job.latitude,job.longitude);
-		// latlng object from callback
-	  // var latlng = results[0].geometry.location;
-	  var markerDistance = google.maps.geometry.spherical.computeDistanceBetween(mapCenter, markerLocation);
-	  return markerDistance/1000;
-	};
-
-	$('#filter_form').submit(function(event){
-		event.preventDefault();
-				$.get('/jobs.json', $(this).serialize(), function(jobs){
-					map.removeMarkers();
-					var advertsRefined = [];
-						jobs.forEach(function(job) {
-						// console.log(calcDistanceKms(map,job));
-							if (calcDistanceKms(map,job) <= job.max_distance) {			
-								renderMarker(job);
-								advertsRefined.push(job);
-							};
-						});
-						// console.log(advertsRefined.length);
-						updateAdvertColumn(advertsRefined);
-			});
-	});
-
 	var renderMarker = function(job){
-			category = job.category;
+		category = job.category;
 		// console.log(job);
 		var popup_template = $('#pop_up_job_advert').html();
 		var job_Info = Mustache.render(popup_template,job);	
@@ -129,14 +80,41 @@ $(document).ready(function(){
 		});
 	};
 
-	var updateAdvertColumn = function(jobs){
-		$('.advert_column').empty();
+
+	$.get("/jobs.json", function(jobs) {
+		var markers = [];
 		jobs.forEach(function(job) {
-			var template = $('#individual_job_advert').html();
-			var newAdvert = Mustache.render(template,job);
-			$('.advert_column').append(newAdvert);
+			renderMarker(job);
 		});
+	});
+
+	var calcDistanceKms = function(map,job) {
+		var mapCenter = map.getCenter();
+		var markerLocation = new google.maps.LatLng(job.latitude,job.longitude);
+	  var markerDistance = google.maps.geometry.spherical.computeDistanceBetween(mapCenter, markerLocation);
+	  return markerDistance/1000;
 	};
+
+
+	var submitFilterForm = function(jobs){
+		map.removeMarkers();
+		var advertsRefined = [];
+			jobs.forEach(function(job) {
+				if (calcDistanceKms(map,job) <= job.max_distance) {			
+						console.log(true)
+						renderMarker(job);
+						advertsRefined.push(job);
+					};
+			});
+		updateAdvertColumn(advertsRefined);
+	};
+
+	$('#filter_form').submit(function(event){
+		event.preventDefault();
+			$.get('/jobs.json', $(this).serialize(), function(jobs){
+				submitFilterForm(jobs);
+			});
+	});
 
 
 	$('#search_box').on('submit', function(event) {
@@ -148,25 +126,26 @@ $(document).ready(function(){
 					if (status == 'OK') {
 						var latlng = results[0].geometry.location;
 						map.setCenter(latlng.lat(), latlng.lng());
-
-						map.removeMarkers();
-						
 						$.get('/jobs.json',$('#filter_form').serialize(), function(jobs) {
-							var advertsRefined = [];
-								jobs.forEach(function(job) {
-									if (calcDistanceKms(map,job) <= job.max_distance) {			
-										renderMarker(job);
-										advertsRefined.push(job);
-									};
-								});
-							updateAdvertColumn(advertsRefined);
-						// var currentMapCenter = (latitude,longitude);
-						// console.log(currentMapCenter);		
+							submitFilterForm(jobs);
 						});
 				}
 			}
 		});
 	});
+
+
+	var updateAdvertColumn = function(jobs){
+		$('.advert_column').empty();
+		jobs.forEach(function(job) {
+			var template = $('#individual_job_advert').html();
+			var newAdvert = Mustache.render(template,job);
+			$('.advert_column').append(newAdvert);
+		});
+	};
+
+
+
 
 
 });
