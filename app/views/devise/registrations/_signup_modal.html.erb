@@ -40,7 +40,7 @@
 	</div>
 
 	<div class="modal-body">
-		<%= form_for(user, as: user_name, url: registration_path(user_name)) do |f| %>
+		<%= form_for(user, as: user_name, url: registration_path(user_name), html: {multipart: true}) do |f| %>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :email %></p>
@@ -55,6 +55,11 @@
 		<div>
 			<p class="modal_form signup_field"><%= f.label :password_confirmation %></p>
 			<%= f.password_field :password_confirmation, autocomplete: "off" %><br/>
+		</div>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :image, 'Profile picture' %></p>
+			<%= f.file_field :image %><br/>
 		</div>
 
 		<p class="modal_form signup_field">

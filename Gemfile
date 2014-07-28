@@ -32,6 +32,8 @@ gem 'capybara-email'
 
 gem 'mailcatcher'
 
+gem "paperclip", github: 'thoughtbot/paperclip'
+
 group :production do
   gem 'rails_12factor'
 end

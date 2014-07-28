@@ -27,5 +27,24 @@ describe 'user signing up' do
 		click_button 'Sign up'
 		expect(User.count).to eq 1
 	end
+
+	scenario 'during the sign up a photo can be added to the user profile' do
+		visit '/'
+		click_link "Jobhunting? Sign in!"
+		within("#user_login") do
+			click_link "Do not have an account? Sign up!"
+		end
+		sleep 1
+		expect(current_path).to eq '/'
+		within('#user_signup') do
+			fill_in 'Email', with: 'test@test.com'
+			fill_in 'Password', with: '12345678'
+			fill_in 'Password confirmation', with: '12345678'
+			attach_file 'Profile picture', Rails.root.join('spec/images/user.jpg')
+			click_button 'Sign up'
+		end
+		click_link 'Edit registration'
+		expect(page).to have_css 'img.uploaded-pic'
+	end
 	
 end
