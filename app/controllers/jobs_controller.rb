@@ -54,7 +54,15 @@ class JobsController < ApplicationController
 	def filtered_by(params)
 		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
 		wage_range = params[:wage].to_i..100
-		@jobs = Job.where({ category: job_search_array, full_time: params[:full_time], wage: wage_range })
+		if (params[:full_time] == "true") || (params[:full_time] == "false")
+			@jobs = Job.where({ category: job_search_array, wage: wage_range, full_time: params[:full_time] })
+		else
+			@jobs = Job.where({ category: job_search_array, wage: wage_range })			
+		end
+	end
+
+	def full_time?(job)
+
 	end
 	
 end
