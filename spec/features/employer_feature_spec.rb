@@ -34,7 +34,7 @@ describe 'employers job advert update page' do
 			before do
 				clear_emails
 			end
-			
+
 		it 'when employer removes a job is removed a confirmation email is sent' do
 
 			employer.jobs.create!(advert_title: 'Test job name', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
@@ -42,7 +42,7 @@ describe 'employers job advert update page' do
 			visit "/employers/#{employer.id}/adverts"
 			click_link 'Remove advert'
 
-			open_email('no-reply@workmap.com')
+			open_email('test@test.net')
 			expect(current_email).to have_content "'Test job name' advert removed"
 		end
 	end

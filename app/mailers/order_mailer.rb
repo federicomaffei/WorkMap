@@ -6,9 +6,9 @@ class OrderMailer < ActionMailer::Base
   	mail(to: order.employer.email, subject: "'#{order.job.advert_title}' placement confirmed")
   end
 
-  def cancellation
+  # def cancellation
     
-  end
+  # end
 
   # def status_change
   # end
