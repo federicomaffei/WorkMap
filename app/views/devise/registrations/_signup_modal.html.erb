@@ -59,6 +59,7 @@
 
 		<p class="modal_form signup_field">
 			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
+			<%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %>
 		</p>
 
 		<% end %>
