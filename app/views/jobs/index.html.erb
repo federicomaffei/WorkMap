@@ -43,8 +43,10 @@
 			<a href='#' class='advert_info'>
 			<div class='category'><%= job.category %></div>
 			<div class='company'><%= job.company %></div>
+			<div class='distance'> distance </div>
 			<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
 			<div class='wage'><%= job.wage %> £</div>
+			<div class='apply'><%= link_to 'Apply Now', edit_user_registration_path %></div>
 			</a>
 			<% end %>
 			<% else %>
@@ -58,8 +60,10 @@
 		<a href='#' class="advert_info">
 		<div class='category'>{{ category }}</div>
 		<div class='company'>{{ company }}</div>
+		<div class='company'> distance </div>
 		<div class='full_time'>{{ hours }}</div>
 		<div class='wage'>{{ wage }}</div>
+		<div class='apply'><%= link_to 'Apply Now', edit_user_registration_path %></div>
 		</a>
 	</template>
 
