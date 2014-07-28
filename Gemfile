@@ -28,6 +28,10 @@ gem 'devise'
 
 gem 'geocoder'
 
+gem 'capybara-email'
+
+gem 'mailcatcher'
+
 group :production do
   gem 'rails_12factor'
 end
