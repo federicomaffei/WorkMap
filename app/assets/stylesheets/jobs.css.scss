@@ -65,29 +65,43 @@ label {
 	background-color: red;
 }
 
+#test {
+	background-color: red;
+}
+#test2 {
+	background-color: yellow;
+}
+#test3 {
+	background-color: gray;
+}
+#test4 {
+	background-color: green;
+}
+#test5 {
+	background-color: orange;
+}
+#test6 {
+	background-color: black;
+}
+
+
+
 .jobs_filter {
-	height: 50%;
-/*	overflow: scroll;*/
+	height: 60%;
+	width: 100%;
+	overflow: scroll;
 	background-color: blue;
 	font-size: 17px;
-
 }
 
 .advert_column {
 	background-color: orange;
-	height: 50%;
+	height: 40%;
 	overflow: scroll;
 }
 
-.form-control {
-	width: 60%;
-}
 
-#filter_form {
-	margin-left: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
+
 
 #searchLayoutMapResults {
 	position: fixed;

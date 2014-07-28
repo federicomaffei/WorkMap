@@ -4,55 +4,72 @@
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-7 col-xs-7 jobpageleftside">
+
 		<form id="search_box" class='index_page_jobs_search' method="post">
 			<input type="text" id="searchTextField" placeholder="Address">
 			<input type="submit" style='display:none' value="Search">
 		</form>
 
 
-  <div id="map_canvas">
-    <div id="map"></div>
-  </div>
-
-
+	  <div id="map_canvas">
+	    <div id="map"></div>
+	  </div>
 
 	</div>
 
 	<div class="col-md-5 col-sm-5 col-xs-5" id="jobpagerightside">
-
-<!-- 		<aside>
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-		</aside>
-
-				<aside>
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-		</aside> -->
 		
 		<aside class='jobs_filter'>
+
+			<div class="job_type_filter">
 			<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
-			<%= label_tag(:bar_box, "Bar", :class => "checkbox-inline") %>
-			<%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %>
-			<%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %>
-			<%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %>
-			<%= label_tag(:hotel_box, "Hotel", :class => "checkbox-inline") %>
-			<%= check_box_tag(:hotel_box, 'Hotel', true, :class => "switchery") %>
-			<%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %>
-			<%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %>
-			<%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %>
-			<%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %>
-			<%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %>
-			<%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %><br>
-			<%= label_tag(:full_time, "Type of contract") %>
-			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control") %><br>
-			<%= label_tag(:wage, "Minimum Pay") %>
-			<%= number_field_tag(:wage, 5, in: 5..21) %><br>
-			<%= hidden_field(:refined, value: true) %>
-			<%= submit_tag 'Refine Search', :class => 'btn btn-lg btn-success' %>
-			<% end %>
+
+				<div class="row" id="test">
+					<div class="filter col-md-4 col-sm-4 col-xs-4"> 
+						<div class="bar_label"><%= label_tag(:bar_box, "Bar", :class => "checkbox-inline") %></div>
+						<div class="bar_slider"><%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="cafe_label"><%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %></div>
+						<div class="cafe_slider"><%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="hotel_label"><%= label_tag(:hotel_box, "Hotel", :class => "checkbox-inline") %></div>
+						<div class="hotel_slider"><%= check_box_tag(:hotel_box, 'Hotel', true, :class => "switchery") %></div>
+					</div>
+				</div>
+
+				<div class="row" id="test2">
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="restaurant_label"><%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %></div>
+						<div class="restaurant_slider"><%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="shop_label"><%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %></div>
+						<div class="shop_slider"><%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="strip_label"><%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %></div>
+						<div class="strip_slider"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
+					</div>
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12" id="test3">
+					<%= label_tag(:full_time, "Type of contract") %>
+					<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control") %>
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12" id="test4">
+					<%= label_tag(:wage, "Minimum Pay") %>
+					<%= number_field_tag(:wage, 5, in: 5..21) %>
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12" id="test5">
+					<%= hidden_field(:refined, value: true) %>
+					<%= submit_tag 'Refine Search', :class => 'btn btn-lg btn-success' %>
+					<% end %>
+				</div>
+
 		</aside>
 
 		<aside class="advert_column">
