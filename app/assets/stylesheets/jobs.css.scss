@@ -93,6 +93,14 @@ label {
 	position: fixed;
 }
 
+#map_canvas {
+	width: 100%;
+	height: calc(100% - 100px);
+	position:fixed;
+	top:100px;
+	left:0;
+	bottom:0;
+}
 
 .advert_info {
 	overflow: scroll;
