@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
 		if params[:refined]
 			filtered_by(params)
-			@max_distance = 10.0
+			@max_distance = 100.0
 			render 'index', content_type: :json
 		else
 			@jobs = Job.all
