@@ -31,7 +31,7 @@ gem 'devise'
 gem 'jquery-ui-rails'
 
 gem 'geocoder'
-
+gem 'bootstrap-slider-rails'
 
 
 gem "paperclip", github: 'thoughtbot/paperclip'
