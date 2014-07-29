@@ -6,9 +6,9 @@ $(document).ready(function(){
 	// var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 50;
 	// var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -1;
 
-	console.log(latitude);
-	console.log(longitude);
-	console.log('hello');
+	// console.log(latitude);
+	// console.log(longitude);
+	// console.log('hello');
 
 	var mapOptions = {
 	  center: new google.maps.LatLng(latitude, longitude),
