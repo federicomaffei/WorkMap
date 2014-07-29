@@ -40,7 +40,7 @@
 	</div>
 
 	<div class="modal-body">
-		<%= form_for(user, as: user_name, url: registration_path(user_name)) do |f| %>
+		<%= form_for(user, as: user_name, url: registration_path(user_name), html: {multipart: true}) do |f| %>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :email %></p>
@@ -57,8 +57,14 @@
 			<%= f.password_field :password_confirmation, autocomplete: "off" %><br/>
 		</div>
 
+		<div>
+			<p class="modal_form signup_field"><%= f.label :image, 'Profile picture' %></p>
+			<%= f.file_field :image %><br/>
+		</div>
+
 		<p class="modal_form signup_field">
 			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
+			<%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %>
 		</p>
 
 		<% end %>

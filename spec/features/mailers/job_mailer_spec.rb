@@ -2,12 +2,11 @@ require 'rails_helper'
 	
 	
 describe 'job cancellation' do
-
-let(:employer) {Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')}
-
 	before do
 		clear_emails
 	end
+
+let(:employer) {Employer.create(email: 'test@test.net', password: '12345678', password_confirmation: '12345678')}
 
 	it 'when employer removes a job is removed a confirmation email is sent' do
 		employer.jobs.create!(advert_title: 'Test job name', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 5, email: 'email@test.com')
