@@ -38,6 +38,4 @@ def send_user_welcome_email
         user.image = url.gsub('http:', "https:") # assuming the user model has an image
       end
     end
-  end
-
-bob = User.create(email: "bob@bob.com", password)
+  end 

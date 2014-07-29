@@ -224,7 +224,6 @@ GEM
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rmagick (2.13.2)
     rspec-collection_matchers (1.0.0)
       rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.3)
@@ -322,7 +321,6 @@ DEPENDENCIES
   poltergeist
   rails (= 4.1.2)
   rails_12factor
-  rmagick
   rspec-collection_matchers
   rspec-rails
   sass-rails (~> 4.0.3)
