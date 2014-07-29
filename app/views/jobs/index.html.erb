@@ -18,8 +18,8 @@
 	</div>
 
 	<div class="col-md-5 col-sm-5 col-xs-5" id="jobpagerightside">
-		
-		<aside class='jobs_filter'>
+
+		<aside class="jobs_filter">
 
 			<div class="job_type_filter">
 			<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
@@ -39,34 +39,12 @@
 					</div>
 				</div>
 
-				<div class="row" id="test2">
-					<div class="filter col-md-4 col-sm-4 col-xs-4">
-						<div class="restaurant_label"><%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %></div>
-						<div class="restaurant_slider"><%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %></div>
-					</div>
-					<div class="filter col-md-4 col-sm-4 col-xs-4">
-						<div class="shop_label"><%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %></div>
-						<div class="shop_slider"><%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %></div>
-					</div>
-					<div class="filter col-md-4 col-sm-4 col-xs-4">
-						<div class="strip_label"><%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %></div>
-						<div class="strip_slider"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
-					</div>
-				</div>
 
-				<div class="col-md-12 col-sm-12 col-xs-12" id="test3">
-					<%= label_tag(:full_time, "Type of contract") %>
-					<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control") %>
-				</div>
 
-				<div class="col-md-12 col-sm-12 col-xs-12" id="test4">
-					<%= label_tag(:wage, "Minimum Pay") %>
-					<%= number_field_tag(:wage, 5, in: 5..21) %>
-				</div>
 
 				<div class="col-md-12 col-sm-12 col-xs-12" id="test5">
 					<%= hidden_field(:refined, value: true) %>
-					<%= submit_tag 'Refine Search', :class => 'btn btn-lg btn-success' %>
+					<div class="search_button"><%= submit_tag 'Refine Search', :class => 'btn btn-lg btn-success' %></div>
 					<% end %>
 				</div>
 

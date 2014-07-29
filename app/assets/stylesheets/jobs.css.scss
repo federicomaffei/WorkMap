@@ -87,7 +87,7 @@ label {
 
 
 .jobs_filter {
-	height: 35%;
+	height: 40%;
 	width: 100%;
 	overflow: scroll;
 	/*background-color: blue;*/
@@ -96,7 +96,7 @@ label {
 
 .advert_column {
 	/*background-color: orange;*/
-	height: 65%;
+	height: 70%;
 	overflow: scroll;
 }
 
@@ -105,10 +105,12 @@ label {
 	.checkbox-inline {
 	  padding-left: 0px;
 	  cursor: pointer;
-}
+	}
 }
 
-
+.search_button {
+	text-align: center;
+}
 
 
 
