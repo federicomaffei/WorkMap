@@ -113,7 +113,6 @@ label {
 }
 
 
-
 #searchLayoutMapResults {
 	position: fixed;
 }
@@ -129,8 +128,8 @@ label {
 
 .advert_info {
 	overflow: scroll;
-/*	height: 100%;
-	width: 100%;*/
+/*	height: 100%; */
+	width: 100%;
 	display: table;
 	border-bottom-style: solid;
 	border-bottom-size: 1px;
@@ -162,6 +161,19 @@ label {
 	.company {
 	color: #FF8598;
 	}
+
+	.detail {
+	color: #7D8A2E;
+	}
+
+	.close {
+	color: #FF8598;
+	}
+
+	.apply {
+	color: #FF8598;
+	}
+
 }
 
 #map_legend {
@@ -169,4 +181,16 @@ label {
 	width: 100px;
 	background: yellow;
 	z-index: 100;
+}
+
+.advert_info .more_info {
+    display: none;
+}
+
+.advert_info.clicked .info {
+    display: none;
+}
+
+.advert_info.clicked .more_info {
+    display: inline;
 }
