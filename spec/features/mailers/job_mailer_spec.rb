@@ -15,6 +15,6 @@ let(:employer) {Employer.create(email: 'test@test.net', password: '12345678', pa
 		click_link 'Remove advert'
 
 		open_email('test@test.net')
-		expect(current_email).to have_content "'Test job name' advert removed"
+		expect(current_email).to have_content "Sorry that you cancelled your advert"
 	end
 end

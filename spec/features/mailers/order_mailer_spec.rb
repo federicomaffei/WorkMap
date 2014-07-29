@@ -13,7 +13,7 @@ describe 'order email confirmation' do
 	it 'is sent when an order is created' do
 		Order.create(job: job, employer: employer)
 		open_email('test@test.net')
-		expect(current_email).to have_content 'Order successful'
+		expect(current_email).to have_content 'Thanks for placing your advert'
 		expect(current_email.subject).to eq "'Test job name' placement confirmed"
 	end
 
