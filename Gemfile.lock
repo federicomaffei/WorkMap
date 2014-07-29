@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/alexpeattie/heroku_secrets.git
+  revision: 717af8e0acf399bc88d2c8c1a7e230023942af0f
+  specs:
+    heroku_secrets (0.0.2)
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: 9cf5089dc15534b7ed581e0ce4d84fa82f592efb
   specs:
@@ -254,6 +260,7 @@ DEPENDENCIES
   database_cleaner
   devise
   geocoder
+  heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
