@@ -14,6 +14,9 @@
     <div id="map"></div>
   </div>
 
+  <div id="map_legend">
+	  My first legend!
+	</div>
 
 
 	</div>
@@ -47,7 +50,7 @@
 			<%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %>
 			<%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %><br>
 			<%= label_tag(:full_time, "Type of contract") %>
-			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control") %><br>
+			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false], ['Both', :both]]), :class => "form-control") %><br>
 			<%= label_tag(:wage, "Minimum Pay") %>
 			<%= number_field_tag(:wage, 5, in: 5..21) %><br>
 			<%= hidden_field(:refined, value: true) %>

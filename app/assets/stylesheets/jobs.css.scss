@@ -137,7 +137,11 @@ label {
 	.company {
 	color: #FF8598;
 	}
-
 }
 
-
+#map_legend {
+	height: 100px;
+	width: 100px;
+	background: yellow;
+	z-index: 100;
+}
