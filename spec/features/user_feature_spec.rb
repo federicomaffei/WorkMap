@@ -21,6 +21,7 @@ describe 'user signing up' do
 		click_link "Do not have an account? Sign up!"
 		sleep 1
 		expect(current_path).to eq '/'
+		fill_in 'Name', with: 'Username'
 		fill_in 'Email', with: 'test@test.com'
 		fill_in 'Password', with: '12345678'
 		fill_in 'Password confirmation', with: '12345678'
@@ -37,6 +38,7 @@ describe 'user signing up' do
 		sleep 1
 		expect(current_path).to eq '/'
 		within('#user_signup') do
+			fill_in 'Name', with: 'Username'
 			fill_in 'Email', with: 'test@test.com'
 			fill_in 'Password', with: '12345678'
 			fill_in 'Password confirmation', with: '12345678'
@@ -46,5 +48,25 @@ describe 'user signing up' do
 		click_link 'Edit registration'
 		expect(page).to have_css 'img.uploaded-pic'
 	end
+
+	scenario "during the sign up a name can be added to the user profile" do
+		visit '/'
+		click_link "Jobhunting? Sign in!"
+		within("#user_login") do
+			click_link "Do not have an account? Sign up!"
+		end
+		sleep 1
+		expect(current_path).to eq '/'
+		within('#user_signup') do
+			fill_in 'Name', with: 'Username'
+			fill_in 'Email', with: 'test@test.com'
+			fill_in 'Password', with: '12345678'
+			fill_in 'Password confirmation', with: '12345678'
+			attach_file 'Profile picture', Rails.root.join('spec/images/user.jpg')
+			click_button 'Sign up'
+		end
+		expect(page).to have_content 'Welcome, Username'
+	end
+
 	
 end

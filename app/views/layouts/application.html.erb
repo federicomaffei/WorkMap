@@ -30,6 +30,7 @@
          <li><%= link_to 'My adverts', employer_adverts_path(current_employer), class: 'landing_page_login_link' %></li>
          <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
          <% elsif user_signed_in? %>
+         <li><a class='landing_page_login_link'>Welcome, <%= current_user.name %></a></li>
          <li><%= link_to 'Edit registration', edit_user_registration_path, class: 'landing_page_login_link'%></li>
          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
          <% else %>
