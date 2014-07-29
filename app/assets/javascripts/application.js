@@ -13,8 +13,9 @@
 //= require gmaps
 //= require jquery
 //= require jquery_ujs
-//= require jquery
 //= require mustache
 //= require bootstrap/modal
 //= require bootstrap-sprockets
+//= require switchery
+//= require bootstrap-slider
 //= require_tree .

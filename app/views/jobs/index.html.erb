@@ -4,11 +4,11 @@
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-7 col-xs-7 jobpageleftside">
+
 		<form id="search_box" class='index_page_jobs_search' method="post">
 			<input type="text" id="searchTextField" placeholder="Address">
 			<input type="submit" style='display:none' value="Search">
 		</form>
-
 
   <div id="map_canvas">
     <div id="map"></div>
@@ -18,57 +18,119 @@
 	  My first legend!
 	</div>
 
-
 	</div>
 
 	<div class="col-md-5 col-sm-5 col-xs-5" id="jobpagerightside">
 
-<!-- 		<aside>
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
+<div class="panel-group" id="accordion">
+
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		<h4 class="panel-title">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">Search Filters</a>
+		</h4>
+		</div>
+
+
+	<div id="panel1" class="panel-collapse collapse">
+			<div class="panel-body">
+			
+
+<aside class="jobs_filter">
+
+			<div class="job_type_filter">
+			<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
+
+				<div class="row" id="test">
+					<div class="filter col-md-2 col-sm-2 col-xs-2"> 
+						<div class="bar_label"><%= label_tag(:bar_box, "Bar", :class => "checkbox-inline") %></div>
+						<div class="bar_slider"><%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="cafe_label"><%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %></div>
+						<div class="cafe_slider"><%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="hotel_label"><%= label_tag(:hotel_box, "Hotel", :class => "checkbox-inline") %></div>
+						<div class="hotel_slider"><%= check_box_tag(:hotel_box, 'Hotel', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="restaurant_label"><%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %></div>
+						<div class="restaurant_slider"><%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="shop_label"><%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %></div>
+						<div class="shop_slider"><%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="strip_label"><%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %></div>
+						<div class="strip_slider"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
+					</div>
+				</div>
+
+				<div class="row" id="test2">
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="wage_label"><%= label_tag(:full_time, "Full Time / Part Time") %></div>
+						<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control") %>
+					</div>
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="wage_label"><%= label_tag(:wage, "Minimum Pay") %></div>
+						<div class="wage_slider"><%= number_field_tag(:wage, 5, in: 5..21) %></div>
+					</div>
+
+					<div class="filter col-md-4 col-sm-4 col-xs-4">
+						<div class="distance_laber"><%= label_tag(:distance, "Distance") %></div>
+						<div class="distance_slider"><input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.5" data-slider-value="10"/></div>
+					</div>
+
+				</div>
+
+
+				<div class="col-md-12 col-sm-12 col-xs-12" id="test5">
+					<%= hidden_field(:refined, value: true) %>
+					<div class="search_button"><%= submit_tag 'Refine Search', :class => 'btn btn-lg btn-success' %></div>
+					<% end %>
+				</div>
+
 		</aside>
 
-				<aside>
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-			<input type="checkbox" class="switchery" checked /> 
-		</aside> -->
-		
-		<aside class='jobs_filter'>
-			<%= form_tag '/jobs', method: 'get', id: 'filter_form' do %>
-			<%= label_tag(:bar_box, "Bar", :class => "checkbox-inline") %>
-			<%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %>
-			<%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %>
-			<%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %>
-			<%= label_tag(:hotel_box, "Hotel", :class => "checkbox-inline") %>
-			<%= check_box_tag(:hotel_box, 'Hotel', true, :class => "switchery") %>
-			<%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %>
-			<%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %>
-			<%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %>
-			<%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %>
-			<%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %>
-			<%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %><br>
-			<%= label_tag(:full_time, "Type of contract") %>
-			<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false], ['Both', :both]]), :class => "form-control") %><br>
-			<%= label_tag(:wage, "Minimum Pay") %>
-			<%= number_field_tag(:wage, 5, in: 5..21) %><br>
-			<%= hidden_field(:refined, value: true) %>
-			<%= submit_tag 'Refine Search', :class => 'btn btn-lg btn-success' %>
-			<% end %>
-		</aside>
+
+			
+			</div>
+		</div>
+	</div>
+</div>
+
 
 		<aside class="advert_column">
 
 			<% if @jobs.any? %>
 			<% @jobs.each do |job| %>
-			<a href='#' class='advert_info'>
-			<div class='category'><%= job.category %></div>
-			<div class='company'><%= job.company %></div>
-			<div class='distance'> distance </div>
-			<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
-			<div class='wage'><%= job.wage %> £</div>
-			</a>
+
+			<div class='advert_info' data-job="<%= job.id %>">
+
+				<div class="info">
+					<a href='#'>
+						<div class='category'><%= job.category %></div>
+						<div class='company'><%= job.company %></div>
+						<div class='distance'> distance </div>
+						<div class='full_time'><%= job.full_time? ? "Full time" : "Part time" %></div>
+						<div class='wage'><%= job.wage %> £</div>					
+					</a>
+				</div>
+
+				<div class="more_info" data-job="<%= job.id %>">
+					<a href='#'>
+						<div class='company'><%= job.company %></div>
+						<div class='detail'><%= job.detail %></div>
+						<div class='apply'>Apply Now!</div>
+						<div class="close-div">X</div>
+					</a>
+				</div>
+
+			</div>
+			
 			<% end %>
 			<% else %>
 			<h1>No jobs inserted yet.</h1>
@@ -78,26 +140,48 @@
 	</div>
 
 	<template id='individual_job_advert'>
-		<a href='#' class="advert_info">
-		<div class='category'>{{ category }}</div>
-		<div class='company'>{{ company }}</div>
-		<div class='company'> distance </div>
-		<div class='full_time'>{{ hours }}</div>
-		<div class='wage'>{{ wage }}</div>
-		<div class='apply'><%= link_to 'Apply Now', edit_user_registration_path %></div>
-		</a>
+		<div class='advert_info'>
+			<div class="info">
+				<a href='#'>
+					<div class='category'>{{ category }}</div>
+					<div class='company'>{{ company }}</div>
+					<div class='distance'> distance </div>
+					<div class='full_time'>{{ hours }}</div>
+					<div class='wage'>{{ wage }}</div>
+				</a>
+			</div>
+			<div class="more_info">
+				<a href='#'>
+					<div class='company'>{{ company }}</div>
+					<div class='detail'>{{ detail }}</div>
+					<div class='apply'>Apply Now!</div>
+					<div class="whatever">X</div>
+				</a>
+			</div>
+		</div>
 	</template>
+
+	<!-- <template id='second_div_slide'>
+		<div class='advert_info_slide' data-job="">
+			<a href='#'>
+				<div class='company'>{{ company }}</div>
+				<div class='detail'>{{ detail }}</div>
+				<div class='apply'>Apply Now!</div>
+				<div class="whatever">X</div>
+			</a>
+		</div>
+	</template> -->
 
 	<template id='pop_up_job_advert'>
 		<ul>	
-		<li> {{ advert_title }} </li>
-		<li>	{{ company }} </li>
-		<li>	{{ detail }} </li>
-		<li>	{{ address }} </li>
-		<li>	£{{ wage }} per hour </li>
-		<li>	{{ email }} </li>
-		<li>	{{ phone }} </li>
-		<li>	{{ hours }} </li>
+			<li> {{ advert_title }} </li>
+			<li>	{{ company }} </li>
+			<li>	{{ detail }} </li>
+			<li>	{{ address }} </li>
+			<li>	£{{ wage }} per hour </li>
+			<li>	{{ email }} </li>
+			<li>	{{ phone }} </li>
+			<li>	{{ hours }} </li>
 		</ul>
 	</template>
 
@@ -106,6 +190,14 @@ var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
 
 elems.forEach(function(html) {
   var switchery = new Switchery(html);
+});
+	</script>
+
+	<script>
+	$('#ex1').slider({
+	formater: function(value) {
+		return 'Current value: ' + value;
+	}
 });
 	</script>
 

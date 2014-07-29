@@ -1,11 +1,14 @@
 $(document).ready(function(){
 	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
-	var markers = [];
-	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.523126;
-	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.087019;
+	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.497830;
+	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.132523;
+
+	// var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 50;
+	// var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -1;
 
 	console.log(latitude);
 	console.log(longitude);
+	console.log('hello');
 
 	var mapOptions = {
 	  center: new google.maps.LatLng(latitude, longitude),
@@ -51,9 +54,9 @@ $(document).ready(function(){
 	map.setOptions(zoom_options);
 
 	// creating a marketcluster object
-	// var markerCluster = new MarkerClusterer(map);
-	var mcOptions = {gridSize: 50, maxZoom: 15};
-	// var mc = new MarkerClusterer(map, markers, mcOptions);
+	var markers = [];
+	var markerCluster;
+	var mcOptions = {gridSize: 80, maxZoom: 12};
 
 	var calcDistanceKms = function(map,job) {
 		var mapCenter = map.getCenter();
@@ -70,7 +73,8 @@ $(document).ready(function(){
 	};
 
 	var renderMarker = function(job){
-		category = job.category;
+		// console.log(job);
+		var category = job.category;
 		var popup_template = $('#pop_up_job_advert').html();
 		var job_Info = Mustache.render(popup_template,job);	
 		
@@ -80,13 +84,22 @@ $(document).ready(function(){
 			title: job.advert_title,
 			category: job.category,
 			icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
-			infoWindow: { content: job_Info }
 		});
+
+		var infowindow = new google.maps.InfoWindow( {
+			content: job_Info
+		});
+
+	  google.maps.event.addListener(marker, 'click', function() {
+	    infowindow.open(map,marker);
+	  });
+
 		markers.push(marker);
 	};
 
 	var submitFilterForm = function(jobs){
-		clearMarkers();
+		markers = []
+		// markerCluster.clearMarkers();
 		var advertsRefined = [];
 			jobs.forEach(function(job) {
 				if (calcDistanceKms(map,job) <= job.max_distance) {			
@@ -95,6 +108,10 @@ $(document).ready(function(){
 					};
 			});
 		updateAdvertColumn(advertsRefined);
+		markerCluster.clearMarkers()
+		console.log('filtering...')
+		console.log(markers)
+		markerCluster.addMarkers(markers);
 	};
 
 	var updateAdvertColumn = function(jobs){
@@ -110,8 +127,7 @@ $(document).ready(function(){
 		jobs.forEach(function(job) {
 			renderMarker(job);
 		});
-		var markerCluster = new MarkerClusterer(map, markers);
-		map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('legend'));
+		markerCluster = new MarkerClusterer(map, markers, mcOptions);
 	});
 
 	$('#filter_form').submit(function(event){
@@ -119,7 +135,6 @@ $(document).ready(function(){
 			$.get('/jobs.json', $(this).serialize(), function(jobs){
 				submitFilterForm(jobs);
 			});
-		var markerCluster = new MarkerClusterer(map, markers);
 	});	
 
 
@@ -139,7 +154,11 @@ $(document).ready(function(){
 	    });
   });
 
-
+	$('#ex1').slider({
+		formater: function(value) {
+			return 'Current value: ' + value;
+		}
+	});
 
 });
 

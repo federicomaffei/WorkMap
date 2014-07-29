@@ -9,6 +9,17 @@ Devise.setup do |config|
   # config.secret_key = 'df2599b6cf027527d5ee12d5f245ca30b9119b09e980365fde04c9229523790d417086b77426cb20ba6978aaf15dee8ce15c4d3dcbf038cb31a5eee226810a84'
   config.omniauth :facebook, Rails.application.secrets.omniauth_facebook_app_id, Rails.application.secrets.omniauth_facebook_app_key
 
+
+  Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :google_oauth2, Rails.application.secrets.omniauth_google_client_id, Rails.application.secrets.omniauth_google_client_secret,
+  {
+      :name => "google",
+      :scope => "email, profile, plus.me, http://gdata.youtube.com",
+      :prompt => "select_account",
+      :image_aspect_ratio => "square",
+      :image_size => 50
+    }
+  end
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class

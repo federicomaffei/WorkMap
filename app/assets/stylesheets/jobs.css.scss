@@ -6,7 +6,7 @@
 html, body { 
 	height: 100%;
 	width: 100%;
-	background-color: yellow;
+/*	background-color: yellow;*/
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
@@ -44,7 +44,7 @@ label {
 
 .jobpageleftside, {
 	height: 100%;
-	background-color: green;
+	/*background-color: green;*/
 
 	#map {
 		height: 100%;
@@ -62,50 +62,74 @@ label {
 
 #jobpagerightside {
 	height: 100%;
-	background-color: red;
+/*	background-color: red;*/
 }
 
-.jobs_filter {
-	height: 50%;
-/*	overflow: scroll;*/
-	background-color: blue;
-	font-size: 17px;
+/*#test {
+	background-color: red;
+}
+#test2 {
+	background-color: yellow;
+}
+#test3 {
+	background-color: gray;
+}
+#test4 {
+	background-color: green;
+}
+#test5 {
+	background-color: orange;
+}
+#test6 {
+	background-color: black;
+}*/
 
+
+
+.jobs_filter {
+	height: 40%;
+	width: 100%;
+	overflow: scroll;
+	/*background-color: blue;*/
+	font-size: 17px;
 }
 
 .advert_column {
-	background-color: orange;
-	height: 50%;
+	/*background-color: orange;*/
+	height: 100%;
 	overflow: scroll;
 }
 
-.form-control {
-	width: 60%;
+.filter {
+	text-align: center;
+	.checkbox-inline {
+	  padding-left: 0px;
+	  cursor: pointer;
+	}
 }
 
-#filter_form {
-	margin-left: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+.search_button {
+	text-align: center;
 }
+
 
 #searchLayoutMapResults {
 	position: fixed;
 }
 
 #map_canvas {
-	width: 100%;
-	height: calc(100% - 100px);
+	width: 58.25%%;
+	height: calc(100% - 110px);
 	position:fixed;
-	top:100px;
+	top:110px;
 	left:0;
 	bottom:0;
 }
 
 .advert_info {
 	overflow: scroll;
-/*	height: 100%;
-	width: 100%;*/
+/*	height: 100%; */
+	width: 100%;
 	display: table;
 	border-bottom-style: solid;
 	border-bottom-size: 1px;
@@ -137,6 +161,19 @@ label {
 	.company {
 	color: #FF8598;
 	}
+
+	.detail {
+	color: #7D8A2E;
+	}
+
+	.close {
+	color: #FF8598;
+	}
+
+	.apply {
+	color: #FF8598;
+	}
+
 }
 
 #map_legend {
@@ -144,4 +181,21 @@ label {
 	width: 100px;
 	background: yellow;
 	z-index: 100;
+}
+
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+
+.advert_info .more_info {
+    display: none;
+}
+
+.advert_info.clicked .info {
+    display: none;
+}
+
+.advert_info.clicked .more_info {
+    display: inline;
 }

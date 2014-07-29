@@ -24,12 +24,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 
 gem 'omniauth-facebook'
-gem 'omniauth-google'
+gem "omniauth-google-oauth2"
 
 gem 'devise'
 
-gem 'geocoder'
+gem 'jquery-ui-rails'
 
+gem 'geocoder'
+gem 'bootstrap-slider-rails'
 
 
 gem "paperclip", github: 'thoughtbot/paperclip'
