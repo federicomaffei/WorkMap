@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 
 gem 'omniauth-facebook'
-gem 'omniauth-google'
+gem "omniauth-google-oauth2"
 
 gem 'devise'
 

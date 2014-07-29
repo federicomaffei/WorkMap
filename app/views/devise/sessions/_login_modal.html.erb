@@ -59,6 +59,7 @@
 	<div class="modal-footer">
 		<%= link_to 'Do not have an account? Sign up!', "#user_signup", "data-toggle" => "modal", :class => 'landing_page_login_link' %>
 		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+		<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google) %>
 	</div>
 
 </div>

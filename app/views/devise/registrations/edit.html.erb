@@ -24,6 +24,8 @@
 
 <h2>Image preview</h2>
 <%= image_tag current_user.image.url(:thumb), class: 'uploaded-pic' %>
+<h2>CV preview</h2>
+<%= image_tag current_user.cv.url(:thumb), class: 'uploaded-cv' %>
 
 <h3>Cancel my account</h3>
 

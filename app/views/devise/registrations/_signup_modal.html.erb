@@ -43,6 +43,16 @@
 		<%= form_for(user, as: user_name, url: registration_path(user_name), html: {multipart: true}) do |f| %>
 
 		<div>
+			<p class="modal_form signup_field"><%= f.label :name, "First name" %></p>
+			<%= f.text_field :name, :autofocus => true %>
+		</div>
+
+		<div>
+			<p class="modal_form signup_field"><%= f.label :surname, "Last name" %></p>
+			<%= f.text_field :surname, :autofocus => true %>
+		</div>
+
+		<div>
 			<p class="modal_form signup_field"><%= f.label :email %></p>
 			<%= f.email_field :email, :autofocus => true %>
 		</div>
@@ -61,10 +71,15 @@
 			<p class="modal_form signup_field"><%= f.label :image, 'Profile picture' %></p>
 			<%= f.file_field :image %><br/>
 		</div>
+		
+		<div>
+			<p class="modal_form signup_field"><%= f.label :cv, 'CV (must be PDF)' %></p>
+			<%= f.file_field :cv %><br/>
+		</div>
+
 
 		<p class="modal_form signup_field">
 			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
-			<%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %>
 		</p>
 
 		<% end %>
