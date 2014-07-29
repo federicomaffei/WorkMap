@@ -6,7 +6,7 @@
 html, body { 
 	height: 100%;
 	width: 100%;
-	background-color: yellow;
+/*	background-color: yellow;*/
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
@@ -44,7 +44,7 @@ label {
 
 .jobpageleftside, {
 	height: 100%;
-	background-color: green;
+	/*background-color: green;*/
 
 	#map {
 		height: 100%;
@@ -62,10 +62,10 @@ label {
 
 #jobpagerightside {
 	height: 100%;
-	background-color: red;
+/*	background-color: red;*/
 }
 
-#test {
+/*#test {
 	background-color: red;
 }
 #test2 {
@@ -82,23 +82,32 @@ label {
 }
 #test6 {
 	background-color: black;
-}
+}*/
 
 
 
 .jobs_filter {
-	height: 60%;
+	height: 35%;
 	width: 100%;
 	overflow: scroll;
-	background-color: blue;
+	/*background-color: blue;*/
 	font-size: 17px;
 }
 
 .advert_column {
-	background-color: orange;
-	height: 40%;
+	/*background-color: orange;*/
+	height: 65%;
 	overflow: scroll;
 }
+
+.filter {
+	text-align: center;
+	.checkbox-inline {
+	  padding-left: 0px;
+	  cursor: pointer;
+}
+}
+
 
 
 
@@ -108,10 +117,10 @@ label {
 }
 
 #map_canvas {
-	width: 100%;
-	height: calc(100% - 100px);
+	width: 58.25%%;
+	height: calc(100% - 110px);
 	position:fixed;
-	top:100px;
+	top:110px;
 	left:0;
 	bottom:0;
 }
