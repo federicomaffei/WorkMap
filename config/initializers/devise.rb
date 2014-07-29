@@ -4,8 +4,11 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
+  config.secret_key = 'df2599b6cf027527d5ee12d5f245ca30b9119b09e980365fde04c9229523790d417086b77426cb20ba6978aaf15dee8ce15c4d3dcbf038cb31a5eee226810a84'
+
   # config.secret_key = 'df2599b6cf027527d5ee12d5f245ca30b9119b09e980365fde04c9229523790d417086b77426cb20ba6978aaf15dee8ce15c4d3dcbf038cb31a5eee226810a84'
   config.omniauth :facebook, Rails.application.secrets.omniauth_facebook_app_id, Rails.application.secrets.omniauth_facebook_app_key
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class

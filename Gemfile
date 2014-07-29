@@ -30,9 +30,7 @@ gem 'devise'
 
 gem 'geocoder'
 
-gem 'capybara-email'
 
-gem 'mailcatcher'
 
 gem "paperclip", github: 'thoughtbot/paperclip'
 
@@ -40,6 +38,7 @@ gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor'
+  gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 end
 
 group :assets do
@@ -58,6 +57,8 @@ group :test, :development do
 	gem 'rspec-collection_matchers'
 	gem 'poltergeist'
 	gem 'launchy'
+	gem 'capybara-email'
+	gem 'mailcatcher'
 end
 
 # Use ActiveModel has_secure_password

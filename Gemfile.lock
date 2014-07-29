@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/alexpeattie/heroku_secrets.git
+  revision: 717af8e0acf399bc88d2c8c1a7e230023942af0f
+  specs:
+    heroku_secrets (0.0.2)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: dca87ec5d8038b2d436a75ad6119c8eb67b73e70
   specs:
@@ -297,6 +303,7 @@ DEPENDENCIES
   database_cleaner
   devise
   geocoder
+  heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
