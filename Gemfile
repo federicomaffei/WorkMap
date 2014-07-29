@@ -28,6 +28,8 @@ gem "omniauth-google-oauth2"
 
 gem 'devise'
 
+gem 'jquery-ui-rails'
+
 gem 'geocoder'
 
 
