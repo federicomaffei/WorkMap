@@ -41,6 +41,14 @@ padding-top: 5px;
 }
 
 
+
+li {
+  a{
+    border: none;
+  }
+  border: 0px;
+}
+
 .glyphicon {
 top: 10px;
 display: inline-block;
@@ -55,6 +63,11 @@ font-size: 32px;
 body {
     font-family: "HelveticaNeue-UltraLight", "HelveticaNeue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-size: cover;
+  }
+
+  a {
+    border: none;
+    color: none;
   }
 
 .col-md-8 {
@@ -90,7 +103,7 @@ left: 50%;
 margin-top: -175px; 
 margin-left: -225px;
 width: 400px;
-height: 380px;
+height: 450px;
 background:rgba(0,0,0,0.7);
 border-radius: 10px;
 }
@@ -127,10 +140,16 @@ margin-top: 10px;
 	color: white;
 }
 
-.btn-success {
+.btn-small {
 color: white;
 background-color: #7D8A2E;
 border-color: #7D8A2E;
+}
+
+.btn-small:hover {
+  color: white;
+  background-color: #7D8A2E;
+  border-color: #7D8A2E;
 }
 
 .switchery {

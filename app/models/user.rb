@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates :name, presence: true, length: { minimum: 3}
-  validates :cv, presence: true
+  # validates :cv, presence: true
   # validates_attachment_content_type :cv, :content_type => /.pdf\Z/
 
   after_create :send_user_welcome_email
@@ -38,4 +38,4 @@ def send_user_welcome_email
         user.image = url.gsub('http:', "https:") # assuming the user model has an image
       end
     end
-  end 
+  end
