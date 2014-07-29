@@ -20,6 +20,7 @@ class JobsController < ApplicationController
 
 	def create
 		@job = Job.new(job_params)
+
 		if @job.valid?
 			@job.employer = current_employer
 			@job.save
@@ -28,6 +29,11 @@ class JobsController < ApplicationController
 			flash[:notice] = 'Errors in your form'
 			render 'new'
 		end
+
+	end
+
+	def show
+		@job = Job.find params[:id]
 	end
 
 	def update

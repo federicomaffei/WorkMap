@@ -154,12 +154,11 @@ $(document).ready(function(){
 	    });
   });
 
-$('#ex1').slider({
-	formater: function(value) {
-		return 'Current value: ' + value;
-		// tooltip: 'always';
-	}
-});
+	$('#ex1').slider({
+		formater: function(value) {
+			return 'Current value: ' + value;
+		}
+	});
 
 });
 
