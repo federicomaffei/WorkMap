@@ -29,12 +29,10 @@
         <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
         
         <% elsif user_signed_in? %>
-<!-- merge conflict wuz ere -->
 
-<!-- mid merge -->
         <li><%= link_to 'Edit registration', edit_user_registration_path, class: 'landing_page_login_link'%></li>
         <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
-<!-- end merge -->
+
         <% else %>
           <li><%= link_to 'Hiring? Post a job!', "#employer_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
           <li><%= link_to 'Jobhunting? Sign in!', "#user_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
