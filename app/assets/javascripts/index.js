@@ -6,9 +6,9 @@ $(document).ready(function(){
 	// var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 50;
 	// var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -1;
 
-	console.log(latitude);
-	console.log(longitude);
-	console.log('hello');
+	// console.log(latitude);
+	// console.log(longitude);
+	// console.log('hello');
 
 	var mapOptions = {
 	  center: new google.maps.LatLng(latitude, longitude),
@@ -109,8 +109,6 @@ $(document).ready(function(){
 			});
 		updateAdvertColumn(advertsRefined);
 		markerCluster.clearMarkers()
-		console.log('filtering...')
-		console.log(markers)
 		markerCluster.addMarkers(markers);
 	};
 
@@ -130,11 +128,50 @@ $(document).ready(function(){
 		markerCluster = new MarkerClusterer(map, markers, mcOptions);
 	});
 
+
+	$('#distance_slider').slider({
+		formater: function(value) {
+			return 'Current value: ' + value;
+		}
+	});
+
+
+	$('#wage_slider').slider({
+		formater: function(value) {
+			return 'Current value: ' + value;
+		}
+	});
+
+
+	var getFormData = function(){
+		var distance = $('#distance_slider').slider('getValue');
+		var wage = $('#wage_slider').slider('getValue');		
+		var arrayForm = $('#filter_form').serializeArray();
+		// console.log(arrayForm);
+		// console.log(distance);
+		// console.log(wage);
+		var form = {};
+
+    $.each(arrayForm, function (i, input) {
+        form[input.name] = input.value;
+    });
+		
+		form['distance'] = distance;
+		form['wage'] = wage;
+		console.log('hello2')
+		console.log(form);
+		return form;
+	};
+
 	$('#filter_form').submit(function(event){
 		event.preventDefault();
-			$.get('/jobs.json', $(this).serialize(), function(jobs){
+		console.log('hello1')
+		var form = getFormData();
+
+			$.get('/jobs.json', form, function(jobs){
 				submitFilterForm(jobs);
 			});
+
 	});	
 
 
@@ -145,20 +182,18 @@ $(document).ready(function(){
 			geocoder.geocode( {'address': $('#searchTextField').val()}, function(results, status) {
 	      if (status == google.maps.GeocoderStatus.OK) {
 		        map.setCenter(results[0].geometry.location);
-						$.get('/jobs.json',$('#filter_form').serialize(), function(jobs) {
+						var form = getFormData();
+						$.get('/jobs.json',form, function(jobs) {
 							submitFilterForm(jobs);
 						});
 	      } else {
 	        alert("You search address was not recognised: " + status);
 	      }
 	    });
+  
   });
 
-	$('#ex1').slider({
-		formater: function(value) {
-			return 'Current value: ' + value;
-		}
-	});
+
 
 });
 

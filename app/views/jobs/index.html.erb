@@ -44,44 +44,44 @@
 
 				<div class="row" id="test">
 					<div class="filter col-md-2 col-sm-2 col-xs-2"> 
-						<div class="bar_label"><%= label_tag(:bar_box, "Bar", :class => "checkbox-inline") %></div>
+						<div class="label"><%= label_tag(:bar_box, "Bar", :class => "checkbox-inline") %></div>
 						<div class="bar_slider"><%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="cafe_label"><%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %></div>
+						<div class="label"><%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %></div>
 						<div class="cafe_slider"><%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="hotel_label"><%= label_tag(:hotel_box, "Hotel", :class => "checkbox-inline") %></div>
+						<div class="label"><%= label_tag(:hotel_box, "Hotel", :class => "checkbox-inline") %></div>
 						<div class="hotel_slider"><%= check_box_tag(:hotel_box, 'Hotel', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="restaurant_label"><%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %></div>
+						<div class="label"><%= label_tag(:restaurant_box, "Restaurant", :class => "checkbox-inline") %></div>
 						<div class="restaurant_slider"><%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="shop_label"><%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %></div>
+						<div class="label"><%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %></div>
 						<div class="shop_slider"><%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="strip_label"><%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %></div>
-						<div class="strip_slider"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
+						<div class="label"><%= label_tag(:strip_box, "Strip Club", :class => "checkbox-inline") %></div>
+						<div class="strip_slider label"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
 					</div>
 				</div>
 
 				<div class="row" id="test2">
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
-						<div class="wage_label"><%= label_tag(:full_time, "Full Time / Part Time") %></div>
-						<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control") %>
+						<div class="label"><%= label_tag(:full_time, "Full Time / Part Time") %></div>
+						<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control full_time_select_box") %>
 					</div>
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
-						<div class="wage_label"><%= label_tag(:wage, "Minimum Pay") %></div>
-						<div class="wage_slider"><%= number_field_tag(:wage, 5, in: 5..21) %></div>
+						<div class="label"><LABEL for="wage_slider">Min Pay(PerHour) </LABEL></div>
+						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="50" data-slider-step="0.5" data-slider-value="7.5"/></div>
 					</div>
 
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
-						<div class="distance_laber"><%= label_tag(:distance, "Distance") %></div>
-						<div class="distance_slider"><input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="0.5" data-slider-value="10"/></div>
+						<div class="label"><LABEL for="distance_slider">Distance(kms) </LABEL></div>
+						<div class="distance_slider"><input id="distance_slider" data-slider-id='distanceSlider' type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="20"/></div>
 					</div>
 
 				</div>

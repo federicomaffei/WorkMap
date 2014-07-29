@@ -1,0 +1,55 @@
+.jobs_filter {
+	height: 40%;
+	width: 100%;
+	overflow: scroll;
+	color: black;
+	/*background-color: blue;*/
+	/*font-size: 18px;*/
+}
+
+.jobs_filter label{
+	font-size: 17px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	color: black;
+}
+
+.advert_column {
+	/*background-color: orange;*/
+	height: 100%;
+	overflow: scroll;
+}
+
+.filter {
+  padding-top: 15px;
+  font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 25px;
+	text-align: center;
+
+		.checkbox-inline {
+		  padding-left: 0px;
+		  padding-bottom: 12px;
+		  cursor: pointer;
+		}
+}
+
+.full_time_select_box {
+	width: 220px;
+	margin-left: 38px;
+}
+
+.search_button {
+	text-align: right;
+	margin-right: 48px;
+	margin-bottom: 27px;
+}
+/*
+#distanceSlider .slider-selection {
+	background: #BABABA;
+}
+
+#wageSlider .slider-selection {
+	background: #BABABA;
+}*/
