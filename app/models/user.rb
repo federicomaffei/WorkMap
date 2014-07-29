@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+  :recoverable, :rememberable, :trackable, :validatable,
+  :omniauthable, :omniauth_providers => [:facebook, :google]
 
   has_attached_file :image, styles: { thumb: '300x300>' }, s3_credentials: {
     bucket: 'workmap',
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
         # user.name = auth.info.name   # assuming the user model has a name
         # user.image = auth.info.image # assuming the user model has an image
+      end
     end
   end
-end
 
