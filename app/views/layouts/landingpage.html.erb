@@ -25,12 +25,16 @@
     <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
       	<% if employer_signed_in? %>
+        <li><%= link_to 'My adverts', employer_adverts_path(current_employer), class: 'landing_page_login_link'%></li>
         <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
+        
         <% elsif user_signed_in? %>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
-          <li><%= link_to 'Hiring? Post a job!', new_job_path, value: 'create_job' %></li>
-          <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete %></li>
-          <li><%= link_to 'My adverts', employer_adverts_path(current_user), class: 'landing_page_login_link'%></li>
+<!-- merge conflict wuz ere -->
+
+<!-- mid merge -->
+        <li><%= link_to 'Edit registration', edit_user_registration_path, class: 'landing_page_login_link'%></li>
+        <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
+<!-- end merge -->
         <% else %>
           <li><%= link_to 'Hiring? Post a job!', "#employer_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
           <li><%= link_to 'Jobhunting? Sign in!', "#user_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>

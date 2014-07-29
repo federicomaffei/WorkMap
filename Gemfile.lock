@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: dca87ec5d8038b2d436a75ad6119c8eb67b73e70
+  specs:
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: 9cf5089dc15534b7ed581e0ce4d84fa82f592efb
   specs:
@@ -38,6 +48,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    aws-sdk (1.47.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     bootstrap-modal-rails (2.2.5)
       railties (>= 3.1)
@@ -61,7 +74,11 @@ GEM
       capybara-console
       database_cleaner
       exception_notification
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
     cliver (0.3.2)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -274,6 +291,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   bootstrap-modal-rails
   bootstrap-sass
   capybara
@@ -290,6 +308,7 @@ DEPENDENCIES
   mailcatcher
   omniauth-facebook
   omniauth-google
+  paperclip!
   pg
   poltergeist
   rails (= 4.1.2)
