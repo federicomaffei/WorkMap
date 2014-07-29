@@ -13,6 +13,12 @@ class User < ActiveRecord::Base
   }
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
+  after_create :send_user_welcome_email
+
+def send_user_welcome_email
+    UserWelcomeMailer.user_welcome(self).deliver
+  end
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
