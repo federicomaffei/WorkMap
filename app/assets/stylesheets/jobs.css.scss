@@ -63,6 +63,7 @@ label {
 
 #jobpagerightside {
 	height: 100%;
+	overflow: hidden;
 /*	background-color: red;*/
 }
 
@@ -88,7 +89,7 @@ label {
 
 
 .panel-heading {
-	height: 65px;
+	height: 60px;
 	font-size: 30px;
 	padding: 10px;
 	width: 100%;
@@ -107,13 +108,33 @@ label {
 	bottom:0;
 }
 
+@media (min-width: 768px) and (max-width: 992px) {
+	#map_canvas {
+		width: 50%;
+	}
+}
+
+@media (max-width: 767px) {
+	#map_canvas {
+		display: none;
+	}
+}
+
 .panel-group {
 	margin-bottom: 0;
 }
 
 .advert_info {
+	min-height: 70px;
+	border-bottom-style: solid;
+	border-bottom-size: 1px;
+	border-bottom-color: #FFC0A9;
+}
+
+
+/*.advert_info {
 	overflow: scroll;
-/*	height: 100%; */
+	height: 100%; 
 	width: 100%;
 	display: table;
 	border-bottom-style: solid;
@@ -159,7 +180,7 @@ label {
 	color: #FF8598;
 	}
 
-}
+}*/
 
 
 #ex1Slider .slider-selection {
