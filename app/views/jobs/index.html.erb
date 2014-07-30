@@ -3,7 +3,7 @@
 	<div class="col-md-7 col-sm-6 hidden-xs jobpageleftside">
 
 		<form id="search_box" class='index_page_jobs_search' method="post">
-			<input type="text" id="searchTextField" placeholder="Address">
+			<input type="text" id="searchTextField" placeholder="Address...">
 			<input type="submit" style='display:none' value="Search">
 		</form>
 
@@ -150,7 +150,7 @@
 				</a>
 			</div>
 
-			<div class="more_info row" id='closelink{{ linkid }}'>
+			<div class="more_info row" id='closelink{{ linkid }}' data-jobid='{{ jobid }}'>
 					<div class='detail col-md-8 col-sm-8 col-xs-8'>{{ detail }}</div>
 				<a href='apply'>
 					<div class='apply col-md-2 col-sm-2 col-xs-2'>Apply Now!</div>

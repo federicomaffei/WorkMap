@@ -1,9 +1,9 @@
 <div class="container">
 
-	<h1 class = 'advert-head'>Welcome, <%= current_employer.email %>.
+	<h1 class = 'advert-head'>Welcome, <%= current_employer.email %>.</h1>
 
 	<% if @adverts.any? %>
-		<h2 class = 'advert-top'>Your adverts on Workmap:</h2>
+		<h2 class = 'advert-top'>Your adverts on <span class="logo-w">w<span><span class="glyphicon glyphicon-map-marker"></span><span class="logo-rk">rk</span><span class="logo-map">map</span>:</h2>
 		<ul>
 		<% @adverts.each do |advert| %>
 			<h2 class = 'advert-line'><li><%= advert.advert_title %> - <%= advert.category %> - <%= advert.address %> - <%= advert.wage %>£ / hour</li></h2>
@@ -14,8 +14,10 @@
 	<% else %>
 
 		<h2>You don't have adverts, for now.</h2>
-		<h2><%= link_to 'Why not add one?', new_job_path %></h2>
 		
 	<% end %>
+
+	<h2><%= link_to 'Why not add one?', "#job_new", "data-toggle" => "modal" %></h2>
+
 
 </div>

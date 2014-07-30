@@ -16,16 +16,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
   	if resource.class == Employer
-  		new_job_path
-  	else
   		jobs_path
   	end
   end
 
   def after_sign_up_path_for(resource)
   	if resource.class == Employer
-  		new_job_path
-  	else
   		jobs_path
   	end
   end

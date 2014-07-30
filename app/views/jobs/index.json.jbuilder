@@ -11,4 +11,5 @@ json.array! @jobs do |job|
 	json.wage job.wage
 	json.hours (job.full_time? ? "Full time" : "Part time")
 	json.max_distance @max_distance
+	json.jobid job.id
 end

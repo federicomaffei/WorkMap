@@ -111,9 +111,11 @@ $(document).ready(function(){
     $.each(adverts, function (i, job) {
 	      var template = $('#individual_job_advert').html();
 				job['linkid'] = i;
+				// console.log(job);
+				// console.log(job.id);
 				var newAdvert = Mustache.render(template,job);
 				$('.advert_column').append(newAdvert);
-					
+				console.log(newAdvert);	
 				$('#openlink'+i).on('click', function() {
 				    google.maps.event.trigger(markers[i], 'click');
 			  });
