@@ -125,30 +125,12 @@ label {
 }
 
 .advert_info {
-	min-height: 70px;
+	min-height: 100px;
 	border-bottom-style: solid;
 	border-bottom-size: 1px;
 	border-bottom-color: #FFC0A9;
-}
 
-
-/*.advert_info {
-	overflow: scroll;
-	height: 100%; 
-	width: 100%;
-	display: table;
-	border-bottom-style: solid;
-	border-bottom-size: 1px;
-	border-bottom-color: #FFC0A9;
-	font-family: 'HelveticaNeue-Light';
-	
 	div {
-		display: inline;
-		display: table-cell;
-		width: 150px;
-		height: 100px;
-		font-size: 20px;
-		vertical-align: middle;
 		text-align: center;
 	}
 
@@ -179,8 +161,7 @@ label {
 	.apply {
 	color: #FF8598;
 	}
-
-}*/
+}
 
 
 #ex1Slider .slider-selection {
