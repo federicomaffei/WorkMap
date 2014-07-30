@@ -1,0 +1,38 @@
+<div class="modal fade in" id="employer_edit">
+
+	<div class="modal-header">
+		<button class="close close-edit-employer" data-dismiss="modal">x</button>
+		<h2>Hello <%= current_employer.email %></h2>
+	</div>
+
+	<div class="modal-body">
+		<%= form_for(current_employer, as: employer_name, url: registration_path(employer_name), html: { method: :put }) do |f| %>
+
+		<div>
+			<p class="modal_form edit_field"><%= f.label :email %></p>
+			<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form edit_field"><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br /></p>
+			<%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form edit_field"><%= f.label :new_password %></p>
+			<%= f.password_field :password, class: 'form-control'%><br>
+		</div>
+
+		<div>
+			<p class="modal_form edit_field"><%= f.label :new_password_confirmation %></p>
+			<%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/>
+		</div>
+
+		<p class="modal_form edit_field">
+			<%= f.submit "Update", :class => 'btn btn-small' %>
+		</p>
+
+		<% end %>
+	</div>
+
+</div>
