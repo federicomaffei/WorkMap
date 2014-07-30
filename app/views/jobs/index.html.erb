@@ -17,15 +17,6 @@
 
 <div class="panel-group" id="accordion">
 
-
-	<div class="panel panel-default">
-		<div class="panel-heading">
-		<h4 class="panel-title">
-		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">Search Filters</a>
-		</h4>
-		</div>
-
-
 	<div id="panel1" class="panel-collapse collapse">
 			<div class="panel-body">
 			
@@ -69,7 +60,7 @@
 					</div>
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><LABEL for="wage_slider">Min Pay(PerHour) </LABEL></div>
-						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="50" data-slider-step="0.5" data-slider-value="7.5"/></div>
+						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="7.5"/></div>
 					</div>
 
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
@@ -92,43 +83,20 @@
 			
 			</div>
 		</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		<h4 class="panel-title">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">Search Filters</a>
+		</h4>
+		</div>
+		
 	</div>
 </div>
 
 
 		<aside class="advert_column">
-			<% if @jobs.any? %>
-			<% @jobs.each do |job| %>
-			<div class='advert_info' data-job="<%= job.id %>">
-				<div class="info row">
-					<a href='#'>
-						<div class='category col-md-2 col-sm-2 col-xs-2'><%= job.category %></div>
-						<div class='wage col-md-2 col-sm-2 col-xs-2'>£<%= job.wage %> per hour</div>
-						<div class='company col-md-3 col-sm-3 col-xs-3'>
-							<div class='company_name'><%= job.company %></div>
-							<div class='job_title'><%= job.company %></div>
-						</div>
-						<div class='distance col-md-3 col-sm-3 col-xs-3'> 
-							<div class='distance_location'>e.g 400km</div>
-							<div class='distance_title'>distance</div>
-						</div>
-						<div class='full_time col-md-2 col-sm-2 col-xs-2'><%= job.full_time? ? "Full time" : "Part time" %></div>
-					</a>
-				</div>
-				<div class="more_info row" data-job="<%= job.id %>">
-						<div class='detail col-md-8 col-sm-8 col-xs-8'><%= job.detail %></div>
-					<a href='apply'>
-						<div class='apply col-md-2 col-sm-2 col-xs-2'>Apply Now</div>
-					</a>
-					<a href='#'>
-						<div class="close-div col-md-2 col-sm-2 col-xs-2">X</div>
-					</a>
-				</div>
-			</div>
-			<% end %>
-			<% else %>
-			<h1>No jobs inserted yet.</h1>
-			<% end %>
+
 		</aside>
 	</div>
 
@@ -140,11 +108,11 @@
 					<div class='wage col-md-2 col-sm-2 col-xs-2'>£{{ wage }} per hour</div>
 					<div class='company col-md-3 col-sm-3 col-xs-3'>
 						<div class='company_name'>{{ company }}</div>
-						<div class='job_title'>{{ company }}</div>
+						<div class='job_title'>{{ advert_title }}</div>
 					</div>
 					<div class='distance col-md-3 col-sm-3 col-xs-3'>
-						<div class='distance_location'>e.g 400km</div>
-						<div class='distance_title'>distance</div> 
+						<div class='distance_location'> {{ distance }}</div>
+						<div class='distance_title'>(distance)</div> 
 					</div>
 					<div class='full_time col-md-2 col-sm-2 col-xs-2'>{{ hours }}</div>
 				</a>
