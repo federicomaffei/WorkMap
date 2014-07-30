@@ -11,14 +11,14 @@ html, body {
 }
 
 body {
-	padding-top: 75px;
+	padding-top: 60px;
 }
 label {
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .navbar {
-	height: 75px;
+	height: 60px;
 }
 
 .navbar-brand {
@@ -28,6 +28,14 @@ label {
 
 .navbar-toggle {
 	margin-right: 25px;
+}
+
+.navbar-header {
+	padding-top: 3px;
+}
+
+.navbar-nav {
+	padding-top: 5px;
 }
 
 .container {
@@ -55,14 +63,38 @@ label {
 }
 
 #searchTextField {
-	height: 65px;
-	font-size: 30px;
+	background-color: #C9D787;
+	height: 40px;
+	font-size: 16px;
 	padding: 10px;
 	width: 100%;
+	border: none;
+	font-family: Lato;
+	color: black;
+
+	::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #000;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	    color:    #000;
+	    opacity:  1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	    color:    #000;
+	    opacity:  1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+	    color:    #000;
+	}
+}
+
+.panel-default {
+	border: none;
 }
 
 #jobpagerightside {
 	height: 100%;
+	font-family: Lato;
 	overflow: hidden;
 /*	background-color: red;*/
 }
@@ -89,7 +121,7 @@ label {
 
 
 .panel-heading {
-	height: 60px;
+	height: 40px;
 	font-size: 30px;
 	padding: 10px;
 	width: 100%;
@@ -101,9 +133,9 @@ label {
 
 #map_canvas {
 	width: 58.25%%;
-	height: calc(100% - 140px);
+	height: calc(100% - 100px);
 	position:fixed;
-	top:140px;
+	top: 100px;
 	left:0;
 	bottom:0;
 }
