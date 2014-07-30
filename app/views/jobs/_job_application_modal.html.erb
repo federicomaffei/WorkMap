@@ -1,0 +1,26 @@
+<div class="modal fade in" id="job_application">
+
+	<div class="modal-header">
+		<button class="close" data-dismiss="modal">x</button>
+		<h2>Job Application form</h2>
+	</div>
+
+	<div class="modal-body">
+		<%= form_for :application do |f| %>
+
+		<div>
+			<p class="modal_form"><%= f.label :message, "Brief cover note:", :class => 'form_control' %></p>
+			<%= f.text_area :message, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<p class="modal_form">CV preview:</p>
+		<%= image_tag current_user.cv.url(:thumb), class: 'uploaded-cv' %>
+
+
+		<p class="modal_form">
+			<%= f.submit "Submit to employer", :class => 'btn btn-small' %>
+		</p>
+
+		<% end %>
+	</div>
+</div>
