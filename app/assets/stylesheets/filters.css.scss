@@ -3,22 +3,35 @@
 	width: 100%;
 	overflow: scroll;
 	color: black;
-	/*background-color: blue;*/
-	/*font-size: 18px;*/
+	background-color: #F5F5F5;
+	.btn-success {
+		background-color: #C9D787;
+		border: none;
+		border-radius: 0px;
+		color: #000;
+		font-family: Lato;
+		font-weight: normal;
+}
 }
 
 .jobs_filter label{
-	font-size: 17px;
+	font-size: 12px;
 	font-weight: bold;
 	padding-bottom: 10px;
-	/*font-family: Arial, Helvetica, sans-serif;*/
+	font-family: Lato;
 	color: black;
+
 }
 
 .advert_column {
 	/*background-color: orange;*/
 	height: 100%;
 	overflow: scroll;
+}
+
+.panel-body {
+	padding: 0;
+	font-family: Lato;
 }
 
 .filter {
@@ -36,7 +49,7 @@
 }
 
 .full_time_select_box {
-	width: 220px;
+	width: 155px;
 	margin-left: 38px;
 }
 
@@ -45,11 +58,23 @@
 	margin-right: 48px;
 	margin-bottom: 27px;
 }
-/*
+
 #distanceSlider .slider-selection {
-	background: #BABABA;
+background: #C9D787;
+
 }
 
 #wageSlider .slider-selection {
-	background: #BABABA;
-}*/
+background: #C9D787;
+}
+
+#distanceSlider .slider-handle{
+background: #FFF;
+border: 1px;
+border-color: #C9D787;
+
+}
+
+#wageSlider .slider-handle {
+background: #FFF;
+}

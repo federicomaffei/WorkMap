@@ -38,6 +38,10 @@ label {
 	padding-top: 5px;
 }
 
+.navbar-inverse {
+	border: none;
+}
+
 .container {
 	max-width: 100%;
 }
@@ -63,7 +67,7 @@ label {
 }
 
 #searchTextField {
-	background-color: #C9D787;
+	background-color: #F5F5F5;
 	height: 40px;
 	font-size: 16px;
 	padding: 10px;
@@ -71,26 +75,32 @@ label {
 	border: none;
 	font-family: Lato;
 	color: black;
+}
 
-	::-webkit-input-placeholder { /* WebKit browsers */
-    color:    #000;
-	}
-	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	    color:    #000;
-	    opacity:  1;
-	}
-	::-moz-placeholder { /* Mozilla Firefox 19+ */
-	    color:    #000;
-	    opacity:  1;
-	}
-	:-ms-input-placeholder { /* Internet Explorer 10+ */
-	    color:    #000;
-	}
+::-webkit-input-placeholder {
+   color: black;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+}
+
+:-ms-input-placeholder {  
+   color: black;  
 }
 
 .panel-default {
 	border: none;
+		.panel-heading{
+	background-color: #C9D787;
+	}
 }
+
+
 
 #jobpagerightside {
 	height: 100%;
@@ -119,12 +129,13 @@ label {
 }*/
 
 
-
 .panel-heading {
 	height: 40px;
 	font-size: 30px;
 	padding: 10px;
 	width: 100%;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
 }
 
 #searchLayoutMapResults {
@@ -132,7 +143,7 @@ label {
 }
 
 #map_canvas {
-	width: 58.25%%;
+	width: 58.4%%;
 	height: calc(100% - 100px);
 	position:fixed;
 	top: 100px;
