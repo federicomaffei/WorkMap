@@ -100,10 +100,8 @@
 
 
 		<aside class="advert_column">
-
 			<% if @jobs.any? %>
 			<% @jobs.each do |job| %>
-
 			<div class='advert_info' data-job="<%= job.id %>">
 				<div class="info row">
 					<a href='#'>
@@ -135,7 +133,6 @@
 			<h1>No jobs inserted yet.</h1>
 			<% end %>
 		</aside>
-
 	</div>
 
 	<template id='individual_job_advert'>
@@ -166,17 +163,6 @@
 			</div>
 		</div>
 	</template>
-
-	<!-- <template id='second_div_slide'>
-		<div class='advert_info_slide' data-job="">
-			<a href='#'>
-				<div class='company'>{{ company }}</div>
-				<div class='detail'>{{ detail }}</div>
-				<div class='apply'>Apply Now!</div>
-				<div class="whatever">X</div>
-			</a>
-		</div>
-	</template> -->
 
 	<template id='pop_up_job_advert'>
 		<ul>	
