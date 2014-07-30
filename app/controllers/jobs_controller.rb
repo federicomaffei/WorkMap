@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+	class JobsController < ApplicationController
 
 	before_action :authenticate_employer!, except: [:index, :show]
 

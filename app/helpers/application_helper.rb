@@ -16,6 +16,10 @@ module ApplicationHelper
 		@user ||= User.new
 	end
 
+	def job
+		@job ||= Job.new
+	end
+
 	# def devise_mapping
 	# 	@devise_mapping ||= Devise.mappings[:employer]
 	# end
