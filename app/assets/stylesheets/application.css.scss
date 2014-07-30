@@ -25,12 +25,22 @@
     src: url(https://dl.dropboxusercontent.com/u/9315601/fonts/HelveticaNeue-Light.ttf);
 }
 
+@font-face {
+    font-family: 'HelveticaNeue-Bold';
+    src: url(https://dl.dropboxusercontent.com/u/9315601/fonts/HelveticaNeue-Bold.ttf);
+}
+
 #user_image{
     color: white;
   }
   #user_cv{
     color: white;
   }
+
+  a:focus {
+   outline-color: transparent !important;
+   border-size: none !important;
+   }
 
 .navbar-inverse .navbar-brand {
 color: #FFF;
@@ -39,7 +49,6 @@ letter-spacing: -1px;
 padding-top: 5px;
 
 }
-
 
 .glyphicon {
 top: 10px;
@@ -56,6 +65,8 @@ body {
     font-family: "HelveticaNeue-UltraLight", "HelveticaNeue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-size: cover;
   }
+
+
 
 .col-md-8 {
 padding-left: 0px;
@@ -87,12 +98,36 @@ input {
 position: fixed;
 top: 50%;
 left: 50%;
-margin-top: -175px; 
-margin-left: -225px;
-width: 400px;
-height: 380px;
 background:rgba(0,0,0,0.7);
 border-radius: 10px;
+}
+
+#employer_login {
+  margin-top: -200px; 
+  margin-left: -200px;
+  width:400px;
+  height:400px;
+}
+
+#employer_signup {
+  margin-top: -220px; 
+  margin-left: -200px;
+  width:400px;
+  height:440px;
+}
+
+#user_login {
+  margin-top: -215px; 
+  margin-left: -200px;
+  width:400px;
+  height:430px;
+}
+
+#user_signup {
+  margin-top: -250px; 
+  margin-left: -200px;
+  width:400px;
+  height:500px;
 }
 
 .modal-header {
@@ -127,10 +162,16 @@ margin-top: 10px;
 	color: white;
 }
 
-.btn-success {
+.btn-small {
 color: white;
 background-color: #7D8A2E;
 border-color: #7D8A2E;
+}
+
+.btn-small:hover {
+  color: white;
+  background-color: #7D8A2E;
+  border-color: #7D8A2E;
 }
 
 .switchery {

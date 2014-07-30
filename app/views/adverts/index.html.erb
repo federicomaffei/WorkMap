@@ -1,22 +1,21 @@
-<div class="bugfixing">
+<div class="container">
+
+	<h1 class = 'advert-head'>Welcome, <%= current_employer.email %>.
 
 	<% if @adverts.any? %>
-
+		<h2 class = 'advert-top'>Your adverts on Workmap:</h2>
+		<ul>
 		<% @adverts.each do |advert| %>
-
-			<%= advert.advert_title %>
-			<%= link_to 'Edit advert', edit_employer_advert_path(@employer, advert) %>
-			<%= link_to 'Remove advert', employer_advert_path(@employer, advert), method: 'delete' %>
+			<h2 class = 'advert-line'><li><%= advert.advert_title %> - <%= advert.category %> - <%= advert.address %> - <%= advert.wage %>£ / hour</li></h2>
+			<p class = 'advert-menu'><%= link_to 'Edit advert', edit_employer_advert_path(@employer, advert) %> - <%= link_to 'Remove advert', employer_advert_path(@employer, advert), method: 'delete' %></p>
 
 		<% end %>
-
+		</ul>
 	<% else %>
 
-		<h2>No adverts?</h2>
-		<br><%= @employer %></br>
-		<br><%= current_employer %></br>
-
-
+		<h2>You don't have adverts, for now.</h2>
+		<h2><%= link_to 'Why not add one?', new_job_path %></h2>
+		
 	<% end %>
 
 </div>

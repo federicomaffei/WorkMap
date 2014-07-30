@@ -10,16 +10,16 @@
 
 		<div>
 			<p class="modal_form signin_field"><%= f.label :email, :class => 'form_control' %></p>
-				<%= f.email_field :email, :autofocus => true %>
+				<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div>
 			<p class="modal_form signin_field"><%= f.label :password %></p>
-				<%= f.password_field :password %><br>
+				<%= f.password_field :password, class: 'form-control' %><br>
 		</div>
 
 		<p class="modal_form signin_field">
-		<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
+		<%= f.submit "Sign in", :class => 'btn btn-small' %>
 		</p>
 
 		<% end %>
@@ -42,15 +42,15 @@
 		<%= form_for(user, as: user_name, url: session_path(user_name)) do |f| %>
 
 		<div><p class="modal_form signin_field"><%= f.label :email %></p>
-			<%= f.email_field :email, :autofocus => true %>
+			<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div><p class="modal_form signin_field"><%= f.label :password %></p>
-			<%= f.password_field :password %><br>
+			<%= f.password_field :password , class: 'form-control'%><br>
 		</div>
 
 		<p class="modal_form signin_field">
-			<%= f.submit "Sign in", :class => 'btn btn-small btn-success' %>
+			<%= f.submit "Sign in", :class => 'btn btn-small' %>
 		</p>
 
 		<% end %>
@@ -58,8 +58,8 @@
 
 	<div class="modal-footer">
 		<%= link_to 'Do not have an account? Sign up!', "#user_signup", "data-toggle" => "modal", :class => 'landing_page_login_link' %>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-		<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google) %>
+		<%= link_to image_tag("https://dl.dropboxusercontent.com/u/9315601/icons/facebook.png"), user_omniauth_authorize_path(:facebook), :class => "omniauth_button" %>
+		<%= link_to image_tag("https://dl.dropboxusercontent.com/u/9315601/icons/google.png"), user_omniauth_authorize_path(:google), :class => "omniauth_button" %>
 	</div>
 
 </div>

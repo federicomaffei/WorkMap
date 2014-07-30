@@ -10,21 +10,21 @@
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :email %></p>
-			<%= f.email_field :email, :autofocus => true %>
+			<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :password %></p>
-			<%= f.password_field :password %><br>
+			<%= f.password_field :password, class: 'form-control'%><br>
 		</div>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :password_confirmation %></p>
-			<%= f.password_field :password_confirmation, autocomplete: "off" %><br/>
+			<%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/>
 		</div>
 
 		<p class="modal_form signup_field">
-			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
+			<%= f.submit "Sign up", :class => 'btn btn-small' %>
 		</p>
 
 		<% end %>
@@ -44,27 +44,27 @@
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :name, "First name" %></p>
-			<%= f.text_field :name, :autofocus => true %>
+			<%= f.text_field :name, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :surname, "Last name" %></p>
-			<%= f.text_field :surname, :autofocus => true %>
+			<%= f.text_field :surname, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :email %></p>
-			<%= f.email_field :email, :autofocus => true %>
+			<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :password %></p>
-			<%= f.password_field :password %><br>
+			<%= f.password_field :password, class: 'form-control' %><br>
 		</div>
 
 		<div>
 			<p class="modal_form signup_field"><%= f.label :password_confirmation %></p>
-			<%= f.password_field :password_confirmation, autocomplete: "off" %><br/>
+			<%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %><br/>
 		</div>
 
 		<div>
@@ -79,7 +79,7 @@
 
 
 		<p class="modal_form signup_field">
-			<%= f.submit "Sign up", :class => 'btn btn-small btn-success' %>
+			<%= f.submit "Sign up", :class => 'btn btn-small' %>
 		</p>
 
 		<% end %>
