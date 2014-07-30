@@ -11,18 +11,19 @@ html, body {
 }
 
 body {
-	padding-top: 50px;
+	padding-top: 75px;
 }
 label {
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .navbar {
-	height: 50px;
+	height: 75px;
 }
 
 .navbar-brand {
 	padding-left: 25px;
+
 }
 
 .navbar-toggle {
@@ -54,7 +55,7 @@ label {
 }
 
 #searchTextField {
-	height: 60px;
+	height: 65px;
 	font-size: 30px;
 	padding: 10px;
 	width: 100%;
@@ -62,6 +63,7 @@ label {
 
 #jobpagerightside {
 	height: 100%;
+	overflow: hidden;
 /*	background-color: red;*/
 }
 
@@ -86,10 +88,12 @@ label {
 
 
 
-
-
-
-
+.panel-heading {
+	height: 60px;
+	font-size: 30px;
+	padding: 10px;
+	width: 100%;
+}
 
 #searchLayoutMapResults {
 	position: fixed;
@@ -97,30 +101,36 @@ label {
 
 #map_canvas {
 	width: 58.25%%;
-	height: calc(100% - 110px);
+	height: calc(100% - 140px);
 	position:fixed;
-	top:110px;
+	top:140px;
 	left:0;
 	bottom:0;
 }
 
+@media (min-width: 768px) and (max-width: 992px) {
+	#map_canvas {
+		width: 50%;
+	}
+}
+
+@media (max-width: 767px) {
+	#map_canvas {
+		display: none;
+	}
+}
+
+.panel-group {
+	margin-bottom: 0;
+}
+
 .advert_info {
-	overflow: scroll;
-/*	height: 100%; */
-	width: 100%;
-	display: table;
+	min-height: 100px;
 	border-bottom-style: solid;
 	border-bottom-size: 1px;
 	border-bottom-color: #FFC0A9;
-	font-family: 'HelveticaNeue-Light';
-	
+
 	div {
-		display: inline;
-		display: table-cell;
-		width: 150px;
-		height: 100px;
-		font-size: 20px;
-		vertical-align: middle;
 		text-align: center;
 	}
 
@@ -151,19 +161,15 @@ label {
 	.apply {
 	color: #FF8598;
 	}
-
-}
-
-#map_legend {
-	height: 100px;
-	width: 100px;
-	background: yellow;
-	z-index: 100;
 }
 
 
 #ex1Slider .slider-selection {
 	background: #BABABA;
+}
+
+.slider-horizontal {
+width: 100px;
 }
 
 .advert_info .more_info {

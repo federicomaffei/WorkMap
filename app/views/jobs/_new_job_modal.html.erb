@@ -1,0 +1,63 @@
+<div class="modal fade in" id="job_new">
+
+	<div class="modal-header">
+		<button class="close" data-dismiss="modal">x</button>
+		<h2>Enter a job advert!</h2>
+	</div>
+
+	<div class="modal-body">
+		<%= form_for 	job do |j| %>
+
+		<div>
+			<p class="modal_form"><%= j.label :advert_title %></p>
+			<%= j.text_field :advert_title, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :category %>:</p>
+			<%= j.select :category, ['Bar', 'Restaurant', 'Hotel', 'Shop', 'Cafe', 'StripClub'], class: 'form-control'%><br>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :company %></p>
+			<%= j.text_field :company, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :full_time %>:</p>
+			<%= j.select :full_time, ['Full Time', 'Part Time'], class: 'form-control' %><br/>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :detail %></p>
+			<%= j.text_area :detail, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :address %></p>
+			<%= j.text_field :address, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :wage %></p>
+			<%= j.text_field :wage, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :email %></p>
+			<%= j.email_field :email, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= j.label :phone %></p>
+			<%= j.telephone_field :phone, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<p class="modal_form">
+			<%= j.submit 'Post a job', :class => 'btn btn-small' %>
+		</p>
+
+		<% end %>
+	</div>
+
+</div>
