@@ -141,7 +141,7 @@
 
 	<template id='individual_job_advert'>
 		<div class='advert_info'>
-			<div class="info">
+			<div class="info" id='openlink{{ linkid }}'>
 				<a href='#'>
 					<div class='category'>{{ category }}</div>
 					<div class='company'>{{ company }}</div>
@@ -150,7 +150,7 @@
 					<div class='wage'>{{ wage }}</div>
 				</a>
 			</div>
-			<div class="more_info">
+			<div class="more_info" id='closelink{{ linkid }}'>
 				<a href='#'>
 					<div class='company'>{{ company }}</div>
 					<div class='detail'>{{ detail }}</div>

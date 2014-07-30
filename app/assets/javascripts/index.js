@@ -3,12 +3,6 @@ $(document).ready(function(){
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.497830;
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.132523;
 
-	// var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 50;
-	// var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -1;
-
-	// console.log(latitude);
-	// console.log(longitude);
-	// console.log('hello');
 
 	var mapOptions = {
 	  center: new google.maps.LatLng(latitude, longitude),
@@ -53,7 +47,6 @@ $(document).ready(function(){
 	var zoom_options = { minZoom: 9, maxZoom: 17};
 	map.setOptions(zoom_options);
 
-	// creating a marketcluster object
 	var markers = [];
 	var markerCluster;
 	var mcOptions = {gridSize: 80, maxZoom: 12};
@@ -73,7 +66,6 @@ $(document).ready(function(){
 	};
 
 	var renderMarker = function(job){
-		// console.log(job);
 		var category = job.category;
 		var popup_template = $('#pop_up_job_advert').html();
 		var job_Info = Mustache.render(popup_template,job);	
@@ -86,20 +78,21 @@ $(document).ready(function(){
 			icon: "https://dl.dropboxusercontent.com/u/9315601/" + category + ".png",
 		});
 
-		var infowindow = new google.maps.InfoWindow( {
+		marker.infowindow = new google.maps.InfoWindow( {
 			content: job_Info
 		});
 
 	  google.maps.event.addListener(marker, 'click', function() {
-	    infowindow.open(map,marker);
+	    marker.infowindow.open(map,marker);
 	  });
 
 		markers.push(marker);
+
+
 	};
 
 	var submitFilterForm = function(jobs){
 		markers = []
-		// markerCluster.clearMarkers();
 		var advertsRefined = [];
 			jobs.forEach(function(job) {
 				if (calcDistanceKms(map,job) <= job.max_distance) {			
@@ -112,19 +105,34 @@ $(document).ready(function(){
 		markerCluster.addMarkers(markers);
 	};
 
-	var updateAdvertColumn = function(jobs){
+	var updateAdvertColumn = function(adverts){
 		$('.advert_column').empty();
-		jobs.forEach(function(job) {
-			var template = $('#individual_job_advert').html();
-			var newAdvert = Mustache.render(template,job);
-			$('.advert_column').append(newAdvert);
-		});
+
+    $.each(adverts, function (i, job) {
+	      var template = $('#individual_job_advert').html();
+				job['linkid'] = i;
+				var newAdvert = Mustache.render(template,job);
+				$('.advert_column').append(newAdvert);
+					
+				$('#openlink'+i).on('click', function() {
+				    google.maps.event.trigger(markers[i], 'click');
+			  });
+				
+				$('#closelink'+i).on('click', function() {
+							var infowindow = markers[i]['infowindow'];
+							markers[i].infowindow.close();
+			  });
+    });
 	};
+
+  
+
 
 	$.get("/jobs.json", function(jobs) {
 		jobs.forEach(function(job) {
 			renderMarker(job);
 		});
+		updateAdvertColumn(jobs);
 		markerCluster = new MarkerClusterer(map, markers, mcOptions);
 	});
 
@@ -147,9 +155,6 @@ $(document).ready(function(){
 		var distance = $('#distance_slider').slider('getValue');
 		var wage = $('#wage_slider').slider('getValue');		
 		var arrayForm = $('#filter_form').serializeArray();
-		// console.log(arrayForm);
-		// console.log(distance);
-		// console.log(wage);
 		var form = {};
 
     $.each(arrayForm, function (i, input) {
