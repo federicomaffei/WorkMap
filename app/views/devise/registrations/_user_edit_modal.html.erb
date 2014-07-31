@@ -1,67 +1,61 @@
 <div class="modal fade in" id="user_edit">
 
   <div class="modal-header">
-      <button class="close close-signup-employer" data-dismiss="modal">x</button>
-      <h2>Edit <%= user_name.to_s.humanize %></h2>
+    <button class="close close-signup-employer" data-dismiss="modal">x</button>
+    <h2>Edit <%= user_name.to_s.humanize %></h2>
   </div>
 
   <div class="modal-body">
     <%= form_for(current_user, as: user_name, url: registration_path(user_name), html: { method: :put }, html: {multipart: true}) do |f| %>
 
-      <div>
-        <p class="modal_form signup_field"><%= f.label :email %></p>
-        <%= f.email_field :email, autofocus: true %>
-      </div>
+    <div>
+      <p class="modal_form signup_field"><%= f.label :email %></p>
+      <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+    </div>
 
-      <div>
-        <p class="modal_form signup_field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></p>
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+    <div>
+      <p class="modal_form signup_field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></p>
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+    </div>
 
-      <div>
-        <p class="modal_form signup_field">
+    <div>
+      <p class="modal_form signup_field">
         <%= f.label :password_confirmation %></p>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
       </div>
 
       <div>
         <p class="modal_form signup_field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></p>
-        <%= f.password_field :current_password, autocomplete: "off" %>
-      </div>
-
-      <div>
-        <p class="modal_form signup_field">
-        <h2><br/>Image preview</h2>
-        <%= image_tag current_user.image.url(:thumb), class: 'uploaded-pic' %>
-        <div>
-          <%= f.label :image, 'Profile picture' %></p>
-          <%= f.file_field :image %>
+          <%= f.label :current_password %> <i>(needed to confirm your changes)</i></p>
+          <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
         </div>
-      </div>
-    
-      <div>
-        <p class="modal_form signup_field">
-        <h2><br/>CV preview</h2>
-        <%= image_tag current_user.cv.url(:thumb), class: 'uploaded-cv' %>
+
         <div>
-          <%= f.label :cv, 'CV (must be PDF)' %></p>
-          <%= f.file_field :cv %>
+          <p class="modal_form signup_field">
+            <h4 class= 'landing_page_login_link'>Image preview</h4>
+            <%= image_tag current_user.image.url(:thumb), class: 'uploaded-pic' %>
+            <div>
+              <%= f.label :image, 'Profile picture' %></p>
+              <%= f.file_field :image%>
+            </div>
+          </div>
+
+          <div>
+            <p class="modal_form signup_field">
+              <h4 class= 'landing_page_login_link'>CV preview</h4>
+              <%= image_tag current_user.cv.url(:thumb), class: 'uploaded-cv' %>
+              <div>
+                <%= f.label :cv, 'CV (must be PDF)' %></p>
+                <%= f.file_field :cv %>
+              </div>
+            </div>
+
+            <div>
+             <p class="modal_form">
+              <%= f.submit "Edit the profile", :class => 'btn btn-small' %>
+            </p>
+          </div>
+          <% end %>
         </div>
+
       </div>
-
-      <div>
-        <p class="modal_form signup_field">
-        <%= f.submit "Update" %></p>
-      </div>
-    <% end %>
-  </div>
-
-
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(user_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
-
-</div>
