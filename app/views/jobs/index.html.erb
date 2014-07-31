@@ -100,7 +100,7 @@
 
 
 		<aside class="advert_column">
-
+			
 		</aside>
 	</div>
 
@@ -122,12 +122,12 @@
 				</a>
 			</div>
 
-			<div class="more_info row" id='closelink{{ linkid }}' data-jobid='{{ jobid }}'>
+			<div class="more_info row" id='closelink{{ linkid }}'>
 					<div class='detail col-md-8 col-sm-8 col-xs-8'>{{ detail }}</div>
-				<a href='apply'>
-					<div class='apply col-md-2 col-sm-2 col-xs-2'>Apply Now!</div>
-				</a>
-				<a href='#' id="close">
+					<div class='apply col-md-2 col-sm-2 col-xs-2'>
+						<%= link_to 'Apply now!', "#job_application", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
+					</div>
+				<a href='#'>
 					<div class="close-div col-md-2 col-sm-2 col-xs-2">X</div>
 				</a>
 			</div>

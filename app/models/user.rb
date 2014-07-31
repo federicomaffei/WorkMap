@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, :omniauth_providers => [:facebook, :google]
 
+  has_many :submissions
+
   has_attached_file :image, styles: { thumb: '300x300>' }, storage: :s3, s3_credentials: {
     bucket: 'workmap',
     access_key_id: Rails.application.secrets.s3_access_key,

@@ -3,7 +3,7 @@ $(document).ready(function(){
 if($("#map-advert").length) {
 
   var map = new GMaps({
-    div: "#map-advert",
+    div : "#map-advert",
     lat: 0,
     lng: 0
   });
