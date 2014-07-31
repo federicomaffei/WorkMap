@@ -25,11 +25,11 @@ class User < ActiveRecord::Base
   # validates :cv, presence: true
   # validates_attachment_content_type :cv, :content_type => /.pdf\Z/
 
-  after_create :send_user_welcome_email
+#   after_create :send_user_welcome_email
 
-def send_user_welcome_email
-    UserWelcomeMailer.user_welcome(self).deliver
-  end
+# def send_user_welcome_email
+#     UserWelcomeMailer.user_welcome(self).deliver
+#   end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

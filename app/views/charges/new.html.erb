@@ -1,21 +1,22 @@
 <div class="container">
 
 	<h1 class = 'advert-head'>Fee for adding this advert, with details:</h1>
-	<h2 class = 'advert-line'><li><%= @job.advert_title %> - <%= @job.category %> - <span class='advert-address'><%= @job.address %></span> - <%= @job.wage %>£ / hour</li></h2>
+	<h2 class = 'advert-line'><li><%= @job.advert_title %> - <%= @job.category %> - <span class='advert-address'><%= @job.address %></span> - £<%= @job.wage %> / hour</li></h2>
 
 	<div id="map-advert"></div>
 	
 	<%= form_tag job_charges_path(@job) do %>
 	<article>
 		<label class="amount">
-			<h2 class = 'advert-line'><span>Amount: $5.00</span><h2 class = 'advert-line'>
+			<h2 class = 'advert-line'><span>Cost of your ad: £5.00</span><h2 class = 'advert-line'>
 			</label>
 		</article>
 
 		<script src="https://checkout.stripe.com/checkout.js" id="stripetestbutton" class="stripe-button"
 		data-key="<%= Rails.application.secrets.stripe_public_key %>"
-		data-description="A month's subscription"
-		data-amount="500">
+		data-description="Payment for your ad"
+		data-amount="500"
+		data-currency="GBP">
 	</script>
 	<% end %>
 	
