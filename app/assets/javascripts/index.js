@@ -246,6 +246,17 @@ $(document).ready(function(){
 					content: job_Info
 				});
 
+				// Add event listener apply now link in infowidows
+			  // google.maps.event.addListener(marker.infowindow, 'domready', function() {
+	  	 //    document.id("apply-link").addEvent("click", function(e) {
+			  //       e.stop();
+			  //       console.log("hi!");
+			  //   });
+				 //    // var email = $(this).data('email');
+					// 	// $('#submission_email').val(email);
+			  // });
+
+
 			  google.maps.event.addListener(marker, 'click', function() {
 			    marker.infowindow.open(map,marker);
 			  });
@@ -283,9 +294,11 @@ $(document).ready(function(){
 		  });
 
   		$('.apply-link').on('click', function(){
+  			// console.log('hello');
 				var email = $(this).data('email');
 			$('#submission_email').val(email);
-		})
+			})
+
 
     });
 

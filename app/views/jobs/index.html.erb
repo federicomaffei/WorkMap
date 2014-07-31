@@ -1,6 +1,7 @@
 <% if current_user %>
   <%= render "jobs/job_application_modal" %>
 <% end %>
+<%= render "devise/sessions/login_modal" %>
 
 <div class="container-fluid">
 
@@ -137,7 +138,11 @@
 			<div class="more_info row" id='closelink{{ linkid }}'>
 					<div class='detail col-md-8 col-sm-8 col-xs-8'>{{ detail }}</div>
 					<div class='apply col-md-2 col-sm-2 col-xs-2'>
+						<% if user_signed_in? %>
 						<%= link_to 'Apply now!', "#job_application", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
+						<% else %>
+						<%= link_to 'Apply now!', "#user_login", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
+						<% end %>
 					</div>
 				<a href='#'>
 					<div class="close-div col-md-2 col-sm-2 col-xs-2">X</div>
@@ -157,7 +162,7 @@
 				<li>	{{ phone }} </li>
 				<li>	{{ address }} </li>
 				
-				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' class='apply-link'>Apply now!</a></li>
+				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' id='apply-link'>Apply now!</a></li>
 				
 			</ul>
 		</div>
