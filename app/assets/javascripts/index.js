@@ -57,21 +57,48 @@ $(document).ready(function(){
 	autocomplete = new google.maps.places.Autocomplete(input, search_options);
 
 
-
-
+	// PAGE LOAD and LISTENERS for FILTERING and SEARCH
 
 	// on page reload render job markers and populate RHS job adverts pane
-		$.get("/jobs.json", function(jobs) {
-			// jobs.forEach(function(job) {
-				renderMarkers(job);
-			// });
-			updateAdvertColumn(jobs);
-			markerCluster = new MarkerClusterer(map, markers, mcOptions);
+	$.get("/jobs.json", function(jobs) {
+		renderMarkers(jobs);
+		updateAdvertColumn(jobs);
+		markerCluster = new MarkerClusterer(map, markers, mcOptions);
+	});
+
+	// event listener for filter form submission, calls getFormData first to correctly format json
+	$('#filter_form').submit(function(event){
+		event.preventDefault();
+		var form = getFormData();
+
+		$.get('/jobs.json', form, function(jobs){
+			submitFilterForm(jobs);
 		});
 
+	});	
+
+	// event listener for google search, successful geocode results in complete re-render or markers and RHS job adverts pane whilst maintaining current form filters 
+	$('#search_box').on('submit', function(event) {
+			event.preventDefault();
+			var form = getFormData();
+			var geocoder = new google.maps.Geocoder();
+
+			geocoder.geocode( {'address': $('#searchTextField').val()}, function(results, status) {
+	      if (status == google.maps.GeocoderStatus.OK) {
+		        map.setCenter(results[0].geometry.location);
+						
+						$.get('/jobs.json',form, function(jobs) {
+							submitFilterForm(jobs);
+						});
+	      } else {
+	        alert("You search address was not recognised: " + status);
+	      }
+	    });
+  
+  });
 
 
-	// refactored helper methods
+	// REFACTORED HELPER METHODS
 
 	// renders markers and infowindows on map, adds listener to each marker
 	var renderMarkers = function(jobs){
@@ -99,83 +126,28 @@ $(document).ready(function(){
 				markers.push(marker);
 		});
 	};
-	
-	// calcs distance between a job marker can map center (in Kms)
-	var calcDistanceKms = function(map,job) {
-		var mapCenter = map.getCenter();
-		var markerLocation = new google.maps.LatLng(job.latitude,job.longitude);
-	  var markerDistance = google.maps.geometry.spherical.computeDistanceBetween(mapCenter, markerLocation);
-	  return markerDistance/1000;
-	};
 
-	// clears all markers on map
-	var clearMarkers = function() {
-		for (var i = 0; i < markers.length; i++) {
-	    markers[i].setMap(null);
-	  }
-	  markers = [];
-	};
-
-
-
-	// filters out all job objects from jobs array that lie outside distance scope
-	var filterByMaxDistance = function(jobs,max_distance){
-		var filtereredJobs = [];
-			jobs.forEach(function(job) {
-				if (calcDistanceKms(map,job) <= job.max_distance) {	
-					filtereredJobs.push(job);
-				};
-			});
-		return filtereredJobs;
-	};
-
-	// sorts array of jobs by distance 
-	var sortByDistance = function(jobs){
-    	jobs.sort(function(a,b){
-			  if(a.distance > b.distance){ return 1}
-		    if(a.distance < b.distance){ return -1}
-	      return 0;
-			});
-			return jobs;
-	};
-
-
-	var submitFilterForm = function(jobs){
-		markers = []
-		var advertsRefined = [];
-		var max_distance = jobs[0].max_distance;
-
-		filterByMaxDistance(jobs,max_distance).forEach(function(job){
-				renderMarker(job);
-				advertsRefined.push(job);
-		});
-
-		updateAdvertColumn(advertsRefined);
-		markerCluster.clearMarkers()
-		markerCluster.addMarkers(markers);
-	};
-
-
-
-
-
-	var updateAdvertColumn = function(adverts){
+	// update RHS job adverts pane
+	function updateAdvertColumn(jobs) {
 		$('.advert_column').empty();
-		var jobs = [];
-		var newAdvertArray = [];
-		var newAdvert;
-    $.each(adverts, function (i, job) {
-	      var template = $('#individual_job_advert').html();
-				job['linkid'] = i;
-				job['distance'] = Math.round(100*calcDistanceKms(map,job))/100; 
-				jobs.push(job);
-    });
-
-    var jobs = sortByDistance(jobs);
+		// var emptyArray = [];
+		var adverts = [];
+		// var newAdvert;
 
     $.each(jobs, function (i, job) {
+	      var template = $('#individual_job_advert').html();
+				job['linkid'] = i;
+				// job['distance'] = Math.round(100*calcDistanceKms(map,job))/100; 
+				job['distance'] = precise_round(calcDistanceKms(map,job),2); 
+				adverts.push(job);
+    });
+
+    var adverts = sortByDistance(adverts);
+
+    $.each(adverts, function (i, job) {
       var template = $('#individual_job_advert').html();
 			var newAdvert = Mustache.render(template,job);
+			
 			$('.advert_column').append(newAdvert);
   
 			$('#openlink'+i).on('click', function() {
@@ -191,71 +163,103 @@ $(document).ready(function(){
 
 	};
 
+	// rounds precisley to 2dps
+	function precise_round(num,decimals) {
+	    return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
+	}
+
+	// submits filter form
+	function submitFilterForm(jobs) {
+		markers = [];
+		var max_distance = jobs[0].max_distance;
+
+		var filteredJobs = filterByMaxDistance(jobs,max_distance);
+		renderMarkers(filteredJobs);
+		updateAdvertColumn(filteredJobs);
+		markerCluster.clearMarkers()
+		markerCluster.addMarkers(markers);
+	};
+
+
+	// calcs distance between a job marker can map center (in Kms)
+	function calcDistanceKms(map,job) {
+		var mapCenter = map.getCenter();
+		var markerLocation = new google.maps.LatLng(job.latitude,job.longitude);
+	  var markerDistance = google.maps.geometry.spherical.computeDistanceBetween(mapCenter, markerLocation);
+	  return markerDistance/1000;
+	};
+
+	// clears all markers on map
+	function clearMarkers() {
+		for (var i = 0; i < markers.length; i++) {
+	    markers[i].setMap(null);
+	  }
+	  markers = [];
+	};
+
+
+	// filters out all job objects from jobs array that lie outside distance scope
+	function filterByMaxDistance(jobs,max_distance){
+		var filtereredJobs = [];
+			jobs.forEach(function(job) {
+				if (calcDistanceKms(map,job) <= job.max_distance) {	
+					filtereredJobs.push(job);
+				};
+			});
+		return filtereredJobs;
+	};
+
+	// sorts array of jobs by distance 
+	function sortByDistance(jobs){
+    	jobs.sort(function(a,b){
+			  if(a.distance > b.distance){ return 1}
+		    if(a.distance < b.distance){ return -1}
+	      return 0;
+			});
+			return jobs;
+	};
 
   
-
-
-	var getFormData = function(){
+	// gathers current filter form variables, manually creates key value pairs before adding distance and wage
+	function getFormData(){
 		var distance = $('#distance_slider').slider('getValue');
 		var wage = $('#wage_slider').slider('getValue');		
-		var arrayForm = $('#filter_form').serializeArray();
+		var formArray = $('#filter_form').serializeArray();
 		var form = {};
 
-    $.each(arrayForm, function (i, input) {
+    $.each(formArray, function (i, input) {
         form[input.name] = input.value;
     });
 		
 		form['distance'] = distance;
 		form['wage'] = wage;
-		console.log('hello2')
-		console.log(form);
+
 		return form;
 	};
 
-	$('#filter_form').submit(function(event){
-		event.preventDefault();
-		console.log('hello1')
-		var form = getFormData();
-
-			$.get('/jobs.json', form, function(jobs){
-				submitFilterForm(jobs);
-			});
-
-	});	
-
-
-	$('#search_box').on('submit', function(event) {
-			event.preventDefault();
-			var geocoder = new google.maps.Geocoder();
-
-			geocoder.geocode( {'address': $('#searchTextField').val()}, function(results, status) {
-	      if (status == google.maps.GeocoderStatus.OK) {
-		        map.setCenter(results[0].geometry.location);
-						var form = getFormData();
-						$.get('/jobs.json',form, function(jobs) {
-							submitFilterForm(jobs);
-						});
-	      } else {
-	        alert("You search address was not recognised: " + status);
-	      }
-	    });
-  
-  });
-
-
+	// listeners for filter slide bars
 	$('#distance_slider').slider({
 		formater: function(value) {
 			return 'Current value: ' + value;
 		}
 	});
-
-
 	$('#wage_slider').slider({
 		formater: function(value) {
 			return 'Current value: ' + value;
 		}
 	});
 
+	// making google maps dynamically responsive to window resizing
+	google.maps.event.addDomListener(window, "resize", function() {
+	 var center = map.getCenter();
+	 google.maps.event.trigger(map, "resize");
+	 map.setCenter(center); 
+	});
+
 
 });
+
+
+
+
 
