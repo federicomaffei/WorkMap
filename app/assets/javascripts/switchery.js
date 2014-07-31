@@ -1091,7 +1091,7 @@ module.exports = Switchery;
  */
 
 var defaults = {
-    color          : '#64bd63'
+    color          : '#C9D787'
   , secondaryColor : '#dfdfdf'
   , className      : 'switchery'
   , disabled       : false

@@ -20,6 +20,10 @@ module ApplicationHelper
 		@job ||= Job.new
 	end
 
+	def submission
+		@submission ||= Submission.new
+	end
+
 	# def devise_mapping
 	# 	@devise_mapping ||= Devise.mappings[:employer]
 	# end

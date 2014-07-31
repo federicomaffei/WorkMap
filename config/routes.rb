@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   end
 
   resources :orders
+  
+  resources :users do
+    resources :submissions
+  end  
+
   # resources :charges
 
   # /jobs

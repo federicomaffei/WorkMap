@@ -6,11 +6,16 @@
 	</div>
 
 	<div class="modal-body">
-		<%= form_for :application do |f| %>
+		<%= form_for @submission do |s| %>
 
 		<div>
-			<p class="modal_form"><%= f.label :message, "Brief cover note:", :class => 'form_control' %></p>
-			<%= f.text_area :message, :autofocus => true, class: 'form-control' %>
+			<p class="modal_form"><%= s.label :message, "To:", :class => 'form_control' %></p>
+			<%= s.email_field :email, :autofocus => true, class: 'form-control' %>
+		</div>
+
+		<div>
+			<p class="modal_form"><%= s.label :message, "Brief cover note:", :class => 'form_control' %></p>
+			<%= s.text_area :message, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<p class="modal_form">CV preview:</p>
@@ -18,7 +23,8 @@
 
 
 		<p class="modal_form">
-			<%= f.submit "Submit to employer", :class => 'btn btn-small' %>
+			<%= s.hidden_field :cv, :value => current_user.cv.url %>
+			<%= s.submit "Submit to employer", :class => 'btn btn-small' %>
 		</p>
 
 		<% end %>
