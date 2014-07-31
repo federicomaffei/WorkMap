@@ -11,7 +11,7 @@ $(document).ready(function(){
 	  zoomControl: true,
 		zoomControlOpt: {
 			style: 'MEDIUM',
-			position: 'BOTTOM_LEFT'
+			position: 'LEFT_BOTTOM'
 		},
 		panControl: false,
 		mapTypeControl: false,
@@ -174,15 +174,15 @@ $(document).ready(function(){
 		new google.maps.LatLng(51.6167, 0.2463)
 		);
 
-	var input = document.getElementById('searchTextField');
+	var inputs = document.querySelectorAll('.searchTextField');
 
 	var search_options = {
 		bounds: defaultBounds,
 		types: ['establishment']
 	};
 
-	autocomplete = new google.maps.places.Autocomplete(input, search_options);
-
+	autocomplete = new google.maps.places.Autocomplete(inputs[0], search_options);
+	new google.maps.places.Autocomplete(inputs[1], search_options);
 
 	// PAGE LOAD and LISTENERS for FILTERING and SEARCH
 
@@ -205,12 +205,12 @@ $(document).ready(function(){
 	});	
 
 	// event listener for google search, successful geocode results in complete re-render or markers and RHS job adverts pane whilst maintaining current form filters 
-	$('#search_box').on('submit', function(event) {
+	$('.search_box').on('submit', function(event) {
 			event.preventDefault();
 			var form = getFormData();
 			var geocoder = new google.maps.Geocoder();
 
-			geocoder.geocode( {'address': $('#searchTextField').val()}, function(results, status) {
+			geocoder.geocode( {'address': $(this).find('.searchTextField').val()}, function(results, status) {
 	      if (status == google.maps.GeocoderStatus.OK) {
 		        map.setCenter(results[0].geometry.location);
 						

@@ -5,9 +5,9 @@
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-6 hidden-xs jobpageleftside">
-		<form id="search_box" class='index_page_jobs_search' method="post">
+		<form class="search_box" class='index_page_jobs_search' method="post">
 			<span class="glyphicon glyphicon-search"></span>
-			<input type="text" id="searchTextField" placeholder="Find a job in...">		
+			<input type="text" class="searchTextField" placeholder="Find a job in...">		
 			<input type="submit" style='display:none' value="Search">
 		</form>
 
@@ -18,6 +18,14 @@
 	</div>
 
 	<div class="col-md-5 col-sm-6 col-xs-12" id="jobpagerightside">
+
+	<div class="second_search">
+		<form class="search_box" class='index_page_jobs_search' method="post">
+			<span class="glyphicon glyphicon-search"></span>
+			<input type="text" class="searchTextField" placeholder="Find a job in...">		
+			<input type="submit" style='display:none' value="Search">
+		</form>
+	</div>
 
 <div class="panel-group" id="accordion">
 
@@ -144,12 +152,11 @@
 			<ul>	
 				<li> {{ advert_title }} </li>
 				<li>	{{ company }} </li>
-				<li>	{{ detail }} </li>
-				<li>	{{ address }} </li>
 				<li>	£{{ wage }} per hour </li>
-				<!-- <li>	{{ email }} </li> -->
-				<li>	{{ phone }} </li>
 				<li>	{{ hours }} </li>
+				<li>	{{ phone }} </li>
+				<li>	{{ address }} </li>
+				
 				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' class='apply-link'>Apply now!</a></li>
 				
 			</ul>
