@@ -13,7 +13,7 @@
 		else
 			@jobs = Job.all
 		end
-
+		@submission = Submission.new
 	end
 
 	def new

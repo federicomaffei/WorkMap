@@ -9,16 +9,16 @@
 		<%= form_for(employer, as: employer_name, url: session_path(employer_name)) do |f| %>
 
 		<div>
-			<p class="modal_form signin_field"><%= f.label :email, :class => 'form_control' %></p>
+			<p class="modal_form"><%= f.label :email, :class => 'form_control' %></p>
 				<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
 		</div>
 
 		<div>
-			<p class="modal_form signin_field"><%= f.label :password %></p>
+			<p class="modal_form"><%= f.label :password %></p>
 				<%= f.password_field :password, class: 'form-control' %><br>
 		</div>
 
-		<p class="modal_form signin_field">
+		<p class="modal_form">
 		<%= f.submit "Sign in", :class => 'btn btn-small' %>
 		</p>
 
@@ -41,15 +41,15 @@
 	<div class="modal-body">
 		<%= form_for(user, as: user_name, url: session_path(user_name)) do |f| %>
 
-		<div><p class="modal_form signin_field"><%= f.label :email %></p>
+		<div><p class="modal_form"><%= f.label :email %></p>
 			<%= f.email_field :email, :autofocus => true, class: 'form-control' %>
 		</div>
 
-		<div><p class="modal_form signin_field"><%= f.label :password %></p>
+		<div><p class="modal_form"><%= f.label :password %></p>
 			<%= f.password_field :password , class: 'form-control'%><br>
 		</div>
 
-		<p class="modal_form signin_field">
+		<p class="modal_form">
 			<%= f.submit "Sign in", :class => 'btn btn-small' %>
 		</p>
 

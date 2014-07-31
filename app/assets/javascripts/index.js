@@ -6,8 +6,8 @@ $(document).ready(function(){
 
 	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
 	var mapOptions = {
-	  center: new google.maps.LatLng(latitude, longitude),
-	  zoom: 10,
+		center: new google.maps.LatLng(latitude, longitude),
+		zoom: 10,
 	 //  zoomControl: true,
 		// zoomControlOpt: {
 		// 	style: 'MEDIUM',
@@ -27,6 +27,7 @@ $(document).ready(function(){
   //     ]
   //     },
   //   ]
+
 	};
 
 	// initializing map object
@@ -158,6 +159,11 @@ $(document).ready(function(){
 						var infowindow = markers[i]['infowindow'];
 						markers[i].infowindow.close();
 		  });
+
+  		$('.apply-link').on('click', function(){
+				var email = $(this).data('email');
+			$('#submission_email').val(email);
+		})
 
     });
 
