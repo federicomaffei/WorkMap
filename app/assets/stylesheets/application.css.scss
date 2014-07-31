@@ -105,6 +105,10 @@ background:rgba(0,0,0,0.7);
 border-radius: 10px;
 }
 
+textarea {
+  font-family: 'HelveticaNeue-Bold';
+}
+
 #employer_login {
   margin-top: -200px; 
   margin-left: -200px;
@@ -130,7 +134,7 @@ border-radius: 10px;
   margin-top: -215px; 
   margin-left: -200px;
   width:400px;
-  height:430px;
+  height:400px;
 }
 
 #user_signup {
