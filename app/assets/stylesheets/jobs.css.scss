@@ -187,6 +187,10 @@ label {
 
 }	
 
+span.wage {
+	font-size: 24px;
+}
+
 .panel-group {
 	margin-bottom: 0;
 }
@@ -197,13 +201,14 @@ label {
 .advert_info:hover {
 	transition: all 0.5s ease;
 	background-color: #A2DAF2;
+	opacity: 0.5;
 }
 
 .advert_info {
 	min-height: 100px;
-	border-bottom-style: solid;
-	border-bottom-size: 1px;
-	border-bottom-color: #FFC0A9;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #E0DDDD;
 	
 	.info_row {
 		min-height: 50px;
@@ -220,27 +225,29 @@ label {
 	}
 
 	.category {
-	color: #C9D787; 
+	color: #000000; 
 	padding-top: 30px;
 	}
 	
 	.wage {
-	color: #FF8598;
-	padding-top: 30px;
+	color: #000000;
+	padding-top: 20px;
+	font-weight: bold;
 	}
 
 	.full_time {
-	color: #C9D787; 
+	color: #000000; 
 	padding-top: 30px;
 	}
 	
 	.company {
-	color: #FF8598;
+	color: #000000;
 	padding-top: 16px;
 	}
 
-	.company_name, .distance_location {
-		padding-top: 12px;
+	.company_name {
+		font-size: 16px;
+		font-weight: bolder;
 	}
 
 	.distance {
@@ -249,15 +256,23 @@ label {
 	}
 
 	.detail {
-	color: #C9D787;
+	color: #000000;
 	}
 
 	.close {
-	color: #FF8598;
+	color: #000000;
 	}
 
 	.apply {
-	color: #FF8598;
+	color: #000000;
+	}
+}
+
+.distance_location {
+		padding-top: 3px;
+		span {
+		font-size: 24px;
+		font-weight: bolder;
 	}
 }
 
