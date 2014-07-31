@@ -236,10 +236,18 @@ border-color: #7D8A2E;
 }
 
 .alert {
-  /*background-color: #222222;*/
+  background-color: #FCF8E3;
   /*color: #ffffff;*/
+  color: #000000;
   position: fixed;
-  bottom: 0px;
+  bottom: -20px;
+  font-family: Lato;
   z-index: 1000;
-  width: 100%
+  width: 100%;
+   .close-alert{
+    color: #000000;
+  }
 }
+
+
+
