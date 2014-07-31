@@ -59,7 +59,7 @@ $(document).ready(function(){
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#bde6ab"
+                "color": "#C9D787"
             }
         ]
     },
