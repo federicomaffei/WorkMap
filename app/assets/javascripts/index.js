@@ -69,7 +69,7 @@ var renderMarker = function(job){
 	var category = job.category;
 	var popup_template = $('#pop_up_job_advert').html();
 	var job_Info = Mustache.render(popup_template,job);	
-	
+
 	var latLng = new google.maps.LatLng(job.latitude,job.longitude);
 	var marker = new google.maps.Marker({
 		position: latLng,
@@ -127,11 +127,11 @@ var updateAdvertColumn = function(adverts){
 		var template = $('#individual_job_advert').html();
 		var newAdvert = Mustache.render(template,job);
 		$('.advert_column').append(newAdvert);
-		
+
 		$('#openlink'+i).on('click', function() {
 			google.maps.event.trigger(markers[i], 'click');
 		});
-		
+
 		$('#closelink'+i).on('click', function() {
 			var infowindow = markers[i]['infowindow'];
 			markers[i].infowindow.close();
@@ -139,7 +139,7 @@ var updateAdvertColumn = function(adverts){
 
 		$('.apply-link').on('click', function(){
 			var email = $(this).data('email');
-			$('#application_email').val(email);
+			$('#submission_email').val(email);
 		})
 	});
 
@@ -178,7 +178,7 @@ var getFormData = function(){
 	$.each(arrayForm, function (i, input) {
 		form[input.name] = input.value;
 	});
-	
+
 	form['distance'] = distance;
 	form['wage'] = wage;
 	console.log('hello2')
@@ -213,7 +213,7 @@ $('#search_box').on('submit', function(event) {
 			alert("You search address was not recognised: " + status);
 		}
 	});
-	
+
 });
 
 google.maps.event.addDomListener(window, "resize", function() {
