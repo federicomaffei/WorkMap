@@ -26,7 +26,7 @@
 			@job.save
 			redirect_to new_job_charge_path(@job)
 		else
-			flash[:notice] = 'Errors in your form'
+			flash[:notice] = 'There are some errors in your form'
 			render 'new'
 		end
 
