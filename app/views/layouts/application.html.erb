@@ -35,7 +35,7 @@
       </div>
       <div class="collapse navbar-collapse navbar-right">
         <ul class="nav navbar-nav">
-         <% if employer_signed_in? %>
+        <% if employer_signed_in? %>
          <li><%= link_to 'Edit registration', "#employer_edit", "data-toggle" => "modal", class: 'landing_page_login_link'%></li>
          <li><%= link_to 'Create a job', "#job_new", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
          <li><%= link_to 'My adverts', employer_adverts_path(current_employer), class: 'landing_page_login_link' %></li>
@@ -54,15 +54,15 @@
    </div>
  </div>
 
-  <!-- <div class="alert alert-success" role="alert"><%= notice %></div> -->
-  <!-- <div class="alert alert-info" role="alert">...</div> -->
-  <!-- <div class="alert alert-warning" role="alert">...</div> -->
-  <!-- <div class="alert alert-danger" role="alert"></div> -->
 
-  <!-- <p class='flash'></p>
-  <p class='flash'></p> -->
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> alert-dismissable fade in">
+    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" class='close-alert'>&times;</span><span class="sr-only">Close</span></button>
+    <%= message %>
+  </div>
+<% end %>
 
-<!-- <p><%= alert %></p> -->
+
  <%= yield %>
 </body>
 </html>
