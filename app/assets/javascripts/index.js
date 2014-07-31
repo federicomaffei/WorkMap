@@ -131,14 +131,10 @@ $(document).ready(function(){
 	// update RHS job adverts pane
 	function updateAdvertColumn(jobs) {
 		$('.advert_column').empty();
-		// var emptyArray = [];
 		var adverts = [];
-		// var newAdvert;
 
     $.each(jobs, function (i, job) {
-	      var template = $('#individual_job_advert').html();
 				job['linkid'] = i;
-				// job['distance'] = Math.round(100*calcDistanceKms(map,job))/100; 
 				job['distance'] = precise_round(calcDistanceKms(map,job),1); 
 				adverts.push(job);
     });
