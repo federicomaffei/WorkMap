@@ -11,7 +11,7 @@ $(document).ready(function(){
 	  zoomControl: true,
 		zoomControlOpt: {
 			style: 'MEDIUM',
-			position: 'BOTTOM_LEFT'
+			position: 'LEFT_BOTTOM'
 		},
 		panControl: false,
 		mapTypeControl: false,
