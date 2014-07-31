@@ -66,8 +66,7 @@ label {
 	}
 }
 
-#searchTextField {
-	background-color: #F5F5F5;
+.searchTextField {
 	height: 40px;
 	font-size: 16px;
 	padding: 10px;
@@ -78,7 +77,7 @@ label {
 	color: black;
 }
 
-#search_box {
+.search_box {
 	.glyphicon-search {
 		font-size: 23px;
 		top: 0;
@@ -174,8 +173,30 @@ label {
 	}
 }
 
+.second_search {
+		display: none;
+}
+
+@media (max-width: 767px){
+	.second_search {
+		display: inline;
+	}
+	.search_box {
+		height: 40px;
+	}
+
+}	
+
 .panel-group {
 	margin-bottom: 0;
+}
+.panel-title {
+	color: #000;
+}
+
+.advert_info:hover {
+	transition: all 0.5s ease;
+	background-color: #A2DAF2;
 }
 
 .advert_info {
@@ -199,36 +220,36 @@ label {
 	}
 
 	.category {
-	color: #7D8A2E; 
-/*	padding-top: 39px;*/
+	color: #C9D787; 
+	padding-top: 30px;
 	}
 	
 	.wage {
 	color: #FF8598;
-/*	padding-top: 39px;*/
+	padding-top: 30px;
 	}
 
 	.full_time {
 	color: #C9D787; 
-/*	padding-top: 39px;*/
+	padding-top: 30px;
 	}
 	
 	.company {
 	color: #FF8598;
-/*	padding-top: 16px;*/
+	padding-top: 16px;
 	}
 
 	.company_name, .distance_location {
-/*		padding-top: 12px;*/
+		padding-top: 12px;
 	}
 
 	.distance {
 		color: #000000;
-/*		padding-top: 16px;*/
+		padding-top: 16px;
 	}
 
 	.detail {
-	color: #7D8A2E;
+	color: #C9D787;
 	}
 
 	.close {
