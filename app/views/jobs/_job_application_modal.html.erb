@@ -6,7 +6,7 @@
 	</div>
 
 	<div class="modal-body">
-		<%= form_for @submission do |s| %>
+		<%= form_for @submission, url: user_submissions_path(current_user) do |s| %>
 
 		<div>
 			<p class="modal_form"><%= s.label :message, "To:", :class => 'form_control' %></p>
