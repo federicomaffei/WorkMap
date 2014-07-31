@@ -5,9 +5,7 @@
 	def index
 		puts params
 		if params[:refined]
-			# puts params.inspect
 			filtered_by(params)
-			# @max_distance = 100.0
 			@max_distance = params[:distance]
 			render 'index', content_type: :json
 		else

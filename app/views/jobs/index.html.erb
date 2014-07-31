@@ -7,7 +7,7 @@
 	<div class="col-md-7 col-sm-6 hidden-xs jobpageleftside">
 		<form id="search_box" class='index_page_jobs_search' method="post">
 			<span class="glyphicon glyphicon-search"></span>
-			<input type="text" id="searchTextField" placeholder="Address...">		
+			<input type="text" id="searchTextField" placeholder="Find a job in...">		
 			<input type="submit" style='display:none' value="Search">
 		</form>
 
@@ -36,6 +36,10 @@
 						<div class="bar_slider"><%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="label"><%= label_tag(:pub_box, "Pub", :class => "checkbox-inline") %></div>
+						<div class="strip_slider label"><%= check_box_tag(:pub_box, 'Pub', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
 						<div class="label"><%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %></div>
 						<div class="cafe_slider"><%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %></div>
 					</div>
@@ -51,10 +55,6 @@
 						<div class="label"><%= label_tag(:retail_box, "Retail", :class => "checkbox-inline") %></div>
 						<div class="retail_slider"><%= check_box_tag(:retail_box, 'Retail', true, :class => "switchery") %></div>
 					</div>
-					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="label"><%= label_tag(:strip_box, "Club", :class => "checkbox-inline") %></div>
-						<div class="strip_slider label"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
-					</div>
 				</div>
 
 				<div class="row" id="test2">
@@ -64,12 +64,12 @@
 					</div>
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><LABEL for="wage_slider">Min Pay(PerHour) </LABEL></div>
-						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="7.5"/></div>
+						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="6"/></div>
 					</div>
 
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><LABEL for="distance_slider">Distance(kms) </LABEL></div>
-						<div class="distance_slider"><input id="distance_slider" data-slider-id='distanceSlider' type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="20"/></div>
+						<div class="distance_slider"><input id="distance_slider" data-slider-id='distanceSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="10"/></div>
 					</div>
 
 				</div>
@@ -112,7 +112,7 @@
 		<div class='advert_info'>
 			<div class="info row" id='openlink{{ linkid }}'>
 				<a href='#'>
-					<div class='category col-md-2 col-sm-2 col-xs-2'>{{ category }}</div>
+					<div class='category col-md-2 col-sm-2 col-xs-2'><img src='{{ category_src }}'></div>
 					<div class='wage col-md-2 col-sm-2 col-xs-2'>£{{ wage }} per hour</div>
 					<div class='company col-md-3 col-sm-3 col-xs-3'>
 						<div class='company_name'>{{ company }}</div>
