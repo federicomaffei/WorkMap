@@ -115,7 +115,7 @@
 						<div class='job_title'>{{ advert_title }}</div>
 					</div>
 					<div class='distance col-md-3 col-sm-3 col-xs-3'>
-						<div class='distance_location'> {{ distance }}</div>
+						<div class='distance_location'> {{ distance }} Kms</div>
 						<div class='distance_title'>(distance)</div> 
 					</div>
 					<div class='full_time col-md-2 col-sm-2 col-xs-2'>{{ hours }}</div>
@@ -135,19 +135,21 @@
 	</template>
 
 
-
-
-	<template id='pop_up_job_advert'>
-		<ul>	
-			<li> {{ advert_title }} </li>
-			<li>	{{ company }} </li>
-			<li>	{{ detail }} </li>
-			<li>	{{ address }} </li>
-			<li>	£{{ wage }} per hour </li>
-			<li>	{{ email }} </li>
-			<li>	{{ phone }} </li>
-			<li>	{{ hours }} </li>
-		</ul>
+	<template id='pop_up_job_advert' >
+		<div class='info_window'>
+			<ul>	
+				<li> {{ advert_title }} </li>
+				<li>	{{ company }} </li>
+				<li>	{{ detail }} </li>
+				<li>	{{ address }} </li>
+				<li>	£{{ wage }} per hour </li>
+				<!-- <li>	{{ email }} </li> -->
+				<li>	{{ phone }} </li>
+				<li>	{{ hours }} </li>
+				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' class='apply-link'>Apply now!</a></li>
+				
+			</ul>
+		</div>
 	</template>
 
 	<script>
