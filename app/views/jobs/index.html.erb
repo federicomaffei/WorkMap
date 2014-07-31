@@ -122,13 +122,13 @@
 			<div class="info row" id='openlink{{ linkid }}'>
 				<a href='#'>
 					<div class='category col-md-2 col-sm-2 col-xs-2'><img src='{{ category_src }}'></div>
-					<div class='wage col-md-2 col-sm-2 col-xs-2'><span class="wage">£{{ wage }}</span> p.h.</div>
+					<div class='wage col-md-2 col-sm-2 col-xs-2'><span class="wage">£{{ wage }}</span></br> p.h.</div>
 					<div class='company col-md-3 col-sm-3 col-xs-3'>
-						<div class='company_name'><span class"companyname">{{ company }}</span></div>
 						<div class='job_title'>{{ advert_title }}</div>
+						<div class='company_name'><span class"companyname">{{ company }}</span></div>
 					</div>
 					<div class='distance col-md-3 col-sm-3 col-xs-3'>
-						<div class='distance_location'> <span class"distance">{{ distance }}</span> Kms</div>
+						<div class='distance_location'> <span class"distance">{{ distance }}</span> km</div>
 						<div class='distance_title'>(distance)</div> 
 					</div>
 					<div class='full_time col-md-2 col-sm-2 col-xs-2'>{{ hours }}</div>
@@ -137,15 +137,15 @@
 
 			<div class="more_info row" id='closelink{{ linkid }}'>
 					<div class='detail col-md-8 col-sm-8 col-xs-8'>{{ detail }}</div>
-					<div class='apply col-md-2 col-sm-2 col-xs-2'>
+					<div class='apply col-md-2 col-sm-2 col-xs-2 btn btn-default'>
 						<% if user_signed_in? %>
-						<%= link_to 'Apply now!', "#job_application", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
+						<%= link_to 'Apply now', "#job_application", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
 						<% else %>
-						<%= link_to 'Apply now!', "#user_login", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
+						<%= link_to 'Apply now', "#user_login", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
 						<% end %>
 					</div>
 				<a href='#'>
-					<div class="close-div col-md-2 col-sm-2 col-xs-2">X</div>
+					<div class="close-div col-md-2 col-sm-2 col-xs-2"><span class="glyphicon glyphicon-remove-circle"></span></div>
 				</a>
 			</div>
 		</div>
@@ -155,14 +155,13 @@
 	<template id='pop_up_job_advert' >
 		<div class='info_window'>
 			<ul>	
-				<li> {{ advert_title }} </li>
+				<li> <span class="adtitle">{{ advert_title }}</span> </li>
 				<li>	{{ company }} </li>
 				<li>	£{{ wage }} per hour </li>
 				<li>	{{ hours }} </li>
-				<li>	{{ phone }} </li>
-				<li>	{{ address }} </li>
-				
-				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' id='apply-link'>Apply now!</a></li>
+				<li><span class="telephone">Tel:</span> {{ phone }} </li>				
+				<!-- not 100% working - removed for heroku -->
+				<!-- <li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' id='apply-link'>Apply now!</a></li> -->
 				
 			</ul>
 		</div>
