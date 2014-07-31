@@ -238,3 +238,12 @@ border-color: #7D8A2E;
 .navbar-nav {
   background-color: #222222;
 }
+
+.alert {
+  /*background-color: #222222;*/
+  /*color: #ffffff;*/
+  position: fixed;
+  bottom: 0px;
+  z-index: 1000;
+  width: 100%
+}

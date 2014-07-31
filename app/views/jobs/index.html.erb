@@ -1,3 +1,7 @@
+<% if current_user %>
+  <%= render "jobs/job_application_modal" %>
+<% end %>
+
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-6 hidden-xs jobpageleftside">
@@ -148,12 +152,11 @@
 			<ul>	
 				<li> {{ advert_title }} </li>
 				<li>	{{ company }} </li>
-				<li>	{{ detail }} </li>
-				<li>	{{ address }} </li>
 				<li>	£{{ wage }} per hour </li>
-				<!-- <li>	{{ email }} </li> -->
-				<li>	{{ phone }} </li>
 				<li>	{{ hours }} </li>
+				<li>	{{ phone }} </li>
+				<li>	{{ address }} </li>
+				
 				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' class='apply-link'>Apply now!</a></li>
 				
 			</ul>
