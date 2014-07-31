@@ -3,7 +3,7 @@
 	width: 100%;
 	overflow: scroll;
 	color: black;
-	background-color: #EDE6E6;
+	background-color: #F7F1DF;
 	.btn-success {
 		background-color: #C9D787;
 		border: none;
@@ -24,7 +24,7 @@
 }
 
 .advert_column {
-	background-color: #F5F5F5;
+	background-color: #F7F1DF;
 	height: 100%;
 	overflow: scroll;
 }
@@ -49,8 +49,8 @@
 }
 
 .full_time_select_box {
-	width: 155px;
-	margin-left: 38px;
+	width: 132px;
+	margin: auto;
 }
 
 .search_button {
@@ -68,6 +68,11 @@ background: #C9D787;
 background: #C9D787;
 }
 
+.slider.slider-horizontal {
+width: 137px !important;
+height: 20px !important;
+}
+
 #distanceSlider .slider-handle{
 background: #FFF;
 border: 1px;
@@ -78,3 +83,5 @@ border-color: #C9D787;
 #wageSlider .slider-handle {
 background: #FFF;
 }
+
+

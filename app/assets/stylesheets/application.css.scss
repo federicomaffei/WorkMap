@@ -105,6 +105,10 @@ background:rgba(0,0,0,0.7);
 border-radius: 10px;
 }
 
+textarea {
+  font-family: 'HelveticaNeue-Bold';
+}
+
 #employer_login {
   margin-top: -200px; 
   margin-left: -200px;
@@ -130,7 +134,7 @@ border-radius: 10px;
   margin-top: -215px; 
   margin-left: -200px;
   width:400px;
-  height:430px;
+  height:400px;
 }
 
 #user_signup {
@@ -140,7 +144,28 @@ border-radius: 10px;
   height:500px;
 }
 
+#user_edit {
+  margin-top: -250px; 
+  margin-left: -200px;
+  width:400px;
+  height:500px;
+}
+
 #job_new {
+  margin-top: -250px; 
+  margin-left: -200px;
+  width:400px;
+  height:500px;
+}
+
+#job_application {
+  margin-top: -250px; 
+  margin-left: -200px;
+  width:400px;
+  height:500px;
+}
+
+#submission_confirmation {
   margin-top: -250px; 
   margin-left: -200px;
   width:400px;
@@ -216,3 +241,24 @@ border-color: #7D8A2E;
   top: 0;
   width: 30px;
 }
+
+.navbar-nav {
+  background-color: #222222;
+}
+
+.alert {
+  background-color: #FCF8E3;
+  /*color: #ffffff;*/
+  color: #000000;
+  position: fixed;
+  bottom: -20px;
+  font-family: Lato;
+  z-index: 1000;
+  width: 100%;
+   .close-alert{
+    color: #000000;
+  }
+}
+
+
+

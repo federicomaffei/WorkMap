@@ -5,15 +5,13 @@
 	def index
 		puts params
 		if params[:refined]
-			# puts params.inspect
 			filtered_by(params)
-			# @max_distance = 100.0
 			@max_distance = params[:distance]
 			render 'index', content_type: :json
 		else
 			@jobs = Job.all
 		end
-
+		@submission = Submission.new
 	end
 
 	def new
@@ -28,7 +26,7 @@
 			@job.save
 			redirect_to new_job_charge_path(@job)
 		else
-			flash[:notice] = 'Errors in your form'
+			flash[:notice] = 'There are some errors in your form'
 			render 'new'
 		end
 
@@ -51,7 +49,7 @@
 	end
 
 	def filtered_by(params)
-		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:shop_box], params[:strip_box]].compact
+		job_search_array = [params[:bar_box], params[:cafe_box], params[:hotel_box], params[:restaurant_box], params[:retail_box], params[:pub_box]].compact
 		wage_range = params[:wage].to_i..100#params[:wage][1].to_i
 		if (params[:full_time] == "true") || (params[:full_time] == "false")
 			@jobs = Job.where({ category: job_search_array, wage: wage_range, full_time: params[:full_time] })

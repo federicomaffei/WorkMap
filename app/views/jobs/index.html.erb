@@ -1,9 +1,13 @@
+<% if current_user %>
+  <%= render "jobs/job_application_modal" %>
+<% end %>
+
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-6 hidden-xs jobpageleftside">
-
-		<form id="search_box" class='index_page_jobs_search' method="post">
-			<input type="text" id="searchTextField" placeholder="Address...">
+		<form class="search_box" class='index_page_jobs_search' method="post">
+			<span class="glyphicon glyphicon-search"></span>
+			<input type="text" class="searchTextField" placeholder="Find a job in...">		
 			<input type="submit" style='display:none' value="Search">
 		</form>
 
@@ -14,6 +18,14 @@
 	</div>
 
 	<div class="col-md-5 col-sm-6 col-xs-12" id="jobpagerightside">
+
+	<div class="second_search">
+		<form class="search_box" class='index_page_jobs_search' method="post">
+			<span class="glyphicon glyphicon-search"></span>
+			<input type="text" class="searchTextField" placeholder="Find a job in...">		
+			<input type="submit" style='display:none' value="Search">
+		</form>
+	</div>
 
 <div class="panel-group" id="accordion">
 
@@ -32,6 +44,10 @@
 						<div class="bar_slider"><%= check_box_tag(:bar_box, 'Bar', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
+						<div class="label"><%= label_tag(:pub_box, "Pub", :class => "checkbox-inline") %></div>
+						<div class="strip_slider label"><%= check_box_tag(:pub_box, 'Pub', true, :class => "switchery") %></div>
+					</div>
+					<div class="filter col-md-2 col-sm-2 col-xs-2">
 						<div class="label"><%= label_tag(:cafe_box, "Cafe", :class => "checkbox-inline") %></div>
 						<div class="cafe_slider"><%= check_box_tag(:cafe_box, 'Cafe', true, :class => "switchery") %></div>
 					</div>
@@ -44,12 +60,8 @@
 						<div class="restaurant_slider"><%= check_box_tag(:restaurant_box, 'Restaurant', true, :class => "switchery") %></div>
 					</div>
 					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="label"><%= label_tag(:shop_box, "Shop", :class => "checkbox-inline") %></div>
-						<div class="shop_slider"><%= check_box_tag(:shop_box, 'Shop', true, :class => "switchery") %></div>
-					</div>
-					<div class="filter col-md-2 col-sm-2 col-xs-2">
-						<div class="label"><%= label_tag(:strip_box, "Club", :class => "checkbox-inline") %></div>
-						<div class="strip_slider label"><%= check_box_tag(:strip_box, 'Strip Club', true, :class => "switchery") %></div>
+						<div class="label"><%= label_tag(:retail_box, "Retail", :class => "checkbox-inline") %></div>
+						<div class="retail_slider"><%= check_box_tag(:retail_box, 'Retail', true, :class => "switchery") %></div>
 					</div>
 				</div>
 
@@ -60,12 +72,12 @@
 					</div>
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><LABEL for="wage_slider">Min Pay(PerHour) </LABEL></div>
-						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="7.5"/></div>
+						<div class="wage_slider"><input id="wage_slider" data-slider-id='wageSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="0.5" data-slider-value="6"/></div>
 					</div>
 
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><LABEL for="distance_slider">Distance(kms) </LABEL></div>
-						<div class="distance_slider"><input id="distance_slider" data-slider-id='distanceSlider' type="text" data-slider-min="0" data-slider-max="50" data-slider-step="1" data-slider-value="20"/></div>
+						<div class="distance_slider"><input id="distance_slider" data-slider-id='distanceSlider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="10"/></div>
 					</div>
 
 				</div>
@@ -85,18 +97,22 @@
 		</div>
 
 	<div class="panel panel-default">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">
+
 		<div class="panel-heading">
 		<h4 class="panel-title">
-		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">Search Filters</a>
+		Search Filters<span class="glyphicon glyphicon-chevron-down"></span><span class="glyphicon glyphicon-chevron-up"></span>
 		</h4>
 		</div>
+
+		</a>
 		
 	</div>
 </div>
 
 
 		<aside class="advert_column">
-
+			
 		</aside>
 	</div>
 
@@ -104,25 +120,25 @@
 		<div class='advert_info'>
 			<div class="info row" id='openlink{{ linkid }}'>
 				<a href='#'>
-					<div class='category col-md-2 col-sm-2 col-xs-2'>{{ category }}</div>
+					<div class='category col-md-2 col-sm-2 col-xs-2'><img src='{{ category_src }}'></div>
 					<div class='wage col-md-2 col-sm-2 col-xs-2'>£{{ wage }} per hour</div>
 					<div class='company col-md-3 col-sm-3 col-xs-3'>
 						<div class='company_name'>{{ company }}</div>
 						<div class='job_title'>{{ advert_title }}</div>
 					</div>
 					<div class='distance col-md-3 col-sm-3 col-xs-3'>
-						<div class='distance_location'> {{ distance }}</div>
+						<div class='distance_location'> {{ distance }} Kms</div>
 						<div class='distance_title'>(distance)</div> 
 					</div>
 					<div class='full_time col-md-2 col-sm-2 col-xs-2'>{{ hours }}</div>
 				</a>
 			</div>
 
-			<div class="more_info row" id='closelink{{ linkid }}' data-jobid='{{ jobid }}'>
+			<div class="more_info row" id='closelink{{ linkid }}'>
 					<div class='detail col-md-8 col-sm-8 col-xs-8'>{{ detail }}</div>
-				<a href='apply'>
-					<div class='apply col-md-2 col-sm-2 col-xs-2'>Apply Now!</div>
-				</a>
+					<div class='apply col-md-2 col-sm-2 col-xs-2'>
+						<%= link_to 'Apply now!', "#job_application", "data-toggle" => "modal", "data-email" => '{{ email }}', class: 'apply-link' %>
+					</div>
 				<a href='#'>
 					<div class="close-div col-md-2 col-sm-2 col-xs-2">X</div>
 				</a>
@@ -130,17 +146,21 @@
 		</div>
 	</template>
 
-	<template id='pop_up_job_advert'>
-		<ul>	
-			<li> {{ advert_title }} </li>
-			<li>	{{ company }} </li>
-			<li>	{{ detail }} </li>
-			<li>	{{ address }} </li>
-			<li>	£{{ wage }} per hour </li>
-			<li>	{{ email }} </li>
-			<li>	{{ phone }} </li>
-			<li>	{{ hours }} </li>
-		</ul>
+
+	<template id='pop_up_job_advert' >
+		<div class='info_window'>
+			<ul>	
+				<li> {{ advert_title }} </li>
+				<li>	{{ company }} </li>
+				<li>	£{{ wage }} per hour </li>
+				<li>	{{ hours }} </li>
+				<li>	{{ phone }} </li>
+				<li>	{{ address }} </li>
+				
+				<li> <a href='jobs#job_application' data-toggle="modal" data-email='{{ email }}' class='apply-link'>Apply now!</a></li>
+				
+			</ul>
+		</div>
 	</template>
 
 	<script>

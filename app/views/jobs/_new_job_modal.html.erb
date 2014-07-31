@@ -15,7 +15,7 @@
 
 		<div>
 			<p class="modal_form"><%= j.label :category %>:</p>
-			<%= j.select :category, ['Bar', 'Restaurant', 'Hotel', 'Shop', 'Cafe', 'StripClub'], class: 'form-control'%><br>
+			<%= j.select :category, ['Bar', 'Restaurant', 'Hotel', 'Retail', 'Cafe', 'StripClub'], class: 'form-control'%><br>
 		</div>
 
 		<div>
@@ -39,7 +39,7 @@
 		</div>
 
 		<div>
-			<p class="modal_form"><%= j.label :wage %></p>
+			<p class="modal_form"><%= j.label "Wage (£ per hour)" %></p>
 			<%= j.text_field :wage, :autofocus => true, class: 'form-control' %>
 		</div>
 

@@ -66,15 +66,25 @@ label {
 	}
 }
 
-#searchTextField {
-	background-color: #F5F5F5;
+.searchTextField {
 	height: 40px;
 	font-size: 16px;
 	padding: 10px;
-	width: 100%;
+	width: calc(100% - 50px);
+	float: right;
 	border: none;
 	font-family: Lato;
 	color: black;
+}
+
+.search_box {
+	.glyphicon-search {
+		font-size: 23px;
+		top: 0;
+		padding-top: 9px;
+		padding-left: 12px;
+/*		background-color: yellow;*/
+	}
 }
 
 ::-webkit-input-placeholder {
@@ -163,8 +173,30 @@ label {
 	}
 }
 
+.second_search {
+		display: none;
+}
+
+@media (max-width: 767px){
+	.second_search {
+		display: inline;
+	}
+	.search_box {
+		height: 40px;
+	}
+
+}	
+
 .panel-group {
 	margin-bottom: 0;
+}
+.panel-title {
+	color: #000;
+}
+
+.advert_info:hover {
+	transition: all 0.5s ease;
+	background-color: #A2DAF2;
 }
 
 .advert_info {
@@ -180,21 +212,26 @@ label {
 
 	div {
 		text-align: center;
+		  position: relative;
+/*	  top: 50%;
+	  	-webkit-transform: translateY(-50%);
+	  	-ms-transform: translateY(-50%);
+	  	transform: translateY(-50%);*/
 	}
 
 	.category {
-	color: #7D8A2E; 
-	padding-top: 39px;
+	color: #C9D787; 
+	padding-top: 30px;
 	}
 	
 	.wage {
 	color: #FF8598;
-	padding-top: 39px;
+	padding-top: 30px;
 	}
 
 	.full_time {
 	color: #C9D787; 
-	padding-top: 39px;
+	padding-top: 30px;
 	}
 	
 	.company {
@@ -212,7 +249,7 @@ label {
 	}
 
 	.detail {
-	color: #7D8A2E;
+	color: #C9D787;
 	}
 
 	.close {
@@ -242,5 +279,40 @@ width: 100px;
 }
 
 .advert_info.clicked .more_info {
-    display: inline;
+    display: block;
+    height: 80px;
 }
+
+
+
+.info_window {
+	/*font-family: Leto;*/
+	/*background-color: black;*/
+}
+
+ .accordion-toggle .glyphicon-chevron-up {
+	display: none;
+}
+
+.collapse.in + .panel .accordion-toggle .glyphicon-chevron-up {
+	display: inline;
+}
+
+.accordion-toggle .glyphicon-chevron-down {
+	display: inline;
+}
+
+.collapse.in + .panel .accordion-toggle .glyphicon-chevron-down {
+	display: none;
+}
+
+
+.panel-title {
+		.glyphicon {
+		top: 0;
+		font-size: 20px;
+		float:right;
+/*		background-color: yellow;*/
+	}
+}
+

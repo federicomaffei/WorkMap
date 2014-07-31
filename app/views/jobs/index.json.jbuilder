@@ -3,6 +3,7 @@ json.array! @jobs do |job|
 	json.address job.address
 	json.company job.company
 	json.category job.category
+	json.category_src "https://dl.dropboxusercontent.com/u/9315601/#{job.category}.png"
 	json.latitude job.latitude
 	json.longitude job.longitude
 	json.detail job.detail

@@ -12,18 +12,26 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :cv
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :surname
+    devise_parameter_sanitizer.for(:account_update) << :image
+    devise_parameter_sanitizer.for(:account_update) << :cv
+    devise_parameter_sanitizer.for(:account_update) << :name
+    devise_parameter_sanitizer.for(:account_update) << :surname
   end
 
   def after_sign_in_path_for(resource)
   	if resource.class == Employer
   		jobs_path
-  	end
+  	else
+      jobs_path
+    end
   end
 
   def after_sign_up_path_for(resource)
   	if resource.class == Employer
   		jobs_path
-  	end
+  	else
+      jobs_path
+    end
   end
 
 end
