@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Job.delete_all
+Employer.delete_all
 
 # def postcode_back_stub
 # 	# [*1..9].sample.to_s 
@@ -60,11 +61,11 @@ hotels = ["Abba Queen's Gate", "Abba Queen Gate Hotel", "Abbey Court Hotel (hyde
 
 
 
-hotels.first(10).each do |hotel|
+hotels.first(5).each do |hotel|
 	# job = Job.new latitude: (latitude_start + random_lat_add), longitude: (-0.602875 + random_long_add), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
 	detail_descrip = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum rhoncus scelerisque. Ut vel urna turpis. Phasellus gravida malesuada enim quis mattis.'
 	# job = Job.new latitude: (51.2902111 + (0.37/100)*rand(101)), longitude: (-0.505371 + (0.68/100)*rand(101)), advert_title: hotel_titles.sample, category: category.sample, company: hotel, full_time: [true, false].sample, detail: detail_descrip, address: "Test Address, London", wage: [*5..20].sample, email: 'employer@test.com', phone: '012345678'
-	job = Job.new latitude: (51.2902111 + (0.37/100)*rand(101)), longitude: (-0.505371 + (0.68/100)*rand(101)), advert_title: hotel_titles.sample, category: category.sample, company: "#{hotel}, London", full_time: [true, false].sample, detail: detail_descrip, address: "Test Address, London", wage: [*5..20].sample, email: 'employer@test.com', phone: '012345678'
+	job = Job.new advert_title: hotel_titles.sample, category: category.sample, company: "#{hotel}, London", full_time: [true, false].sample, detail: detail_descrip, address: "Test Address, London", wage: [*5..20].sample, email: 'employer@test.com', phone: '012345678'
 	job.employer = @employer
 	job.save
 end
