@@ -7,26 +7,152 @@ $(document).ready(function(){
 	// window.map works like var, but changes scope of following object to whole window, so you can access it from tests
 	var mapOptions = {
 		center: new google.maps.LatLng(latitude, longitude),
-		zoom: 10,
-	 //  zoomControl: true,
-		// zoomControlOpt: {
-		// 	style: 'MEDIUM',
-		// 	position: 'CENTER_LEFT'
-		// },
-		// panControl: false,
-		// mapTypeControl: false,
-		// streetViewControl: false,
-		// styles: 
-		// [
-		// { "featureType": "landscape", 
-		// 	"elementType": "all", 
-		// 	"stylers": [
-		// 	{ "hue": "#ffffff" },
-		// 	{ "saturation": -100},
-		// 	{ "lightness": 100}
-  //     ]
-  //     },
-  //   ]
+		zoom: 14,
+	  zoomControl: true,
+		zoomControlOpt: {
+			style: 'MEDIUM',
+			position: 'BOTTOM_LEFT'
+		},
+		panControl: false,
+		mapTypeControl: false,
+		streetViewControl: false,
+		styles: 
+		[
+		{
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#a2daf2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#f7f1df"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#d0e3b4"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#bde6ab"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#fbd3da"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ffe15f"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#efd151"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "black"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.station.airport",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#cfb2db"
+            }
+        ]
+    }
+    ]
 
 	};
 
@@ -131,14 +257,10 @@ $(document).ready(function(){
 	// update RHS job adverts pane
 	function updateAdvertColumn(jobs) {
 		$('.advert_column').empty();
-		// var emptyArray = [];
 		var adverts = [];
-		// var newAdvert;
 
     $.each(jobs, function (i, job) {
-	      var template = $('#individual_job_advert').html();
 				job['linkid'] = i;
-				// job['distance'] = Math.round(100*calcDistanceKms(map,job))/100; 
 				job['distance'] = precise_round(calcDistanceKms(map,job),1); 
 				adverts.push(job);
     });
