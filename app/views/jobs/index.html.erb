@@ -1,9 +1,9 @@
 <div class="container-fluid">
 
 	<div class="col-md-7 col-sm-6 hidden-xs jobpageleftside">
-
 		<form id="search_box" class='index_page_jobs_search' method="post">
-			<input type="text" id="searchTextField" placeholder="Address...">
+			<span class="glyphicon glyphicon-search"></span>
+			<input type="text" id="searchTextField" placeholder="Address...">		
 			<input type="submit" style='display:none' value="Search">
 		</form>
 
@@ -85,11 +85,15 @@
 		</div>
 
 	<div class="panel panel-default">
+		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">
+
 		<div class="panel-heading">
 		<h4 class="panel-title">
-		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1">Search Filters</a>
+		Search Filters<span class="glyphicon glyphicon-chevron-down"></span><span class="glyphicon glyphicon-chevron-up"></span>
 		</h4>
 		</div>
+
+		</a>
 		
 	</div>
 </div>
@@ -129,6 +133,7 @@
 			</div>
 		</div>
 	</template>
+
 
 	<template id='pop_up_job_advert' >
 		<div class='info_window'>

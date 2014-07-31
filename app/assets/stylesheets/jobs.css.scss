@@ -71,10 +71,20 @@ label {
 	height: 40px;
 	font-size: 16px;
 	padding: 10px;
-	width: 100%;
+	width: 95%;
+	float: right;
 	border: none;
 	font-family: Lato;
 	color: black;
+}
+
+#search_box {
+	.glyphicon-search {
+		top: 0;
+		padding-top: 3px;
+		padding-left: 5px;
+/*		background-color: yellow;*/
+	}
 }
 
 ::-webkit-input-placeholder {
@@ -180,35 +190,40 @@ label {
 
 	div {
 		text-align: center;
+		  position: relative;
+/*	  top: 50%;
+	  	-webkit-transform: translateY(-50%);
+	  	-ms-transform: translateY(-50%);
+	  	transform: translateY(-50%);*/
 	}
 
 	.category {
 	color: #7D8A2E; 
-	padding-top: 39px;
+/*	padding-top: 39px;*/
 	}
 	
 	.wage {
 	color: #FF8598;
-	padding-top: 39px;
+/*	padding-top: 39px;*/
 	}
 
 	.full_time {
 	color: #C9D787; 
-	padding-top: 39px;
+/*	padding-top: 39px;*/
 	}
 	
 	.company {
 	color: #FF8598;
-	padding-top: 16px;
+/*	padding-top: 16px;*/
 	}
 
 	.company_name, .distance_location {
-		padding-top: 12px;
+/*		padding-top: 12px;*/
 	}
 
 	.distance {
 		color: #000000;
-		padding-top: 16px;
+/*		padding-top: 16px;*/
 	}
 
 	.detail {
@@ -246,7 +261,35 @@ width: 100px;
 }
 
 
+
 .info_window {
 	/*font-family: Leto;*/
 	/*background-color: black;*/
 }
+
+ .accordion-toggle .glyphicon-chevron-up {
+	display: none;
+}
+
+.collapse.in + .panel .accordion-toggle .glyphicon-chevron-up {
+	display: inline;
+}
+
+.accordion-toggle .glyphicon-chevron-down {
+	display: inline;
+}
+
+.collapse.in + .panel .accordion-toggle .glyphicon-chevron-down {
+	display: none;
+}
+
+
+.panel-title {
+		.glyphicon {
+		top: 0;
+		font-size: 20px;
+		float:right;
+/*		background-color: yellow;*/
+	}
+}
+
