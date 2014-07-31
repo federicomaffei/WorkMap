@@ -21,5 +21,4 @@ class SubmissionsController < ApplicationController
 		params[:submission].permit(:email, :message, :cv)
 	end
 
-
 end
