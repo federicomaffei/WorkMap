@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731101145) do
+ActiveRecord::Schema.define(version: 20140729163232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,16 +82,6 @@ ActiveRecord::Schema.define(version: 20140731101145) do
   add_index "orders", ["employer_id"], name: "index_orders_on_employer_id", using: :btree
   add_index "orders", ["job_id"], name: "index_orders_on_job_id", using: :btree
 
-  create_table "submissions", force: true do |t|
-    t.text     "message"
-    t.text     "cv"
-    t.integer  "user_id"
-    t.integer  "job_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "email"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -105,12 +95,12 @@ ActiveRecord::Schema.define(version: 20140731101145) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "provider"
-    t.string   "uid"
     t.string   "name"
     t.string   "surname"
     t.string   "cv_file_name"
