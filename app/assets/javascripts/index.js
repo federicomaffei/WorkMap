@@ -138,7 +138,7 @@ $(document).ready(function(){
 	      var template = $('#individual_job_advert').html();
 				job['linkid'] = i;
 				// job['distance'] = Math.round(100*calcDistanceKms(map,job))/100; 
-				job['distance'] = precise_round(calcDistanceKms(map,job),2); 
+				job['distance'] = precise_round(calcDistanceKms(map,job),1); 
 				adverts.push(job);
     });
 
