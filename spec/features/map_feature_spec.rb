@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'primary map' do
 
-	xit 'displays the map on the homepage' do
+	it 'displays the map on the homepage' do
 		visit '/jobs'
 		sleep 1
 		expect(page).to have_map

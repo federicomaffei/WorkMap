@@ -1,6 +1,16 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
+<<<<<<< HEAD
+=======
+# Examples:
+#
+#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Job.delete_all
+
+>>>>>>> 9f663e9d937bcce421288654c114ed3b8c835d64
 
 # def postcode_back_stub
 # 	# [*1..9].sample.to_s 
@@ -95,10 +105,4 @@ pub_names.each_with_index do |name,i|
 	sleep 0.25
 	job.save
 end
-
-
-
-
-
-
 
