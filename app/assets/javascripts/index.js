@@ -188,17 +188,19 @@
 
 	// on page reload render job markers and populate RHS job adverts pane
 	$.get("/jobs.json", function(jobs) {
-		renderMarkers(jobs);
-		updateAdvertColumn(jobs);
+		closeJobs = filterByMaxDistance(jobs,5);
+		renderMarkers(closeJobs);
+		updateAdvertColumn(closeJobs);
 		markerCluster = new MarkerClusterer(map, markers, mcOptions);
 	});
 
 	// event listener for filter form submission, calls getFormData first to correctly format json
-	$('#filter_form').submit(function(event){
+	$('#filter_form').submit(function(event)
 		event.preventDefault();
 		var form = getFormData();
-
+		// console.log(form);
 		$.get('/jobs.json', form, function(jobs){
+			console.log(jobs[0].max_distance);
 			submitFilterForm(jobs);
 		});
 
@@ -312,6 +314,7 @@
 	// submits filter form
 	function submitFilterForm(jobs) {
 		markers = [];
+		// console.log(jobs[0].max_distance);
 		var max_distance = jobs[0].max_distance;
 
 		var filteredJobs = filterByMaxDistance(jobs,max_distance);
@@ -343,8 +346,16 @@
 	function filterByMaxDistance(jobs,max_distance){
 		var filtereredJobs = [];
 			jobs.forEach(function(job) {
-				if (calcDistanceKms(map,job) <= job.max_distance) {	
-					filtereredJobs.push(job);
+			// console.log(job.max_distance);
+				if (job.max_distance ===null){ 
+					if (calcDistanceKms(map,job) <= 5) {	
+						filtereredJobs.push(job);
+					};
+				}
+				else {
+					if (calcDistanceKms(map,job) <= job.max_distance) {	
+						filtereredJobs.push(job);
+					};
 				};
 			});
 		return filtereredJobs;
@@ -373,6 +384,7 @@
     });
 		
 		form['distance'] = distance;
+		// console.log(distance);
 		form['wage'] = wage;
 
 		return form;

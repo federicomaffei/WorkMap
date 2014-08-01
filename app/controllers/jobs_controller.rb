@@ -7,6 +7,7 @@
 		if params[:refined]
 			filtered_by(params)
 			@max_distance = params[:distance]
+			# @max_distance = 10
 			render 'index', content_type: :json
 		else
 			@jobs = Job.all
