@@ -12,8 +12,10 @@ describe 'employers job advert update page' do
 		login_as employer, scope: :employer
 		visit "/employers/#{employer.id}/adverts"
 		click_link 'Edit advert' 
-		fill_in 'Advert title', with: 'Better name' 
-		click_button('Update advert')
+		within '#employer_job_edit' do
+			fill_in 'Advert title', with: 'Better name' 
+			click_button('Update advert')
+		end
 		expect(page).to have_content 'Better name'
 
 	end

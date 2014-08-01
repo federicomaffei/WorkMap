@@ -1,4 +1,4 @@
-$(document).ready(function(){
+	$(document).ready(function(){
 	
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.497830;
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.132523;
@@ -166,7 +166,7 @@ $(document).ready(function(){
 	// define empty markers array, marketclusterer var and options
 	var markers = [];
 	var markerCluster;
-	var mcOptions = {gridSize: 80, maxZoom: 12};
+	var mcOptions = {gridSize: 90, maxZoom: 14};
 
 	// setting up google autocomplete for address search bar
 	var defaultBounds = new google.maps.LatLngBounds(

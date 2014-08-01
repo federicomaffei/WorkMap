@@ -69,7 +69,7 @@
 				<div class="row" id="test2">
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><%= label_tag(:full_time, "Full Time / Part Time") %></div>
-						<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false]]), :class => "form-control full_time_select_box") %>
+						<%= select_tag(:full_time, options_for_select([['Full Time', true], ['Part Time', false], ['Both', :both]]), :class => "form-control full_time_select_box") %>
 					</div>
 					<div class="filter col-md-4 col-sm-4 col-xs-4">
 						<div class="label"><LABEL for="wage_slider">Min Pay(PerHour) </LABEL></div>
@@ -131,7 +131,7 @@
 						<div class='distance_location'> <span class"distance">{{ distance }}</span> km</div>
 						<div class='distance_title'>(distance)</div> 
 					</div>
-					<div class='full_time col-md-2 col-sm-2 col-xs-2'>{{ hours }}</div>
+					<div class='full_time col-md-2 col-sm-2 col-xs-2'><img src='{{ hours_src }}'></div>
 				</a>
 			</div>
 

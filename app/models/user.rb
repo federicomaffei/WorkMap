@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 3}
   # validates :cv, presence: true
   # validates_attachment_content_type :cv, :content_type => /.pdf\Z/
-  #validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 
 #   after_create :send_user_welcome_email
 
