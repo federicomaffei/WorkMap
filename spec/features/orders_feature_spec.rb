@@ -9,7 +9,7 @@ describe 'orders page' do
 	context 'not logged in as admin' do
 		it 'prompts you to sign in' do
 			visit '/orders'
-			expect(page).to have_content 'Register'
+			expect(page).to have_content 'Hiring? Post a job!'
 		end
 	end
 

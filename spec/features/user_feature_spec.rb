@@ -86,7 +86,6 @@ describe 'user signing up' do
 			attach_file 'CV', Rails.root.join('spec/files/resume.pdf')
 			click_button 'Sign up'
 		end
-		sleep 1
 		click_link 'Edit registration'
 		expect(page).to have_css 'img.uploaded-cv'
 	end
