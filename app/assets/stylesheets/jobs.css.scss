@@ -204,6 +204,7 @@ span.wage {
 
 }
 
+
 .advert_info {
 	min-height: 100px;
 	border-bottom-style: dotted;
@@ -242,7 +243,9 @@ span.wage {
 	
 	.company {
 	color: #000000;
-	padding-top: 25px;
+	padding-top: 22px;
+	padding-right: 10px;
+	padding-left: 10px;
 	}
 
 	.company_name {
@@ -251,7 +254,7 @@ span.wage {
 	}
 
 	.job_title {
-		font-size: 16px;
+		font-size: 15px;
 		font-weight: bolder;
 	}
 
@@ -313,6 +316,7 @@ width: 100px;
 		border: none;
 		border: none;
 		border-radius: 0px;
+		padding-left: 5px;
 	}
 
 	.glyphicon {
@@ -329,7 +333,6 @@ width: 100px;
 
 	.apply {
 		margin-top: 30px;
-/*		margin-left: 10px;*/
 		.btn {
 			background-color: #C9D787 !important;
 		}
@@ -367,6 +370,7 @@ width: 100px;
 		.glyphicon {
 		top: 0;
 		font-size: 20px;
+		padding-right: 10px;
 		float:right;
 /*		background-color: yellow;*/
 	}

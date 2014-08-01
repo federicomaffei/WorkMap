@@ -41,9 +41,26 @@
   }
 
   a:focus {
-   outline-color: transparent !important;
-   border-size: none !important;
+/*   color: #222222 !important;
+   border-size: none !important;*/
    }
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
 
 .navbar-inverse .navbar-brand {
 color: #FFF;
