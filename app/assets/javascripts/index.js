@@ -166,7 +166,7 @@ $(document).ready(function(){
 	// define empty markers array, marketclusterer var and options
 	var markers = [];
 	var markerCluster;
-	var mcOptions = {gridSize: 100, maxZoom: 16};
+	var mcOptions = {gridSize: 90, maxZoom: 14};
 
 	// setting up google autocomplete for address search bar
 	var defaultBounds = new google.maps.LatLngBounds(
