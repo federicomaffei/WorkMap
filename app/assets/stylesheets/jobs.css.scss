@@ -257,7 +257,7 @@ span.wage {
 
 	.distance {
 		color: #000000;
-		padding-top: 16px;
+		/*padding-top: 16px;*/
 	}
 
 	.detail {
@@ -329,6 +329,7 @@ width: 100px;
 
 	.apply {
 		margin-top: 30px;
+		margin-left: 10px;
 		.btn {
 			background-color: #C9D787 !important;
 		}
@@ -372,9 +373,13 @@ width: 100px;
 }
 
 .info_window {
+	font-size: 10px;
 	.adtitle {
 		font-weight: bolder;
 		font-size: 14px;
+	}
+	.price {
+		font-weight: bolder;
 	}
 	.telephone {
 		font-weight: bolder;
