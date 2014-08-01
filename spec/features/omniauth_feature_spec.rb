@@ -10,7 +10,7 @@ xdescribe 'Facebook Omniauth', js: true do
 		expect(page).to have_link "Search Filters"
 	end
 
-	scenario 'user signs up via FB omniauth' do
+	scenario 'user signs up via Google omniauth' do
 		visit '/'
 		click_link "Jobhunting? Sign in!"
 		sleep 1

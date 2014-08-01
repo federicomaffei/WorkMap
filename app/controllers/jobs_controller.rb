@@ -5,6 +5,7 @@
 	def index
 		puts params
 		if params[:refined]
+			raise params.inspect
 			filtered_by(params)
 			@max_distance = params[:distance]
 			# @max_distance = 10

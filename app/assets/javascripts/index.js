@@ -164,7 +164,7 @@
 	map.setOptions(zoom_options);
 
 	// define empty markers array, marketclusterer var and options
-	var markers = [];
+	window.markers = [];
 	var markerCluster;
 	var mcOptions = {gridSize: 90, maxZoom: 14};
 

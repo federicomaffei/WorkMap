@@ -10,7 +10,7 @@ describe 'jobs index page' do
 	it 'a job is available.', js: true do
 		job = Job.create advert_title: 'Test job name', category: 'Bar', company: 'Test company', full_time: 'true', detail: 'Detailed description', address: 'EC2', wage: 10, email: 'employer@test.com', phone: '12345678'	
 		visit '/jobs'
-		expect(page).to have_content 'Test job name Bar // Test company // Detailed description // EC2 // £10 per hour // employer@test.com // 12345678' 
+		expect(page).to have_content 'Filters £10 p.h. Test job name Test company 5732.7 km (distance)' 
 	end
 end
 
@@ -18,10 +18,10 @@ describe 'posting jobs' do
 
 	context 'logged out' do 
 
-		it 'it is redirected to the login page' do
+		it "stays on the page" do
 			visit '/jobs'
 			click_link 'Hiring? Post a job!'
-			expect(current_path).to eq '/employers/sign_in'
+			expect(current_path).to eq '/jobs'
 		end
 
 	end

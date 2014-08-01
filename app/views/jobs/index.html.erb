@@ -111,6 +111,7 @@
 	</div>
 </div>
 
+<% if Job.any? %>
 
 		<aside class="advert_column">
 			
@@ -166,6 +167,12 @@
 			</ul>
 		</div>
 	</template>
+
+<% else %>
+
+	No jobs inserted yet.
+
+<% end %>
 
 	<script>
 var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));

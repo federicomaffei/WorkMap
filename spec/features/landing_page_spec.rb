@@ -26,7 +26,7 @@ describe 'visiting the landing page' do
 			visit '/landing_page'
 			fill_in 'Find a job in...', with: "London"
 			page.execute_script("$('#landing_page_search_box').submit()")
-			expect(page).to have_content 'Minimum Pay'
+			expect(page).to have_content 'Search Filters'
 		end
 
 	end
