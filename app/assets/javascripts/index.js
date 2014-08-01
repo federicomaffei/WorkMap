@@ -1,4 +1,4 @@
-$(document).ready(function(){
+	$(document).ready(function(){
 	
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.497830;
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.132523;
