@@ -90,7 +90,7 @@ category = 'Cafe'
 cafe_names.each_with_index do |name,i|
 	# job = Job.new latitude: (latitude_start + random_lat_add), longitude: (-0.602875 + random_long_add), advert_title: "Test job name index", category: "#{gen_category}", company: "Test company index", full_time: [true, false].sample, detail: 'Detailed description', address: "(address) London", wage: [*5..20].sample, email: 'employer@test.com', phone: '12345678'
 	# job = Job.new latitude: (51.2902111 + (0.37/100)*rand(101)), longitude: (-0.505371 + (0.68/100)*rand(101)), advert_title: hotel_titles.sample, category: category.sample, company: hotel, full_time: [true, false].sample, detail: detail_descrip, address: "Test Address, London", wage: [*5..20].sample, email: 'employer@test.com', phone: '012345678'
-	job = Job.new advert_title: cafe_titles.sample, category: category, company: name, full_time: [true, false].sample, detail: detail_descrip, address: "#{pub_addresses[i]}, London", wage: [*5..20].sample, email: emails.sample, phone: '012345678'
+	job = Job.new advert_title: cafe_titles.sample, category: category, company: name, full_time: [true, false].sample, detail: detail_descrip, address: "#{cafe_addresses[i]}, London", wage: [*5..20].sample, email: emails.sample, phone: '012345678'
 	job.employer = @employer
 	sleep 0.25
 	job.save
