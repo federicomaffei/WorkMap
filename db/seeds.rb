@@ -39,7 +39,7 @@
 # Employer.delete_all
 # User.delete_all
 
-@employer = Employer.create!(email: 'test@work.net', password: '12345678', password_confirmation: '12345678')
+@employer = Employer.create!(email: 'test@cafejob.net', password: '12345678', password_confirmation: '12345678')
 
 detail_descrip = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum rhoncus scelerisque. Ut vel urna turpis. Phasellus gravida malesuada enim quis mattis.'
 emails = ['test@test.net','employer@test.com','company@email.com','info@testemail.co.uk']
