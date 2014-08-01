@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Facebook Omniauth', js: true do 
+xdescribe 'Facebook Omniauth', js: true do 
 
 	scenario 'user signs up via FB omniauth' do
 		visit '/'

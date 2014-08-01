@@ -11,13 +11,13 @@ describe 'user signing up' do
 
 	scenario 'clicking the sign in link stays in the same page' do
 		visit '/'
-		click_link "Jobhunting? Sign in!"
+		click_link "Job hunting? Sign in!"
 		expect(current_path).to eq '/'
 	end
 
 	scenario 'clicking the sign in link lets you sign up', js: true do
 		visit '/'
-		click_link "Jobhunting? Sign in!"
+		click_link "Job hunting? Sign in!"
 		click_link "Do not have an account? Sign up!"
 		sleep 1
 		expect(current_path).to eq '/'
@@ -31,7 +31,7 @@ describe 'user signing up' do
 
 	scenario 'during the sign up a photo can be added to the user profile' do
 		visit '/'
-		click_link "Jobhunting? Sign in!"
+		click_link "Job hunting? Sign in!"
 		within("#user_login") do
 			click_link "Do not have an account? Sign up!"
 		end
@@ -51,7 +51,7 @@ describe 'user signing up' do
 
 	scenario "during the sign up a name can be added to the user profile" do
 		visit '/'
-		click_link "Jobhunting? Sign in!"
+		click_link "Job hunting? Sign in!"
 		within("#user_login") do
 			click_link "Do not have an account? Sign up!"
 		end
@@ -71,7 +71,7 @@ describe 'user signing up' do
 
 	scenario 'during the sign up a resume can be added to the user profile' do
 		visit '/'
-		click_link "Jobhunting? Sign in!"
+		click_link "Job hunting? Sign in!"
 		within("#user_login") do
 			click_link "Do not have an account? Sign up!"
 		end
