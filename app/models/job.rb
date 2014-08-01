@@ -9,7 +9,7 @@ class Job < ActiveRecord::Base
 	belongs_to :employer
 
 
-	geocoded_by :address
+	geocoded_by :name
 	after_validation :geocode
 	# after_destroy :send_cancellation_email
 
