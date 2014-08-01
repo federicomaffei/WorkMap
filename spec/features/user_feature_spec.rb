@@ -5,7 +5,7 @@ describe 'user signing up' do
 	scenario 'visiting the home page, not logged in' do
 
 		visit '/'
-		expect(page).to have_link "Jobhunting? Sign in!"
+		expect(page).to have_link "Job hunting? Sign in!"
 
 	end
 
