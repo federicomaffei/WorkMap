@@ -30,7 +30,7 @@ def create
   @job.save
   Order.create(employer: current_employer, job: @job)
 
-flash[:notice] = "Thanks fo your payment of #{@amount}"
+flash[:notice] = "Thanks fo your payment!"
 redirect_to "/employers/#{current_employer.id}/adverts"
 
 rescue Stripe::CardError => e
