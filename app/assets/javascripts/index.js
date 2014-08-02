@@ -166,7 +166,7 @@
 	// define empty markers array, marketclusterer var and options
 	window.markers = [];
 	var markerCluster;
-	var mcOptions = {gridSize: 90, maxZoom: 14};
+	var mcOptions = {gridSize: 80, maxZoom: 14};
 
 	// setting up google autocomplete for address search bar
 	var defaultBounds = new google.maps.LatLngBounds(
@@ -188,19 +188,19 @@
 
 	// on page reload render job markers and populate RHS job adverts pane
 	$.get("/jobs.json", function(jobs) {
-		closeJobs = filterByMaxDistance(jobs,5);
+		closeJobs = filterByMaxDistance(jobs);
 		renderMarkers(closeJobs);
 		updateAdvertColumn(closeJobs);
 		markerCluster = new MarkerClusterer(map, markers, mcOptions);
 	});
 
 	// event listener for filter form submission, calls getFormData first to correctly format json
-	$('#filter_form').submit(function(event)
+	$('#filter_form').submit(function(event){
 		event.preventDefault();
 		var form = getFormData();
 		// console.log(form);
 		$.get('/jobs.json', form, function(jobs){
-			console.log(jobs[0].max_distance);
+			// console.log(jobs[0].max_distance);
 			submitFilterForm(jobs);
 		});
 
@@ -315,9 +315,9 @@
 	function submitFilterForm(jobs) {
 		markers = [];
 		// console.log(jobs[0].max_distance);
-		var max_distance = jobs[0].max_distance;
+		// var max_distance = jobs[0].max_distance;
 
-		var filteredJobs = filterByMaxDistance(jobs,max_distance);
+		var filteredJobs = filterByMaxDistance(jobs);
 		renderMarkers(filteredJobs);
 		updateAdvertColumn(filteredJobs);
 		markerCluster.clearMarkers()
@@ -343,12 +343,12 @@
 
 
 	// filters out all job objects from jobs array that lie outside distance scope
-	function filterByMaxDistance(jobs,max_distance){
+	function filterByMaxDistance(jobs){
 		var filtereredJobs = [];
 			jobs.forEach(function(job) {
 			// console.log(job.max_distance);
-				if (job.max_distance ===null){ 
-					if (calcDistanceKms(map,job) <= 5) {	
+				if (job.max_distance == null){ 
+					if (calcDistanceKms(map,job) <= 3) {	
 						filtereredJobs.push(job);
 					};
 				}
