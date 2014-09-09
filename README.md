@@ -9,7 +9,7 @@ The team that developed WorkMap is (in alphabetical order): [Sasha Cooper](https
 
 ====================
 
-##Project background
+###Project background
 
 The project had been developed following the [Agile software development methodology](http://en.wikipedia.org/wiki/Agile_software_development) and was completed to the current state within 10 days (July 21st - August 1st 2014).
 
