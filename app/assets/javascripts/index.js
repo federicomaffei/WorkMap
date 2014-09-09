@@ -157,7 +157,7 @@
 	};
 
 	// initializing map object
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
 	// additional map options
 	var zoom_options = { minZoom: 9, maxZoom: 17};
