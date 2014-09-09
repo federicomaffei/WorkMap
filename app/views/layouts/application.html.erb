@@ -3,6 +3,8 @@
 <%= favicon_link_tag '/favicon.ico' %>
 <title>WorkMap</title>
 <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+<script language="JavaScript" type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=false"></script>
+<script language="JavaScript" type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
 <%= stylesheet_link_tag 'application', media: 'all' %>
 <%= csrf_meta_tags %>
 </head>
@@ -27,7 +29,6 @@
 	<% end %>
 
 	<%= yield %>
-	<script language="JavaScript" type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=geometry,places&sensor=false"></script>
-	<script language="JavaScript" type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
+
 </body>
 </html>
