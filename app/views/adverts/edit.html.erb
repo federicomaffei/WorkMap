@@ -1,30 +1,32 @@
- <%= form_for @job do |job| %>
-  <%= job.label :advert_title %>
-  <%= job.text_field :advert_title %><br/>
+<div id="employer_job_edit">
+  <%= form_for @job do |job| %>
+    <%= job.label :advert_title %>
+    <%= job.text_field :advert_title %><br/>
 
-  <%= job.label :category %>:
-  <%= job.select :category, ['Bar', 'Restaurant', 'Hotel', 'Shop', 'Cafe'] %><br/>
+    <%= job.label :category %>:
+    <%= job.select :category, ['Bar', 'Restaurant', 'Hotel', 'Retail', 'Cafe'] %><br/>
 
-  <%= job.label :company %>:
-  <%= job.text_field :company %><br/>
+    <%= job.label :company %>:
+    <%= job.text_field :company %><br/>
 
-  <%= job.label :full_time %>:
-  <%= job.select :full_time, ['Full Time', 'Part Time'] %><br/>
+    <%= job.label :full_time %>:
+    <%= job.select :full_time, ['Full Time', 'Part Time'] %><br/>
 
-  <%= job.label :detail %>:
-  <%= job.text_area :detail %><br/>
+    <%= job.label :detail %>:
+    <%= job.text_area :detail %><br/>
 
-  <%= job.label :address %>:
-  <%= job.text_field :address %><br/>
+    <%= job.label :address %>:
+    <%= job.text_field :address %><br/>
 
-  <%= job.label :wage %>:
-  <%= job.text_field :wage %><br/>
+    <%= job.label :wage %>:
+    <%= job.text_field :wage %><br/>
 
-  <%= job.label :email %>:
-  <%= job.email_field :email %><br/>
+    <%= job.label :email %>:
+    <%= job.email_field :email %><br/>
 
-  <%= job.label :phone %>:
-  <%= job.telephone_field :phone %><br/>
+    <%= job.label :phone %>:
+    <%= job.telephone_field :phone %><br/>
 
-  <%= job.submit 'Update advert' %>
-<% end %>
+    <%= job.submit 'Update advert' %>
+  <% end %>
+</div>

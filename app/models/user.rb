@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  attr_accessor :current_password
+
+
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, :omniauth_providers => [:facebook, :google]
@@ -20,10 +23,12 @@ class User < ActiveRecord::Base
     secret_access_key: Rails.application.secrets.s3_secret_key
   }
 
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  
   validates :name, presence: true, length: { minimum: 3}
   # validates :cv, presence: true
   # validates_attachment_content_type :cv, :content_type => /.pdf\Z/
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
 
 #   after_create :send_user_welcome_email
 

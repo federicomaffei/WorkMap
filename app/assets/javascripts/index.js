@@ -1,4 +1,4 @@
-$(document).ready(function(){
+	$(document).ready(function(){
 	
 	var latitude = (localStorage.getItem('lat')) ? localStorage.getItem('lat') : 51.497830;
 	var longitude = (localStorage.getItem('lng')) ? localStorage.getItem('lng') : -0.132523;
@@ -11,7 +11,7 @@ $(document).ready(function(){
 	  zoomControl: true,
 		zoomControlOpt: {
 			style: 'MEDIUM',
-			position: 'BOTTOM_LEFT'
+			position: 'LEFT_BOTTOM'
 		},
 		panControl: false,
 		mapTypeControl: false,
@@ -59,7 +59,7 @@ $(document).ready(function(){
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#bde6ab"
+                "color": "#C9D787"
             }
         ]
     },
@@ -68,7 +68,7 @@ $(document).ready(function(){
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -85,7 +85,7 @@ $(document).ready(function(){
         "featureType": "poi.business",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -103,7 +103,7 @@ $(document).ready(function(){
         "elementType": "labels",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -157,16 +157,16 @@ $(document).ready(function(){
 	};
 
 	// initializing map object
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
 	// additional map options
 	var zoom_options = { minZoom: 9, maxZoom: 17};
 	map.setOptions(zoom_options);
 
 	// define empty markers array, marketclusterer var and options
-	var markers = [];
+	window.markers = [];
 	var markerCluster;
-	var mcOptions = {gridSize: 80, maxZoom: 12};
+	var mcOptions = {gridSize: 80, maxZoom: 14};
 
 	// setting up google autocomplete for address search bar
 	var defaultBounds = new google.maps.LatLngBounds(
@@ -174,22 +174,23 @@ $(document).ready(function(){
 		new google.maps.LatLng(51.6167, 0.2463)
 		);
 
-	var input = document.getElementById('searchTextField');
+	var inputs = document.querySelectorAll('.searchTextField');
 
 	var search_options = {
 		bounds: defaultBounds,
 		types: ['establishment']
 	};
 
-	autocomplete = new google.maps.places.Autocomplete(input, search_options);
-
+	autocomplete = new google.maps.places.Autocomplete(inputs[0], search_options);
+	new google.maps.places.Autocomplete(inputs[1], search_options);
 
 	// PAGE LOAD and LISTENERS for FILTERING and SEARCH
 
 	// on page reload render job markers and populate RHS job adverts pane
 	$.get("/jobs.json", function(jobs) {
-		renderMarkers(jobs);
-		updateAdvertColumn(jobs);
+		closeJobs = filterByMaxDistance(jobs);
+		renderMarkers(closeJobs);
+		updateAdvertColumn(closeJobs);
 		markerCluster = new MarkerClusterer(map, markers, mcOptions);
 	});
 
@@ -197,20 +198,21 @@ $(document).ready(function(){
 	$('#filter_form').submit(function(event){
 		event.preventDefault();
 		var form = getFormData();
-
+		// console.log(form);
 		$.get('/jobs.json', form, function(jobs){
+			// console.log(jobs[0].max_distance);
 			submitFilterForm(jobs);
 		});
 
 	});	
 
 	// event listener for google search, successful geocode results in complete re-render or markers and RHS job adverts pane whilst maintaining current form filters 
-	$('#search_box').on('submit', function(event) {
+	$('.search_box').on('submit', function(event) {
 			event.preventDefault();
 			var form = getFormData();
 			var geocoder = new google.maps.Geocoder();
 
-			geocoder.geocode( {'address': $('#searchTextField').val()}, function(results, status) {
+			geocoder.geocode( {'address': $(this).find('.searchTextField').val()}, function(results, status) {
 	      if (status == google.maps.GeocoderStatus.OK) {
 		        map.setCenter(results[0].geometry.location);
 						
@@ -245,6 +247,17 @@ $(document).ready(function(){
 				marker.infowindow = new google.maps.InfoWindow( {
 					content: job_Info
 				});
+
+				// Add event listener apply now link in infowidows
+			  // google.maps.event.addListener(marker.infowindow, 'domready', function() {
+	  	 //    document.id("apply-link").addEvent("click", function(e) {
+			  //       e.stop();
+			  //       console.log("hi!");
+			  //   });
+				 //    // var email = $(this).data('email');
+					// 	// $('#submission_email').val(email);
+			  // });
+
 
 			  google.maps.event.addListener(marker, 'click', function() {
 			    marker.infowindow.open(map,marker);
@@ -283,9 +296,11 @@ $(document).ready(function(){
 		  });
 
   		$('.apply-link').on('click', function(){
+  			// console.log('hello');
 				var email = $(this).data('email');
 			$('#submission_email').val(email);
-		})
+			})
+
 
     });
 
@@ -299,9 +314,10 @@ $(document).ready(function(){
 	// submits filter form
 	function submitFilterForm(jobs) {
 		markers = [];
-		var max_distance = jobs[0].max_distance;
+		// console.log(jobs[0].max_distance);
+		// var max_distance = jobs[0].max_distance;
 
-		var filteredJobs = filterByMaxDistance(jobs,max_distance);
+		var filteredJobs = filterByMaxDistance(jobs);
 		renderMarkers(filteredJobs);
 		updateAdvertColumn(filteredJobs);
 		markerCluster.clearMarkers()
@@ -327,11 +343,19 @@ $(document).ready(function(){
 
 
 	// filters out all job objects from jobs array that lie outside distance scope
-	function filterByMaxDistance(jobs,max_distance){
+	function filterByMaxDistance(jobs){
 		var filtereredJobs = [];
 			jobs.forEach(function(job) {
-				if (calcDistanceKms(map,job) <= job.max_distance) {	
-					filtereredJobs.push(job);
+			// console.log(job.max_distance);
+				if (job.max_distance == null){ 
+					if (calcDistanceKms(map,job) <= 3) {	
+						filtereredJobs.push(job);
+					};
+				}
+				else {
+					if (calcDistanceKms(map,job) <= job.max_distance) {	
+						filtereredJobs.push(job);
+					};
 				};
 			});
 		return filtereredJobs;
@@ -360,6 +384,7 @@ $(document).ready(function(){
     });
 		
 		form['distance'] = distance;
+		// console.log(distance);
 		form['wage'] = wage;
 
 		return form;

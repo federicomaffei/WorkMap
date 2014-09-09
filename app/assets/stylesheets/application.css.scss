@@ -41,9 +41,25 @@
   }
 
   a:focus {
-   outline-color: transparent !important;
-   border-size: none !important;
+/*   color: #222222 !important;
+   border-size: none !important;*/
    }
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
 
 .navbar-inverse .navbar-brand {
 color: #FFF;
@@ -68,8 +84,6 @@ body {
     font-family: "HelveticaNeue-UltraLight", "HelveticaNeue UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-size: cover;
   }
-
-
 
 .col-md-8 {
 padding-left: 0px;
@@ -137,7 +151,21 @@ textarea {
   height:400px;
 }
 
+#user_edit {
+  margin-top: -250px; 
+  margin-left: -200px;
+  width:400px;
+  height:500px;
+}
+
 #user_signup {
+  margin-top: -250px; 
+  margin-left: -200px;
+  width:400px;
+  height:500px;
+}
+
+#user_edit {
   margin-top: -250px; 
   margin-left: -200px;
   width:400px;
@@ -235,11 +263,23 @@ border-color: #7D8A2E;
   width: 30px;
 }
 
-.alert {
-  /*background-color: #222222;*/
-  /*color: #ffffff;*/
-  position: fixed;
-  bottom: 0px;
-  z-index: 1000;
-  width: 100%
+.navbar-nav {
+  background-color: #222222;
 }
+
+.alert {
+  background-color: #FCF8E3;
+  /*color: #ffffff;*/
+  color: #000000;
+  position: fixed;
+  bottom: -20px;
+  font-family: Lato;
+  z-index: 1000;
+  width: 100%;
+   .close-alert{
+    color: #000000;
+  }
+}
+
+
+

@@ -58,16 +58,9 @@ label {
 .jobpageleftside, {
 	height: 100%;
 	/*background-color: green;*/
-
-	#map {
-		height: 100%;
-		width: 100%;
-		position: relative;
-	}
 }
 
-#searchTextField {
-	background-color: #F5F5F5;
+.searchTextField {
 	height: 40px;
 	font-size: 16px;
 	padding: 10px;
@@ -78,7 +71,7 @@ label {
 	color: black;
 }
 
-#search_box {
+.search_box {
 	.glyphicon-search {
 		font-size: 23px;
 		top: 0;
@@ -154,10 +147,10 @@ label {
 }
 
 #map_canvas {
-	width: 58.4%%;
-	height: calc(100% - 100px);
+	width: 100%;
+	height: 100%;
+	display:block;
 	position:fixed;
-	top: 100px;
 	left:0;
 	bottom:0;
 }
@@ -174,15 +167,43 @@ label {
 	}
 }
 
+.second_search {
+		display: none;
+}
+
+@media (max-width: 767px){
+	.second_search {
+		display: inline;
+	}
+	.search_box {
+		height: 40px;
+	}
+
+}	
+
+span.wage {
+	font-size: 24px;
+}
+
 .panel-group {
 	margin-bottom: 0;
 }
+.panel-title {
+	color: #000;
+}
+
+.advert_info:hover {
+	transition: all 1s ease;
+	background:rgba(162,218,242,0.7);
+
+}
+
 
 .advert_info {
 	min-height: 100px;
-	border-bottom-style: solid;
-	border-bottom-size: 1px;
-	border-bottom-color: #FFC0A9;
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+	border-bottom-color: #E0DDDD;
 	
 	.info_row {
 		min-height: 50px;
@@ -199,44 +220,61 @@ label {
 	}
 
 	.category {
-	color: #7D8A2E; 
-/*	padding-top: 39px;*/
+	color: #000000; 
+	padding-top: 30px;
 	}
 	
 	.wage {
-	color: #FF8598;
-/*	padding-top: 39px;*/
+	color: #000000;
+	padding-top: 20px;
+	font-weight: bold;
 	}
 
 	.full_time {
-	color: #C9D787; 
-/*	padding-top: 39px;*/
+	color: #000000; 
+	padding-top: 30px;
 	}
 	
 	.company {
-	color: #FF8598;
-/*	padding-top: 16px;*/
+	color: #000000;
+	padding-top: 22px;
+	padding-right: 10px;
+	padding-left: 10px;
 	}
 
-	.company_name, .distance_location {
-/*		padding-top: 12px;*/
+	.company_name {
+		font-size: 12px;
+		/*font-weight: bolder;*/
+	}
+
+	.job_title {
+		font-size: 15px;
+		font-weight: bolder;
 	}
 
 	.distance {
 		color: #000000;
-/*		padding-top: 16px;*/
+		padding-top: 16px;
 	}
 
 	.detail {
-	color: #7D8A2E;
+	color: #000000;
 	}
 
 	.close {
-	color: #FF8598;
+	color: #000000;
 	}
 
 	.apply {
-	color: #FF8598;
+	color: #000000;
+	}
+}
+
+.distance_location {
+		padding-top: 5px;
+		span {
+		font-size: 24px;
+		font-weight: bolder;
 	}
 }
 
@@ -260,6 +298,42 @@ width: 100px;
 .advert_info.clicked .more_info {
     display: block;
     height: 80px;
+}
+
+.more_info {
+	a {
+		color: #000000;
+	}
+
+	.btn {
+		background-color: #C9D787 !important;
+		border: none;
+		border: none;
+		border-radius: 0px;
+		padding-left: 5px;
+	}
+
+	.glyphicon {
+		top: 35px;
+		font-size: 20px;
+	}
+
+	.detail {
+		padding-top: 18px;
+		font-size: 12px;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+
+	.apply {
+		margin-top: 30px;
+		.btn {
+			background-color: #C9D787 !important;
+		}
+	}
+	.close {
+		color: #000000;
+	}
 }
 
 
@@ -290,8 +364,23 @@ width: 100px;
 		.glyphicon {
 		top: 0;
 		font-size: 20px;
+		padding-right: 10px;
 		float:right;
 /*		background-color: yellow;*/
+	}
+}
+
+.info_window {
+	font-size: 10px;
+	.adtitle {
+		font-weight: bolder;
+		font-size: 14px;
+	}
+	.price {
+		font-weight: bolder;
+	}
+	.telephone {
+		font-weight: bolder;
 	}
 }
 

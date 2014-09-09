@@ -10,6 +10,7 @@ class SubmissionsController < ApplicationController
 			@submission.user = current_user
 			@submission.save
 			redirect_to jobs_path
+			flash[:notice] = 'Application Submitted, Good Luck!'
 		else
 			flash[:notice] = 'Errors in your form'
 			render 'new'

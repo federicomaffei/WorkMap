@@ -1,7 +1,7 @@
 <div class="container">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(user, as: user_name, url: registration_path(user_name), html: { method: :put }, html: {multipart: true}) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
@@ -20,15 +20,25 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %></div>
 
+  <h2><br/>Image preview</h2>
+  <%= image_tag current_user.image.url(:thumb), class: 'uploaded-pic' %>
+  <div>
+    <%= f.label :image, 'Profile picture' %>
+    <%= f.file_field :image %>
+  </div>
+    
+  <h2><br/>CV preview</h2>
+  <%= image_tag current_user.cv.url(:thumb), class: 'uploaded-cv' %>
+  <div>
+    <%= f.label :cv, 'CV (must be PDF)' %>
+    <%= f.file_field :cv %>
+  </div>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 
 <% if resource_name.to_s.humanize == "User" %>
 
-<h2>Image preview</h2>
-<%= image_tag current_user.image.url(:thumb), class: 'uploaded-pic' %>
-<h2>CV preview</h2>
-<%= image_tag current_user.cv.url(:thumb), class: 'uploaded-cv' %>
 
 <% end %>
 

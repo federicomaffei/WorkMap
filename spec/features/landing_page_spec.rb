@@ -22,11 +22,11 @@ describe 'visiting the landing page' do
 
 	context 'as a job seeker looking to find a job', js: true do 
 
-		it 'searching takes you to the jobs map page' do 
+		specify 'searching takes you to the jobs map page' do 
 			visit '/landing_page'
 			fill_in 'Find a job in...', with: "London"
 			page.execute_script("$('#landing_page_search_box').submit()")
-			expect(page).to have_text 'Minimum Pay'
+			expect(page).to have_content 'Search Filters'
 		end
 
 	end

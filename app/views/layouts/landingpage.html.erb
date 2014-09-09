@@ -14,39 +14,16 @@
 <%= render "devise/sessions/login_modal" %>
 <%= render "devise/registrations/signup_modal" %>
 <%= render "jobs/new_job_modal" %>
+<% if current_user %>
+  <%= render "devise/registrations/user_edit_modal" %>
+<% end %>
+<% if current_employer %>
+  <%= render "devise/registrations/employer_edit_modal" %>
+<% end %>
+<%= render "layouts/navbar_modal" %>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a a class="navbar-brand" href="/jobs"><span class="logo-w">w<span><span class="glyphicon glyphicon-map-marker"></span><span class="logo-rk">rk</span><span class="logo-map">map</span>
-        </a>
-      </div>
-      <div class="collapse navbar-collapse navbar-right">
-        <ul class="nav navbar-nav">
-        	<% if employer_signed_in? %>
-          <li><%= link_to 'Edit registration', "#employer_edit", "data-toggle" => "modal", class: 'landing_page_login_link'%></li>
-          <li><%= link_to 'Create a job', "#job_new", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
-          <li><%= link_to 'My adverts', employer_adverts_path(current_employer), class: 'landing_page_login_link' %></li>
-          <li><%= link_to 'Logout', destroy_employer_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
-          <% elsif user_signed_in? %>
-          <li><a class='landing_page_login_link'>Welcome, <%= current_user.name %></a></li>
-          <li><%= link_to 'Edit registration', edit_user_registration_path, class: 'landing_page_login_link'%></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'landing_page_login_link'%></li>
-          <% else %>
-          <li><%= link_to 'Hiring? Post a job!', "#employer_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
-          <li><%= link_to 'Job hunting? Sign in!', "#user_login", "data-toggle" => "modal", class: 'landing_page_login_link' %></li>
-          <% end %>
-          <%= javascript_include_tag 'application' %>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  
+
   <%= yield %>
 </body>
 
