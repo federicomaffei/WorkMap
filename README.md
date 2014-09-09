@@ -21,7 +21,7 @@ Our user stories were split into three categories to enable us to pair effective
 	* Signed in User stories (Users looking to apply for jobs)
 	* Signed in Employer stories (Users looking to advertise jobs)
 
-##Sprint 1
+###Sprint 1
 
 During Sprint 1 our focus was on delivering a shippable version of the WorkMap website where any user, signed in or not, could view jobs on a map based on geolocation, and a signed in employer could post a job offering to the map. The features developed via TDD in this iteration are:
 
@@ -31,7 +31,7 @@ During Sprint 1 our focus was on delivering a shippable version of the WorkMap w
 	* Employers can post jobs on a map.
 	* Employers can create accounts to manage their offers.
 
-##Sprint 2
+###Sprint 2
 
 During Sprint 2 our focus was improving the user experience by allowing a signed in user to apply for a job, registering a profile, and setting up a payment system for the signed in employers. The features developed via TDD in this iteration are:
 
