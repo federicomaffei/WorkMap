@@ -71,7 +71,7 @@ During Sprint 2 our focus was improving the user experience by allowing a signed
 
 ###Video demo of the website:
 
-
+[https://vimeo.com/federicomaffei/workmap](https://vimeo.com/federicomaffei/workmap)
 
 ====================
 
