@@ -41,4 +41,51 @@ During Sprint 2 our focus was improving the user experience by allowing a signed
 	* Users can click on any job listed and be redirected on the relevant job on the map.
 	* Employers can pay for job postings via Stripe (£5 per job, flat rate and considerably cheaper than competitors!)
 
+====================
 
+###The programming languages and technologies we used are:
+
+  * Ruby
+
+  * Javascript / JQuery
+
+  * Rails framework
+
+  * Rspec
+
+  * Capybara
+
+  * PhantomJS / Poltergeist
+
+  * AJAX
+
+  * JBuilder
+
+  * SCSS
+
+  * Google Maps API
+
+  * Stripe
+
+====================
+
+###Video demo of the website:
+
+
+
+====================
+
+###How to run the application:
+
+  * In the browser enter: [http://workmap.herokuapp.com/](http://workmap.herokuapp.com/)
+
+###How to test the application (due to the lack of S3, Devise and base keys a number of tests will fail):
+
+  * From command line enter:
+```bash
+git clone git@github.com:federicomaffei/workmap.git
+cd workmap
+rspec
+```
+
+====================
