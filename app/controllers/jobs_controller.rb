@@ -3,7 +3,7 @@
 	before_action :authenticate_employer!, except: [:index, :show]
 
 	def index
-		puts params
+		#puts params
 		if params[:refined]
 			filtered_by(params)
 			@max_distance = params[:distance]
