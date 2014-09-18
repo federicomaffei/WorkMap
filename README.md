@@ -37,7 +37,7 @@ During Sprint 2 our focus was improving the user experience by allowing a signed
 
 	* Users can register accounts (linked with profile pictures and PDF resumes).
 	* Users can apply for jobs directly through the main page.
-	* Users can filter results on the map based on: job category, pay, distance and whether or not the job is part time or full time.
+	* Users can filter results on the map based on job category, pay, distance and whether the job is part time or full time.
 	* Users can click on any job listed and be redirected on the relevant job on the map.
 	* Employers can pay for job postings via Stripe (£5 per job, flat rate and considerably cheaper than competitors!)
 
